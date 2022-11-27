@@ -1,14 +1,17 @@
 #ifndef __DISTANCESENSORS_H__
 #define __DISTANCESENSORS_H__
 
+#include <atomic>
+#include <mutex>
+#include <thread>
 #include <vector>
 
-class distanceSensors {
+class DistanceSensors {
 public:
 	/** DistanceSensor constructor */
-	distanceSensors();
+	DistanceSensors();
 	/** DistanceSensor destructor */
-	~distanceSensors();
+	~DistanceSensors();
 	/**
 	 * @brief Get the Distances to objects
 	 * 
@@ -27,14 +30,27 @@ private:
 	int __fd;
 	/** Distances from distance sensors */
 	std::vector<std::vector<float>> __distance_from_sensors; 
+	/** Measures guard */
+	std::mutex __measures_guard;
+	/** Reading distance sensor thread */
+	std::thread __reading_thread;
+	/** Thread status */
+	std::atomic<bool> __is_running;
+	/** Read distances from driver */
+	void __readDistance();
 	/**
-	 * @brief Read distances
+	 * @brief Average of al samples taken
 	 * 
+	 * @return std::vector<int> 
 	 */
-	void __readDistance(void);
-	
+	std::vector<int> __averageOfDistances();
+	/**
+	 * @brief Time to distance
+	 * 
+	 * @param time 
+	 * @return float 
+	 */
 	float __timeToDistance(float time);
-	void __meanOfDistances(void);
 
 };
 
