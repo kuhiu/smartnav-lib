@@ -16,9 +16,9 @@
 #include <memory>
 #include <thread>
 
-#include "../Logger/Logger.hpp"
+#include "../logger/Logger.hpp"
 
-#include "../../FrameProcessor.hpp"
+#include "../frame-processor/FrameProcessor.hpp"
 
 class CaptureFrame {
 public:
