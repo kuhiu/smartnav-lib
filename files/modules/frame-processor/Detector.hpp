@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "RecognitionResult.hpp"
-#include "modules/capture-frame/VirtualImage.hpp"
+#include "../capture-frame/VirtualImage.hpp"
 
 #include "tensorflow/lite/interpreter.h"
 #include "tensorflow/lite/kernels/register.h"
