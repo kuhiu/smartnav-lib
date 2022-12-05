@@ -3,8 +3,9 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <string.h>
-#include <sys/types.h>
+#include <sys/ioctl.h>
 #include <sys/stat.h>
+#include <sys/types.h>
 #include <unistd.h>
 
 #include <chrono>
@@ -12,8 +13,11 @@
 #include <sstream>
 #include <stdexcept>
 
-DistanceSensors::DistanceSensors() {
+#define HCSR04_IOC_NMAGICO 'c'
+#define HCSR04_IOC_TRIGGER _IO(HCSR04_IOC_NMAGICO, 1)
 
+DistanceSensors::DistanceSensors() {
+	printf("Distance sensor constructor.\n");
 	if ( (__fd = open(__HC_SR04_DRIVER_DIR, O_RDONLY)) == -1){
 		std::stringstream err;
 		err << "Open fail: " << strerror(errno);
@@ -29,7 +33,8 @@ DistanceSensors::DistanceSensors() {
 		__distance_from_sensors.push_back(__new_sensor);
 	}
 	__is_running = true;
-	__reading_thread = std::thread(&DistanceSensors::__reading_thread, this);
+	printf("Run read distance thread.\n");
+	__reading_thread = std::thread(&DistanceSensors::__readDistance, this);
 }
 
 DistanceSensors::~DistanceSensors() {
@@ -52,10 +57,24 @@ void DistanceSensors::__readDistance() {
 		if (sample_index == __nro_samples_to_average) 
 			sample_index = 0;
 
-		/** Read the distance sensors */
-		if ( read(__fd, samples_from_sensors, __NRO_SENSORS*sizeof(int)) == -1) {
+		// Read the distance of each sensor 
+		samples_from_sensors[0] = ioctl(__fd, HCSR04_IOC_TRIGGER, 1);
+		if ( samples_from_sensors[0] == -1) {
 			throw std::runtime_error("Error reading distance sensors");
 		}
+		printf("Sensor 1. Time %d. Distance %f.\n", samples_from_sensors[0], __timeToDistance((float)samples_from_sensors[0]));
+
+		samples_from_sensors[1] = ioctl(__fd, HCSR04_IOC_TRIGGER, 2);
+		if ( samples_from_sensors[1] == -1) {
+			throw std::runtime_error("Error reading distance sensors");
+		}
+		printf("Sensor 2. Time %d. Distance %f.\n", samples_from_sensors[1], __timeToDistance((float)samples_from_sensors[1]));
+
+		samples_from_sensors[2] = ioctl(__fd, HCSR04_IOC_TRIGGER, 3);
+		if ( samples_from_sensors[2] == -1) {
+			throw std::runtime_error("Error reading distance sensors");
+		}
+		printf("Sensor 3. Time %d. Distance %f.\n", samples_from_sensors[2], __timeToDistance((float)samples_from_sensors[2]));
 
 		{	// Thread safe
 			std::lock_guard<std::mutex> lock (__measures_guard);

@@ -21,7 +21,7 @@ public:
     
 private:
 	/** Driver directory */
-	static constexpr auto __HC_SR04_DRIVER_DIR = "/dev/chardev_MIOgpio_PS";
+	static constexpr auto __HC_SR04_DRIVER_DIR = "/dev/hcsr04";
 	/** Number of sensors */
 	const int __NRO_SENSORS = 3;
 	/** Number of samples to average */
