@@ -19,7 +19,7 @@ lib$(TARGET).so: $(OBJECTS)
 	@echo Compiling lib$(TARGET).so
 	$(CXX) -o $(OUTPUT_DIR)/$@ $(OBJECTS) $(LDFLAGS)
 
-$(OBJECTS_DIR)/%.o: %.c $(INCS)
+$(OBJECTS_DIR)/%.o: %.cpp $(HEADERS)
 	mkdir -p $(@D)
 	@echo Compiling $@
 	$(CXX) -o $@ -c $< $(CFLAGS) $(INCLUDE_DIRS)
@@ -28,4 +28,4 @@ install: lib$(TARGET).so
 	cp lib$(TARGET).so $(DESTDIR)/usr/lib
 
 clean:
-    rm -rf $(OUTPUT_DIR)/* $(OBJECTS_DIR)/*
+	rm -rf $(OUTPUT_DIR)/* $(OBJECTS_DIR)/*
