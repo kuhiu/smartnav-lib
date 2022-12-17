@@ -18,10 +18,8 @@
 #define debug_print(fmt, ...) do {} while (0)
 #endif
 
-CaptureFrame::CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, 
-		std::shared_ptr<FrameProcessor> frame_processor, uint32_t frame_count) 
-		: __cb(cb), __frame_count(frame_count), __frame_processor(frame_processor) {
-
+CaptureFrame::CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, uint32_t frame_count) 
+	: __cb(cb), __frame_count(frame_count) {
 	// Clear all v4l2 struct 
   CLEAR(__capability);
 	CLEAR(__format);
@@ -272,7 +270,7 @@ bool CaptureFrame::__readFrame(int frame_number) {
 
 	// Callback
 	printf("Ejecuto la callback. \n");
-	__cb(__frame_processor, __image_buffers[buff.index].start[frame_number], buff.m.planes->bytesused);
+	__cb(__image_buffers[buff.index].start[frame_number], buff.m.planes->bytesused);
 
 	return 1;
 }

@@ -13,12 +13,9 @@
 
 #include <atomic>
 #include <functional>
-#include <memory>
 #include <thread>
 
 #include "../logger/Logger.hpp"
-
-#include "../frame-processor/FrameProcessor.hpp"
 
 class CaptureFrame {
 public:
@@ -33,10 +30,9 @@ public:
 
   };
   /** Callback of captured frame */
-  using EventCallback = std::function<void (std::shared_ptr<FrameProcessor>, void*, unsigned int)>;
+  using EventCallback = std::function<void (void* data, unsigned int size)>;
   /** CaptureFrame constructor */
-  CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format,
-      std::shared_ptr<FrameProcessor> frame_processor,  uint32_t frame_count = 1);
+  CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, uint32_t frame_count = 1);
   /** CaptureFrame destructor */
   ~CaptureFrame();
 
@@ -73,8 +69,6 @@ private:
   std::thread __capture_thread;
   /** Frame count to capture */
   const uint32_t __frame_count;
-  /** Frame Processor */
-  std::shared_ptr<FrameProcessor> __frame_processor;
   /** Open device driver */
   void __openDevice();
   /** Close device driver */
