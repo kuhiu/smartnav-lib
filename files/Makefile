@@ -1,30 +1,28 @@
-APP = smartnavsys
-SRC_FILES = main.cpp \
-						modules/capture-frame/VirtualImage.cpp \
-						modules/capture-frame/CaptureFrame.cpp \
-						modules/frame-processor/Detector.cpp \
-						modules/frame-processor/FrameProcessor.cpp \
-						modules/hc-sr04/DistanceSensors.cpp \
-						modules/logger/Logger.cpp \
-						modules/logger/LogStream.cpp 
+TARGET  = smartnavsys.so
+SOURCES = $(wildcard modules/*/*.cpp)
+HEADERS = $(wildcard modules/*/*.hpp)
+OBJECTS = $(SOURCES:.cpp=.o)
 
-CFLAGS += -I$(INCLUDE) \
-					-I$(INCLUDE)/modules/logger \
-					-I$(INCLUDE)/modules/capure-frame \
-					-I$(INCLUDE)/modules/hc-sr04 \
-					-I$(INCLUDE)/modules/frame-processor
+OBJECTS_DIR = obj
+
+CFLAGS  = -std=c++17 -c -fPIC 
+LDFLAGS = -shared
+
 LDLIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread
 
-all: build
+OBJS_WITH_DIR = $(patsubst %,$(OBJECTS_DIR)/%,$(OBJECTS))
 
-build: $(APP)
+all: $(TARGET)
 
-$(APP):
-	$(CXX) -std=c++17 -o $@ $(SRC_FILES) $(LDFLAGS) $(LDLIBS) 
+$(TARGET): $(OBJS_WITH_DIR)
+	$(CXX) -o $(TARGET) $(OBJS_WITH_DIR) $(LDFLAGS) $(LDLIBS)
  
-install: $(APP)
-	cp $(APP) $(DESTDIR)/usr/bin
- 
+$(OBJS_WITH_DIR): $(SOURCES)
+	@echo asd: $(OBJS_WITH_DIR)
+	@echo Compiling $< to $@
+	mkdir -p $(OBJECTS_DIR)
+	@$(CXX) $(CFLAGS) -o $@ $<
+
 clean:
-	rm -f $(APP) *.o
-
+	rm -r $(OBJECTS_DIR) 
+	rm -f $(TARGET)
