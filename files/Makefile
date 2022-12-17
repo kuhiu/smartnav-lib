@@ -24,8 +24,7 @@ $(OBJS_WITH_DIR): $(SOURCES)
 	$(CXX) $(CFLAGS) -o $@ $<
 
 install: $(TARGET)
-	cp $(TARGET) $(DESTDIR)/usr/lib
+	cp lib$(TARGET).so $(DESTDIR)/usr/lib
 
 clean:
-	rm -r $(OBJECTS_DIR) 
-	rm -f lib$(TARGET).so
+	rm -rf *.o *.so *.so.*
