@@ -1,4 +1,4 @@
-TARGET  = smartnavsys-lib.so
+TARGET  = smartnavsys-lib
 SOURCES = $(wildcard modules/*/*.cpp)
 HEADERS = $(wildcard modules/*/*.hpp)
 OBJECTS = $(SOURCES:.cpp=.o)
@@ -22,6 +22,9 @@ $(OBJS_WITH_DIR): $(SOURCES)
 	@echo Compiling $< to $@
 	mkdir -p $(OBJECTS_DIR)
 	@$(CXX) $(CFLAGS) -o $@ $<
+
+install: $(TARGET)
+	cp $(TARGET) $(DESTDIR)/usr/lib
 
 clean:
 	rm -r $(OBJECTS_DIR) 
