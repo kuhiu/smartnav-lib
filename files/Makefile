@@ -21,7 +21,7 @@ $(TARGET): $(OBJS_WITH_DIR)
 $(OBJS_WITH_DIR): $(SOURCES)
 	@echo Compiling $< to $@
 	mkdir -p $(OBJECTS_DIR)
-	@$(CXX) $(CFLAGS) -o $@ $<
+	$(CXX) $(CFLAGS) -o $@ $<
 
 install: $(TARGET)
 	cp $(TARGET) $(DESTDIR)/usr/lib
