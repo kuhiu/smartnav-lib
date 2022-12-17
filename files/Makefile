@@ -1,4 +1,4 @@
-TARGET  = smartnavsys-lib
+TARGET  = smartnavsys
 SOURCES = $(wildcard modules/*/*.cpp)
 HEADERS = $(wildcard modules/*/*.hpp)
 OBJECTS = $(SOURCES:.cpp=.o)
@@ -12,11 +12,11 @@ LDLIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -lt
 
 OBJS_WITH_DIR = $(patsubst %,$(OBJECTS_DIR)/%,$(OBJECTS))
 
-all: $(TARGET)
+all: lib$(TARGET).so
 
-$(TARGET): $(OBJS_WITH_DIR)
+lib$(TARGET).so: $(OBJS_WITH_DIR)
 	@echo Compiling $(TARGET)
-	$(CXX) -o $(TARGET) $(OBJS_WITH_DIR) $(LDFLAGS) $(LDLIBS)
+	$(CXX) -o lib$(TARGET).so $(OBJS_WITH_DIR) $(LDFLAGS) $(LDLIBS)
  
 $(OBJS_WITH_DIR): $(SOURCES)
 	@echo Compiling $< to $@
@@ -28,4 +28,4 @@ install: $(TARGET)
 
 clean:
 	rm -r $(OBJECTS_DIR) 
-	rm -f $(TARGET)
+	rm -f lib$(TARGET).so
