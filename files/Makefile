@@ -1,4 +1,4 @@
-TARGET  = smartnavsys.so
+TARGET  = smartnavsys-lib.so
 SOURCES = $(wildcard modules/*/*.cpp)
 HEADERS = $(wildcard modules/*/*.hpp)
 OBJECTS = $(SOURCES:.cpp=.o)
@@ -15,10 +15,10 @@ OBJS_WITH_DIR = $(patsubst %,$(OBJECTS_DIR)/%,$(OBJECTS))
 all: $(TARGET)
 
 $(TARGET): $(OBJS_WITH_DIR)
+	@echo Compiling $(TARGET)
 	$(CXX) -o $(TARGET) $(OBJS_WITH_DIR) $(LDFLAGS) $(LDLIBS)
  
 $(OBJS_WITH_DIR): $(SOURCES)
-	@echo asd: $(OBJS_WITH_DIR)
 	@echo Compiling $< to $@
 	mkdir -p $(OBJECTS_DIR)
 	@$(CXX) $(CFLAGS) -o $@ $<
