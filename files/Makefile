@@ -17,7 +17,7 @@ all: lib$(TARGET).so
 
 lib$(TARGET).so: $(OBJECTS)
 	@echo Compiling lib$(TARGET).so
-	$(CXX) -o $(OUTPUT_DIR)/$@ $(OBJECTS) $(LDFLAGS)
+	$(CXX) $(OBJECTS) -o $(OUTPUT_DIR)/$@ $(LDFLAGS)
 
 $(OBJECTS_DIR)/%.o: %.cpp $(HEADERS)
 	mkdir -p $(@D)
