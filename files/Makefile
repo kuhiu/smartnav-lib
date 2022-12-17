@@ -2,7 +2,6 @@ TARGET  = smartnavsys
 SUBDIR = modules/capture-frame modules/frame-processor modules/hc-sr04 modules/logger
 
 OBJECTS_DIR = ./obj
-OUTPUT_DIR = ./bin
 
 HEADERS = $(wildcard *.hpp $(foreach fd, $(SUBDIR), $(fd)/*.hpp))
 SOURCES = $(wildcard *.cpp $(foreach fd, $(SUBDIR), $(fd)/*.cpp))
@@ -17,7 +16,7 @@ all: lib$(TARGET).so
 
 lib$(TARGET).so: $(OBJECTS)
 	@echo Compiling lib$(TARGET).so
-	$(CXX) $(OBJECTS) -o $(OUTPUT_DIR)/$@ $(LDFLAGS)
+	$(CXX) $(OBJECTS) -o $@ $(LDFLAGS)
 
 $(OBJECTS_DIR)/%.o: %.cpp $(HEADERS)
 	mkdir -p $(@D)
