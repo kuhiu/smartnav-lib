@@ -1,30 +1,31 @@
 TARGET  = smartnavsys
-SOURCES = $(wildcard modules/*/*.cpp)
-HEADERS = $(wildcard modules/*/*.hpp)
-OBJECTS = $(SOURCES:.cpp=.o)
+SUBDIR = modules/capture-frame modules/frame-processor modules/hc-sr04 modules/logger
 
-OBJECTS_DIR = obj
+OBJECTS_DIR = ./obj
+OUTPUT_DIR = ./bin
+
+HEADERS = $(wildcard *.hpp $(foreach fd, $(SUBDIR), $(fd)/*.hpp))
+SOURCES = $(wildcard *.cpp $(foreach fd, $(SUBDIR), $(fd)/*.cpp))
+OBJECTS = $(addprefix $(OBJECTS_DIR)/, $(SOURCES:cpp=o))
+INCLUDE_DIRS = $(addprefix -I, $(SUBDIR))
 
 CFLAGS  = -std=c++17 -c -fPIC 
 LDFLAGS = -shared
-
 LDLIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread
-
-OBJS_WITH_DIR = $(patsubst %,$(OBJECTS_DIR)/%,$(OBJECTS))
 
 all: lib$(TARGET).so
 
-lib$(TARGET).so: $(OBJS_WITH_DIR)
-	@echo Compiling $(TARGET)
-	$(CXX) -o lib$(TARGET).so $(OBJS_WITH_DIR) $(LDFLAGS) $(LDLIBS)
- 
-$(OBJS_WITH_DIR): $(SOURCES)
-	@echo Compiling $< to $@
-	mkdir -p $(OBJECTS_DIR)
-	$(CXX) $(CFLAGS) -o $@ $<
+lib$(TARGET).so: $(OBJECTS)
+	@echo Compiling lib$(TARGET).so
+	$(CXX) -o $(OUTPUT_DIR)/$@ $(OBJECTS) $(LDFLAGS)
 
-install: $(TARGET)
+$(OBJECTS_DIR)/%.o: %.c $(INCS)
+	mkdir -p $(@D)
+	@echo Compiling $@
+	$(CXX) -o $@ -c $< $(CFLAGS) $(INCLUDE_DIRS)
+
+install: lib$(TARGET).so
 	cp lib$(TARGET).so $(DESTDIR)/usr/lib
 
 clean:
-	rm -rf *.o *.so *.so.*
+    rm -rf $(OUTPUT_DIR)/* $(OBJECTS_DIR)/*
