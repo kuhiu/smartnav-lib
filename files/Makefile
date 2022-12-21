@@ -1,5 +1,5 @@
 TARGET  = smartnavsys
-SUBDIR = modules/capture-frame modules/frame-processor modules/hc-sr04 modules/logger
+SUBDIR = modules/capture-frame modules/frame-processor modules/hc-sr04 modules/logger modules/fuzzy-control-system
 
 OBJECTS_DIR = ./obj
 
