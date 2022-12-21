@@ -14,7 +14,19 @@ public:
 	 * 
 	 * @param value 
 	 */
-	virtual void compute_degree_of_membership(float value) = 0;
+	virtual void compute_degree_of_membership(float input_value) = 0;
+	/**
+	 * @brief Compute area of membership
+	 * 
+	 * @return float 
+	 */
+	virtual float compute_area_of_membership() = 0;
+	/**
+	 * @brief Compute centroid of membership
+	 * 
+	 * @return float 
+	 */
+	virtual float compute_centroid_of_membership() = 0;
 	/**
 	 * @brief Get the Name object
 	 * 
