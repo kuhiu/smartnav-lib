@@ -6,7 +6,7 @@ public:
   /** FuzzyCondition constructor */
   FuzzyCondition() = default;
   /** FuzzyCondition destructor */
-  ~FuzzyCondition() = default;
+  virtual ~FuzzyCondition() = default;
   /**
    * @brief Evaluate any condition
    * 
