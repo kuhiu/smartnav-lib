@@ -3,19 +3,19 @@
 
 #include <math.h>
 
+#include <stdexcept>
 #include <string>
 #include <vector>
 
 #include "FuzzyCondition.hpp"
-#include "FuzzyInput.hpp"
-#include "FuzzyOutput.hpp"
+#include "FuzzyIO.hpp"
 
 class FuzzyComparation : public FuzzyCondition {
 public:
   /** FuzzyComparation constructor */
-  FuzzyComparation(std::shared_ptr<std::vector<FuzzyInput>> system_inputs, 
-                   std::shared_ptr<std::vector<FuzzyOutput>> system_outputs) 
-    : __system_inputs(system_inputs), __system_outputs(system_outputs) {};
+  FuzzyComparation(std::pair<std::string, std::string> comparation, 
+                   std::shared_ptr<std::vector<FuzzyIO>> system_io) 
+    : __comparation(comparation), __system_io(system_io) {};
   /** FuzzyComparation destructor */
   ~FuzzyComparation();
   /**
@@ -24,13 +24,18 @@ public:
    * @return float 
    */
   virtual float evaluate() const override {
-    for (auto &input : *__system_inputs) {
+    bool input_found = false;
+    for (auto &input : *__system_io) {
       if(input.getName() == __comparation.first) {
+        input_found = true;
         for (auto &membership : input.getMemberships()) {
           if(membership->getName() == __comparation.second)
             return membership->getValue();
         }
       }
+    }
+    if(input_found == false) {
+      throw std::runtime_error("Input not found in fuzzy system.");
     }
   }
   /**
@@ -39,7 +44,7 @@ public:
    * @param value 
    */
   virtual void update(float value) override {
-    for (auto &output : *__system_outputs) {
+    for (auto &output : *__system_io) {
       if(output.getName() == __comparation.first) {
         for (auto &membership : output.getMemberships()) {
           if(membership->getName() == __comparation.second) 
@@ -52,10 +57,8 @@ public:
 private:
   /** Comparation */
   std::pair<std::string, std::string> __comparation;
-  /** System inputs */
-  std::shared_ptr<std::vector<FuzzyInput>> __system_inputs;
-  /** System outputs */
-  std::shared_ptr<std::vector<FuzzyOutput>> __system_outputs;
+  /** System input/output */
+  std::shared_ptr<std::vector<FuzzyIO>> __system_io;
 
 };
 
