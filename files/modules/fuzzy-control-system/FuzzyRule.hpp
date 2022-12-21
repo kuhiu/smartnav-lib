@@ -14,12 +14,12 @@
 #ifndef F553A91F_E257_4635_80E9_4552D015C7A8
 #define F553A91F_E257_4635_80E9_4552D015C7A8
 
+#include <memory>
 #include <string>
 #include <utility>
 #include <vector>
 
 #include <FuzzyCondition.hpp>
-
 
 class FuzzyRule {  
 public:
