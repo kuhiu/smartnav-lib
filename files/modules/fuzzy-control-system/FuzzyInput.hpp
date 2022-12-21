@@ -5,41 +5,24 @@
 #include <string>
 #include <vector>
 
+#include <FuzzyIO.hpp>
 #include <FuzzyMembership.hpp>
 
-class FuzzyInput {
+class FuzzyInput : public FuzzyIO {
 public:
   /** FuzzyInput constructor */
   FuzzyInput(const std::string &name, std::vector<std::shared_ptr<FuzzyMembership>> memberships) : 
-    __name(name), __memberships(memberships) {};
+    FuzzyIO(name, memberships) {};
   /** FuzzyInput destructor */
   ~FuzzyInput() = default;
   /**
    * @brief Input fuzzification
    * 
    */
-	void fuzzyfication(float input) {
+	void fuzzyfication(float input_value) {
     for ( auto &membership : __memberships )
-      membership->compute_degree_of_membership(input);
+      membership->compute_degree_of_membership(input_value);
 	};
-  /**
-   * @brief Get the Name object
-   * 
-   * @return std::string 
-   */
-  std::string getName() const { return __name; };
-  /**
-   * @brief Get the memberships object
-   * 
-   * @return std::vector<std::shared_ptr<FuzzyMembership>> 
-   */
-  std::vector<std::shared_ptr<FuzzyMembership>> getMemberships() const { return __memberships; }; 
-
-private:
-	/** Input name */
-	std::string __name;
-	/** Memberships function */
-	std::vector<std::shared_ptr<FuzzyMembership>> __memberships;
 
 };
 
