@@ -6,6 +6,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <utility>
 
 #include "FuzzyRule.hpp"
 #include "FuzzyInput.hpp"
@@ -28,22 +29,21 @@ public:
 	 * @param inputs_to_update 
 	 * @return std::vector<fuzzyOutput> Return fuzzy_outputs
 	 */
-	std::vector<FuzzyOutput> evaluate(std::vector<std::string> inputs_name, std::vector<float> values) {
+	std::vector<FuzzyOutput> evaluate(std::vector<std::pair<std::string, float>> inputs_to_update) {
 		bool found = false;
-		int input_index = 0;
+
 		// Check input name 
 		for (auto &system_input : __system_inputs) {
-			for (auto &input_name : inputs_name) {
-				if (system_input.getName() == input_name) {
+			for (auto &input_to_update : inputs_to_update) {
+				if (system_input.getName() == input_to_update.first) {
 					// Input fuzzification
-					system_input.fuzzyfication(values[input_index]);	
+					system_input.fuzzyfication(input_to_update.second);	
 					found = true;
 				}
-				input_index++;
 			}
 			if (found == false) {
 				std::stringstream err;
-				err << "This input: " << inputs_name[input_index] << " is not defined in the fuzzy system.";
+				err << "Input not defined in the fuzzy system.";
 				throw std::runtime_error(err.str().c_str());
 			}
 		}
@@ -51,8 +51,10 @@ public:
 		for (auto &rule : __system_rules) {
 			rule.evaluate();
 		}
-
-
+		// Output deffuzification
+    for ( auto &output : __system_outputs ) {
+			output.defuzzification();
+    }
 
 		return __system_outputs;
 	}
