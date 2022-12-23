@@ -1,0 +1,70 @@
+
+
+{
+  "fuzzy_system": {
+
+    "inputs": [
+      {"input_1": "..."},
+      {"input_2": "..."},
+      {"input_3": "..."}
+    ],
+
+    "outputs": [
+      {"output_1": "..."},
+      {"output_2": "..."},
+      {"output_3": "..."}
+    ],
+
+    "rules": [
+      {"rule_1": "..."},
+      {"rule_2": "..."},
+      {"rule_3": "..."}
+    ]
+  },
+
+  "rule": {
+    "name": "rule_0",
+    "input_conditions": [ {},{},{} ],
+    "output_conditions": [ {},{},{} ]
+  },
+
+  "membership_function": {
+    "name": "HIGH",
+    "trapezoidal": {
+      "trapezoidal_points": [
+        {"x1": 1}, {"x2": 1}, {"right_slope": 1}, {"left_slope": 1}
+      ]
+    }
+  },
+
+  "input/output": {
+    "name": "distance",
+    "membership_functions": [
+      {"membership_function_1": "..."},
+      {"membership_function_2": "..."},
+      {"membership_function_3": "..."}
+    ]
+  },
+
+  "and": [
+    {
+      "and/or": [ {}, {} ]
+    },
+    {
+      "io": "input/output name to compare",
+      "fuzzy_value": "Fuzzy value to check: ex.: HIGH/LOW"
+    }, 
+    {
+      "io": "input/output name to compare",
+      "fuzzy_value": "Fuzzy value to check: ex.: HIGH/LOW"
+    }  
+  ],
+
+  "comparison": {
+    "io": "input/output name to compare",
+    "fuzzy_value": "Fuzzy value to check: ex.: HIGH/LOW"
+  }
+  
+
+}
+
