@@ -59,7 +59,7 @@ public:
     for (const auto &membership : input_json.at(__MEMBERSHIPS_FUNCTIONS_KEY)) {
       try {
         // Membership type 
-        if(membership.contains(__MB_TRAPEZOIDAL_KEY)  ) {
+        if(membership.contains(FuzzyMembershipTrapezoidal::__MB_TRAPEZOIDAL_KEY)  ) {
           auto fuzzy_membership_trapezoidal = FuzzyMembershipTrapezoidal::parse(membership);
           memberships.push_back(fuzzy_membership_trapezoidal);
         }
