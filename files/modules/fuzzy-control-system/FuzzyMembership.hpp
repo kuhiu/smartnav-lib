@@ -47,6 +47,8 @@ public:
 	void setValue(float value) { __fuzzy_value = value; }
 
 protected:
+  /** Name key */
+  static constexpr auto __NAME_KEY{"name"};
   /** Max membership value */
   const float __UPPER_LIMIT = 1.0;
 	/** Fuzzy value */
