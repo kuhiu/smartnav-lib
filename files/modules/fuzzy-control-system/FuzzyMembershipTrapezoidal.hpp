@@ -111,9 +111,10 @@ public:
 		return (std::make_shared<FuzzyMembershipTrapezoidal>(name, trapezoidal_points));
 	}
 
-private:
   /** Trapezoidal memebership function key */
   static constexpr auto __MB_TRAPEZOIDAL_KEY{"trapezoidal"};
+	
+private:
   /** Trapezoidal Points keys */
   static constexpr auto __MB_X1_KEY{"x1"};
 	static constexpr auto __MB_X2_KEY{"x2"};
