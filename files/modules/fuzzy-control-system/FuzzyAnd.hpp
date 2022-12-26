@@ -14,7 +14,7 @@
 class FuzzyAnd : public FuzzyCondition {
 public:
   /** FuzzyAnd constructor */
-  FuzzyAnd(std::vector<std::shared_ptr<FuzzyCondition>> condition) : __conditions(condition) {};
+  FuzzyAnd(std::vector<FuzzyConditionPtr> condition) : __conditions(condition) {};
   /** FuzzyAnd destructor */
   ~FuzzyAnd() = default;
   /**
