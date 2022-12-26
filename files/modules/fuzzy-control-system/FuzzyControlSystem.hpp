@@ -2,6 +2,7 @@
 #define __FUZZYCONTROLSYSTEM_H__
 
 #include <exception>
+#include <nlohmann/json.hpp>
 #include <map>
 #include <sstream>
 #include <string>
@@ -58,8 +59,23 @@ public:
 
 		return __system_outputs;
 	}
+	/**
+	 * @brief Try to parse system.json  
+	 * 
+	 * @param fuzzy_control_system_json 
+	 * @return FuzzyControlSystem 
+	 */
+	static FuzzyControlSystem parse(nlohmann::json fuzzy_control_system_json);
 
 private:
+	/** Fuzzy system key */
+	static constexpr auto __FUZZY_SYSTEM_KEY{"fuzzy_system"};
+	/** Inputs key */
+	static constexpr auto __INPUTS_KEY{"inputs"};
+	/** Outputs key */
+	static constexpr auto __OUTPUTS_KEY{"outputs"};
+	/** Rule key */
+	static constexpr auto __RULES_KEY{"rules"};
 	/** System inputs */
 	std::vector<FuzzyInput> __system_inputs;
 	/** System outputs */
