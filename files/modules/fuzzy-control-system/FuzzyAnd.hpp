@@ -23,14 +23,14 @@ public:
    * @param system_io 
    * @return float 
    */
-  virtual float evaluate(std::shared_ptr<std::vector<FuzzyIO>> system_io) const override {
+  virtual float evaluate(std::vector<FuzzyInput> &system_input) const override {
     float strength = __UPPER_LIMIT;
     if(__conditions.empty())
       throw std::runtime_error("And condition is empty.");
     else if(__conditions.size() == 1)
       throw std::runtime_error("And condition has only one input.");
     for(auto &condition : __conditions)
-      strength = fmin(strength, condition->evaluate(system_io));
+      strength = fmin(strength, condition->evaluate(system_input));
     return strength;
   };
   /**
@@ -39,13 +39,13 @@ public:
    * @param value 
    * @param system_io 
    */
-  virtual void update(float value, std::shared_ptr<std::vector<FuzzyIO>> system_io) override {
+  virtual void update(float value, std::vector<FuzzyOutput> &system_output) override {
     if(__conditions.empty())
       throw std::runtime_error("And condition is empty.");
     else if(__conditions.size() == 1)
       throw std::runtime_error("And condition has only one input.");
     for(auto &condition : __conditions)
-      condition->update(value, system_io);
+      condition->update(value, system_output);
   };
 
   /**

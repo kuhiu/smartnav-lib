@@ -23,9 +23,9 @@ public:
    * @param system_io 
    * @return float 
    */
-  virtual float evaluate(std::shared_ptr<std::vector<FuzzyIO>> system_io) const override {
+  virtual float evaluate(std::vector<FuzzyInput> &system_input) const override {
     bool input_found = false;
-    for (auto &input : *system_io) {
+    for (auto &input : system_input) {
       if(input.getName() == __comparation.first) {
         input_found = true;
         for (auto &membership : input.getMemberships()) {
@@ -43,8 +43,8 @@ public:
    * 
    * @param value 
    */
-  virtual void update(float value, std::shared_ptr<std::vector<FuzzyIO>> system_io) override {
-    for (auto &output : *system_io) {
+  virtual void update(float value, std::vector<FuzzyOutput> &system_output) override {
+    for (auto &output : system_output) {
       if(output.getName() == __comparation.first) {
         for (auto &membership : output.getMemberships()) {
           if(membership->getName() == __comparation.second) 

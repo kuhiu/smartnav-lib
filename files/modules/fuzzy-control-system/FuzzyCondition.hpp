@@ -16,14 +16,14 @@ public:
    * @param system_io 
    * @return float 
    */
-  virtual float evaluate(std::shared_ptr<std::vector<FuzzyIO>> system_io) const = 0;
+  virtual float evaluate(std::vector<FuzzyInput> &system_input) const = 0;
   /**
    * @brief Update any condition
    * 
    * @param value 
    * @param system_io 
    */
-  virtual void update(float value, std::shared_ptr<std::vector<FuzzyIO>> system_io) = 0;
+  virtual void update(float value, std::vector<FuzzyOutput> &system_io) = 0;
 
 };
 
