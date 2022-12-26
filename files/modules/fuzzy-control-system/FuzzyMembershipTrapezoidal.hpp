@@ -69,8 +69,56 @@ public:
 			__fuzzy_value = fmin( __fuzzy_value, __UPPER_LIMIT);       
 		}
 	}
+	/**
+	 * @brief Try to parse membership function
+	 * 
+	 * @param input_json 
+	 * @return FuzzyMembershipTrapezoidal 
+	 */
+	static std::shared_ptr<FuzzyMembershipTrapezoidal> parse(nlohmann::json memb_function) {
+		std::ostringstream err;
+		std::string name;
+		TrapezoidalPoints trapezoidal_points;
+
+		// Check if it contains the name of membership
+    if(!memb_function.contains(__NAME_KEY)) {
+      err << "Membership function not contains name: " << memb_function.dump();
+      throw std::runtime_error(err.str());
+    }
+		// Check if it contains the trapezoidal object
+    if(!memb_function.contains(__MB_TRAPEZOIDAL_KEY)) {
+      err << "Membership function not contains trapezoidal object: " << memb_function.dump();
+      throw std::runtime_error(err.str());
+    }
+		// Check if trapezoidal object type
+    if(!memb_function.at(__MB_TRAPEZOIDAL_KEY).is_array()) {
+      err << "Trapezoidal object not contains an array: " << memb_function.dump();
+      throw std::runtime_error(err.str());
+    }
+		// Check if trapezoidal object contains all points
+    if(!memb_function.at(__MB_TRAPEZOIDAL_KEY).contains(__MB_X1_KEY) || 
+			 !memb_function.at(__MB_TRAPEZOIDAL_KEY).contains(__MB_X2_KEY) ||
+			 !memb_function.at(__MB_TRAPEZOIDAL_KEY).contains(__MB_RIGHT_SLOPE_KEY) ||
+			 !memb_function.at(__MB_TRAPEZOIDAL_KEY).contains(__MB_LEFT_SLOPE_KEY)) {
+      err << "Trapezoidal object not contains points: " << memb_function.dump();
+      throw std::runtime_error(err.str());
+    }
+		name = memb_function.at(__NAME_KEY);
+		trapezoidal_points.x1 = memb_function.at(__MB_TRAPEZOIDAL_KEY).contains(__MB_X1_KEY);
+		trapezoidal_points.x2 = memb_function.at(__MB_TRAPEZOIDAL_KEY).contains(__MB_X2_KEY);
+		trapezoidal_points.right_slope = memb_function.at(__MB_TRAPEZOIDAL_KEY).contains(__MB_RIGHT_SLOPE_KEY);
+		trapezoidal_points.left_slope = memb_function.at(__MB_TRAPEZOIDAL_KEY).contains(__MB_LEFT_SLOPE_KEY);
+		return (std::make_shared<FuzzyMembershipTrapezoidal>(name, trapezoidal_points));
+	}
 
 private:
+  /** Trapezoidal memebership function key */
+  static constexpr auto __MB_TRAPEZOIDAL_KEY{"trapezoidal"};
+  /** Trapezoidal Points keys */
+  static constexpr auto __MB_X1_KEY{"x1"};
+	static constexpr auto __MB_X2_KEY{"x2"};
+	static constexpr auto __MB_RIGHT_SLOPE_KEY{"right_slope"};
+	static constexpr auto __MB_LEFT_SLOPE_KEY{"left_slope"};
 	/** Trapezoidal membership function */
 	TrapezoidalPoints __trapezoidal_points;
 

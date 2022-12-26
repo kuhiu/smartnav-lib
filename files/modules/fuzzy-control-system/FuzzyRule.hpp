@@ -19,36 +19,116 @@
 #include <utility>
 #include <vector>
 
+#include <FuzzyAnd.hpp>
+#include <FuzzyComparation.hpp>
 #include <FuzzyCondition.hpp>
 
 class FuzzyRule {  
 public:
   /** FuzzyRule constructor */
   FuzzyRule(std::string name, 
-            std::shared_ptr<FuzzyCondition> fuzzy_input_condition, 
-            std::shared_ptr<FuzzyCondition> fuzzy_output_condition)
+            FuzzyCondition::FuzzyConditionPtr fuzzy_input_condition, 
+            FuzzyCondition::FuzzyConditionPtr fuzzy_output_condition)
     : __name(name), 
       __fuzzy_input_condition(fuzzy_input_condition),
       __fuzzy_output_condition(fuzzy_output_condition) {};
   /** FuzzyRule destructor*/
   ~FuzzyRule() = default;
   /**
-   * @brief Evalueate FuzzyRule 
+   * @brief Evaluate the inputs and update the outputs 
    * 
-   * @return float 
+   * @param system_input 
+   * @param system_output 
    */
-  void evaluate() const { 
-    float rule_strength = __fuzzy_input_condition->evaluate(); 
-    __fuzzy_output_condition->update(rule_strength);
+  void evaluate(std::vector<FuzzyInput> &system_input, std::vector<FuzzyOutput> &system_output) const { 
+    float rule_strength = __fuzzy_input_condition->evaluate(system_input); 
+    __fuzzy_output_condition->update(rule_strength, system_output);
+  }
+  /**
+   * @brief Try to parse rule
+   * 
+   * @param rule_json Rule to parse
+   * @return FuzzyRule 
+   */
+  static FuzzyRule parse(nlohmann::json rule_json) {
+    std::ostringstream err;
+    std::string name;
+    FuzzyCondition::FuzzyConditionPtr fuzzy_input_condition;
+    FuzzyCondition::FuzzyConditionPtr fuzzy_output_condition;
+
+    if(!rule_json.contains(__NAME_KEY)) {
+      err << "Rule not contain name object: " << rule_json.dump();
+      throw std::runtime_error(err.str());
+    }
+    if(!rule_json.contains(__INPUT_COND_KEY)) {
+      err << "Rule not contain input condition object: " << rule_json.dump();
+      throw std::runtime_error(err.str());
+    }
+    if(!rule_json.contains(__OUTPUT_COND_KEY)) {
+      err << "Rule not contain output condition object: " << rule_json.dump();
+      throw std::runtime_error(err.str());
+    }
+
+    name = rule_json.at(__NAME_KEY);
+
+    try {
+      // Try to parse input condition as and
+      fuzzy_input_condition = FuzzyAnd::parse(rule_json.at(__INPUT_COND_KEY));
+    }
+    catch(const std::exception& e) {
+      // The input condition could not be parsed as and
+    }
+
+    try {
+      // Try to parse input condition as comparation
+      fuzzy_input_condition = FuzzyComparation::parse(rule_json.at(__INPUT_COND_KEY));
+    }
+    catch(const std::exception& e) {
+      // The input condition could not be parsed as and
+    }
+  
+    if (fuzzy_input_condition == nullptr) {
+      err << "The input condition could not be parsed: " << rule_json.at(__INPUT_COND_KEY).dump();
+      throw std::runtime_error(err.str());
+    }
+
+    try {
+      // Try to parse output condition as and
+      fuzzy_output_condition = FuzzyAnd::parse(rule_json.at(__OUTPUT_COND_KEY));
+    }
+    catch(const std::exception& e) {
+      // The output condition could not be parsed as and
+    }
+
+    try {
+      // Try to parse output condition as comparation
+      fuzzy_output_condition = FuzzyComparation::parse(rule_json.at(__OUTPUT_COND_KEY));
+    }
+    catch(const std::exception& e) {
+      // The input condition could not be parsed as and
+    }
+  
+    if (fuzzy_output_condition == nullptr) {
+      err << "The output condition could not be parsed: " << rule_json.at(__OUTPUT_COND_KEY).dump();
+      throw std::runtime_error(err.str());
+    }
+
+    return (FuzzyRule(name, fuzzy_input_condition, fuzzy_output_condition));
   }
 
 private:
+  /** Name key */
+  static constexpr auto __NAME_KEY{"name"};
+  /** Input condition key */
+  static constexpr auto __INPUT_COND_KEY{"input_conditions"};
+  /** Output condition key */
+  static constexpr auto __OUTPUT_COND_KEY{"output_conditions"};
   /** Rule name */
   std::string __name;
   /** Fuzzy input condition */
-  std::shared_ptr<FuzzyCondition> __fuzzy_input_condition;
+  FuzzyCondition::FuzzyConditionPtr __fuzzy_input_condition;
   /** Fuzzy output condition */
-  std::shared_ptr<FuzzyCondition> __fuzzy_output_condition;
+  FuzzyCondition::FuzzyConditionPtr __fuzzy_output_condition;
 
 };
 
