@@ -50,7 +50,7 @@ public:
 		}
 		// Rules evaluation
 		for (auto &rule : __system_rules) {
-			rule.evaluate();
+			rule.evaluate(__system_inputs, __system_outputs);
 		}
 		// Output deffuzification
     for ( auto &output : __system_outputs ) {
