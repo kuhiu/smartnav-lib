@@ -13,19 +13,19 @@
 class FuzzyComparation : public FuzzyCondition {
 public:
   /** FuzzyComparation constructor */
-  FuzzyComparation(std::pair<std::string, std::string> comparation, 
-                   std::shared_ptr<std::vector<FuzzyIO>> system_io) 
-    : __comparation(comparation), __system_io(system_io) {};
+  FuzzyComparation(std::pair<std::string, std::string> comparation) 
+    : __comparation(comparation) {};
   /** FuzzyComparation destructor */
   ~FuzzyComparation();
   /**
    * @brief Evaluate and condition
    * 
+   * @param system_io 
    * @return float 
    */
-  virtual float evaluate() const override {
+  virtual float evaluate(std::shared_ptr<std::vector<FuzzyIO>> system_io) const override {
     bool input_found = false;
-    for (auto &input : *__system_io) {
+    for (auto &input : *system_io) {
       if(input.getName() == __comparation.first) {
         input_found = true;
         for (auto &membership : input.getMemberships()) {
@@ -43,8 +43,8 @@ public:
    * 
    * @param value 
    */
-  virtual void update(float value) override {
-    for (auto &output : *__system_io) {
+  virtual void update(float value, std::shared_ptr<std::vector<FuzzyIO>> system_io) override {
+    for (auto &output : *system_io) {
       if(output.getName() == __comparation.first) {
         for (auto &membership : output.getMemberships()) {
           if(membership->getName() == __comparation.second) 
@@ -53,12 +53,44 @@ public:
       }
     }
   } 
+  /**
+   * @brief Try to parse comparation
+   * 
+   * @param comparation_json 
+   * @return FuzzyConditionPtr 
+   */
+  static FuzzyConditionPtr parse(nlohmann::json comparation_json) {
+    std::ostringstream err;
+    std::pair<std::string, std::string> comparation;
+
+    if(!comparation_json.contains(__IO_KEY)) {
+      err << "Comparation condition not contain io object: " << comparation_json.dump();
+      throw std::runtime_error(err.str());
+    }
+    if(!comparation_json.contains(__FUZZY_VALUE_KEY)) {
+      err << "Comparation condition not contain fuzzy value object: " << comparation_json.dump();
+      throw std::runtime_error(err.str());
+    }
+    if(!comparation_json.at(__IO_KEY).is_string()) {
+      err << "Comparation: " << __IO_KEY << " not contain an string object: " << comparation_json.dump();
+      throw std::runtime_error(err.str());
+    }
+    if(!comparation_json.at(__FUZZY_VALUE_KEY).is_string()) {
+      err << "Comparation: " << __FUZZY_VALUE_KEY << " not contain an string object: " << comparation_json.dump();
+      throw std::runtime_error(err.str());
+    }
+    comparation.first = comparation_json.at(__IO_KEY);
+    comparation.second = comparation_json.at(__FUZZY_VALUE_KEY);
+    return (FuzzyConditionPtr(std::make_shared<FuzzyComparation>(comparation)));
+  }
 
 private:
+  /** IO key */
+  static constexpr auto __IO_KEY{"io"};
+  /** Fuzzy value key */
+  static constexpr auto __FUZZY_VALUE_KEY{"fuzzy_value"};
   /** Comparation */
   std::pair<std::string, std::string> __comparation;
-  /** System input/output */
-  std::shared_ptr<std::vector<FuzzyIO>> __system_io;
 
 };
 
