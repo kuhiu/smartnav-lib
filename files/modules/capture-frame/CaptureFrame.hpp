@@ -14,8 +14,7 @@
 #include <atomic>
 #include <functional>
 #include <thread>
-
-#include "../logger/Logger.hpp"
+#include <vector>
 
 class CaptureFrame {
 public:

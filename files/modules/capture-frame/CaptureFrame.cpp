@@ -1,6 +1,7 @@
 /* FIX IT: reference https://github.com/h4tr3d/v4l2-capture-complex/blob/master/main.cpp */
 
 #include <fcntl.h>
+#include <iostream>
 #include <sys/ioctl.h>
 #include <sys/types.h>
 #include <sys/mman.h>
@@ -11,11 +12,11 @@
 
 #include "CaptureFrame.hpp"
 
-#define DEBUG 1
-#ifdef DEBUG
+//#define DEBUG_CAPTURE 1
+#ifdef DEBUG_CAPTURE
 #define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
 #else
-#define debug_print(fmt, ...) do {} while (0)
+#define DEBUG_PRINT(fmt, ...) do {} while (0)
 #endif
 
 CaptureFrame::CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, uint32_t frame_count) 
@@ -46,7 +47,7 @@ void CaptureFrame::__openDevice() {
 	if (stat(__DEVICE, &__st) == -1) {
 		std::ostringstream err;		
 		err << "Cannot identify" << __DEVICE;
-		Logger::log(LogLevels::Fatal) << err.str();
+		std::cout << err.str() << std::endl;
 		throw std::runtime_error(err.str());
 	}
 
@@ -54,7 +55,7 @@ void CaptureFrame::__openDevice() {
 	if (!S_ISCHR(__st.st_mode)) {
 		std::ostringstream err;
 		err << __DEVICE << "isnt a char divice";
-		Logger::log(LogLevels::Fatal) << err.str();
+		std::cout << err.str() << std::endl;
 		throw std::runtime_error(err.str());
 	}
 
@@ -63,7 +64,7 @@ void CaptureFrame::__openDevice() {
 	if (__fd == -1) {
 		std::ostringstream err;
 		err << "Cannot open " << __DEVICE << "  Errno: " << strerror(errno);
-		Logger::log(LogLevels::Fatal) << err.str();
+		std::cout << err.str() << std::endl;
 		throw std::runtime_error(err.str());
 	}
 }
@@ -73,7 +74,7 @@ void CaptureFrame::__closeDevice() {
 
 	if (close(__fd) == -1) {
 		err << "Cannot close " << __DEVICE;
-		Logger::log(LogLevels::Fatal) << err.str();
+		std::cout << err.str() << std::endl;
 		throw std::runtime_error(err.str());
 	}
 }
@@ -84,11 +85,11 @@ void CaptureFrame::__initDevice(uint32_t width, uint32_t height, pixelFormat pix
 		std::ostringstream err;
 		if (EINVAL == errno) {
 			err << __DEVICE << "is no V4L2 device. Errno: " << strerror(errno);
-			Logger::log(LogLevels::Fatal) << err.str();
+			std::cout << err.str() << std::endl;
 			throw std::runtime_error(err.str());
 		} else {
 			err << "xioctl fail: VIDIOC_QUERYCAP. Errno: " << strerror(errno);
-			Logger::log(LogLevels::Fatal) << err.str();
+			std::cout << err.str() << std::endl;
 			throw std::runtime_error(err.str());
 		}
 	}
@@ -99,7 +100,7 @@ void CaptureFrame::__initDevice(uint32_t width, uint32_t height, pixelFormat pix
 		std::ostringstream err;
 		err << __DEVICE << "is no video capture" <<
 		"device that support multiplanar formats. Errno: " << strerror(errno);
-		Logger::log(LogLevels::Fatal) << err.str();
+		std::cout << err.str() << std::endl;
 		throw std::runtime_error(err.str());
 	}
 	else {
@@ -142,7 +143,7 @@ void CaptureFrame::__setFormat(uint32_t width, uint32_t height, pixelFormat pixe
 	if (__xioctl(__fd, VIDIOC_S_FMT, &__format) == -1) {
 		std::ostringstream err;
 		err << "VIDIOC_S_FMT. Errno: " << strerror(errno);
-		Logger::log(LogLevels::Fatal) << err.str();
+		std::cout << err.str() << std::endl;
 		throw std::runtime_error(err.str());
 	}
 
@@ -156,7 +157,7 @@ void CaptureFrame::__getFormat() {
 
 	__xioctl(__fd, VIDIOC_G_FMT, &format);
 
-	printf("Number of planes: %d\n", format.fmt.pix_mp.num_planes);
+	DEBUG_PRINT("Number of planes: %d\n", format.fmt.pix_mp.num_planes);
 }
 
 void CaptureFrame::__setFramerate() {
@@ -167,10 +168,10 @@ void CaptureFrame::__setFramerate() {
 	if (ret < 0) {
 		std::ostringstream err;
 		err << "Unable to get frame rate";
-		Logger::log(LogLevels::Fatal) << err.str();
+		std::cout << err.str() << std::endl;
 	}
 
-	printf("Current Framerate %u/%u \n", 
+	DEBUG_PRINT("Current Framerate %u/%u \n", 
 			__parm.parm.capture.timeperframe.numerator, __parm.parm.capture.timeperframe.denominator);
 
 	__parm.parm.capture.timeperframe.numerator = 1;
@@ -180,17 +181,17 @@ void CaptureFrame::__setFramerate() {
 	if (ret < 0) {
 		std::ostringstream err;
 		err << "Unable to set frame rate. Errno: " << strerror(errno);
-		Logger::log(LogLevels::Fatal) << err.str();
+		std::cout << err.str() << std::endl;
 	}
 
 	ret = __xioctl(__fd, VIDIOC_G_PARM, &__parm);
 	if (ret < 0) {
 		std::ostringstream err;
 		err << "Unable to get frame rate. Errno: " << strerror(errno);
-		Logger::log(LogLevels::Fatal) << err.str();
+		std::cout << err.str() << std::endl;
 	}
 
-	printf("New Framerate %u/%u \n", 
+	DEBUG_PRINT("New Framerate %u/%u \n", 
 		__parm.parm.capture.timeperframe.numerator, __parm.parm.capture.timeperframe.denominator);
 }
 
@@ -228,29 +229,29 @@ void CaptureFrame::__startCapturing() {
 		buf.m.planes = __image_buffers[i].planes;
 		buf.length = __num_planes;
 		
-		printf("VIDIOC_QBUF buf index: %d\n", buf.index);
+		DEBUG_PRINT("VIDIOC_QBUF buf index: %d\n", buf.index);
 		if (__xioctl(__fd, VIDIOC_QBUF, &buf) == -1) {
 			std::ostringstream err;
 			err << "VIDIOC_QBUF: Fail. Errno: " << strerror(errno);
-			Logger::log(LogLevels::Fatal) << err.str();
+			std::cout << err.str() << std::endl;
 			throw std::runtime_error(err.str());
 		}
 	}
-	printf("Video stream on\n");
+	DEBUG_PRINT("Video stream on\n");
 	type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
 	if (__xioctl(__fd, VIDIOC_STREAMON, &type) == -1) {
 			std::ostringstream err;
 			err << "VIDIOC_STREAMON: Fail. Errno: " << strerror(errno);
-			Logger::log(LogLevels::Fatal) << err.str();
+			std::cout << err.str() << std::endl;
 			throw std::runtime_error(err.str());
 	}
-	printf("Video stream on termino ioctl\n");
+	DEBUG_PRINT("Video stream on termino ioctl\n");
 }
 
 bool CaptureFrame::__readFrame(int frame_number) {
 	v4l2_buffer buff;
 
-	printf("Entre a read frame. \n");
+	DEBUG_PRINT("Entre a read frame. \n");
 	CLEAR(buff);
 	buff.type = __buffer_type;
 	buff.memory = V4L2_MEMORY_MMAP;
@@ -263,13 +264,13 @@ bool CaptureFrame::__readFrame(int frame_number) {
 			return 0;
 		default:
 			err << "__readFrame. Errno: " << strerror(errno);
-			Logger::log(LogLevels::Fatal) << err.str();
+			std::cout << err.str() << std::endl;
 			throw std::runtime_error(err.str());
 		}
 	}
 
 	// Callback
-	printf("Ejecuto la callback. \n");
+	DEBUG_PRINT("Ejecuto la callback. \n");
 	__cb(__image_buffers[buff.index].start[frame_number], buff.m.planes->bytesused);
 
 	return 1;
@@ -284,7 +285,7 @@ void CaptureFrame::__capture() {
 			timeval tv;
 			int ret;
 
-			printf("Capturing counter: %d \n", counter);
+			DEBUG_PRINT("Capturing counter: %d \n", counter);
 			FD_ZERO(&fds);
 			FD_SET(__fd, &fds);
 
@@ -327,11 +328,11 @@ void CaptureFrame::__init_mmap() {
 		std::ostringstream err;
 		if (EINVAL == errno) {
 			err << __DEVICE << "Not support memory mapping! Errno: " << strerror(errno);
-			Logger::log(LogLevels::Fatal) << err.str();
+			std::cout << err.str() << std::endl;
 			throw std::runtime_error(err.str());
 		} else {
 			err << __DEVICE << "VIDIOC_REQBUFS. Errno: " << strerror(errno);
-			Logger::log(LogLevels::Fatal) << err.str();
+			std::cout << err.str() << std::endl;
 			throw std::runtime_error(err.str());
 		}
 	}
@@ -339,7 +340,7 @@ void CaptureFrame::__init_mmap() {
 	if (__req.count < __frame_count) {
 		std::ostringstream err;
 		err << "Insufficient buffer memory on " << __DEVICE << "Errno: " << strerror(errno);
-		Logger::log(LogLevels::Fatal) << err.str();
+		std::cout << err.str() << std::endl;
 		throw std::runtime_error(err.str());
 	}
 
@@ -355,11 +356,11 @@ void CaptureFrame::__init_mmap() {
 		buf.length = __num_planes;
 		buf.m.planes = image_buffer.planes;
 
-		printf("Buf index is %d\n", buf.index);
+		DEBUG_PRINT("Buf index is %d\n", buf.index);
 		if (__xioctl(__fd, VIDIOC_QUERYBUF, &buf) == -1) {
 			std::ostringstream err;
 			err << "VIDIOC_QUERYBUF. Errno: " << strerror(errno);
-			Logger::log(LogLevels::Fatal) << err.str();
+			std::cout << err.str() << std::endl;
 			throw std::runtime_error(err.str());
 		}
 
@@ -374,7 +375,7 @@ void CaptureFrame::__init_mmap() {
 			if (MAP_FAILED == image_buffer.start[plane_index]) {
 				std::ostringstream err;
 				err << "Map fail. Errno: " << strerror(errno);
-				Logger::log(LogLevels::Fatal) << err.str();
+				std::cout << err.str() << std::endl;
 				throw std::runtime_error(err.str());
 			}
 			image_buffer.length[plane_index] = buf.length;
