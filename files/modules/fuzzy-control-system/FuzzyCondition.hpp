@@ -2,6 +2,10 @@
 #define F29DD846_2172_450B_9CF1_993DDCF84C9F
 
 #include <memory>
+
+#include <FuzzyInput.hpp>
+#include <FuzzyOutput.hpp>
+
 class FuzzyCondition {  
 public:
   /** FuzzyCondition smart pointer */
