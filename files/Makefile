@@ -1,5 +1,4 @@
-TARGET  = smartnavsys
-SUBDIR = modules/capture-frame modules/frame-processor modules/hc-sr04 modules/logger modules/fuzzy-control-system
+SUBDIR = modules/capture-frame modules/frame-processor modules/hc-sr04 modules/fuzzy-control-system modules/driver
 
 OBJECTS_DIR = ./obj
 
@@ -8,23 +7,23 @@ SOURCES = $(wildcard *.cpp $(foreach fd, $(SUBDIR), $(fd)/*.cpp))
 OBJECTS = $(addprefix $(OBJECTS_DIR)/, $(SOURCES:cpp=o))
 INCLUDE_DIRS = $(addprefix -I, $(SUBDIR))
 
-CFLAGS  = -std=c++17 -c -fPIC 
-LDFLAGS = -shared
-LDLIBS += -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread
+CFLAGS_LIB = -std=c++17 -c -fPIC 
+LDFLAGS_LIB = -shared -Wl,-soname,$(LIB_NAME).so.0
+LDLIBS_LIB = -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread
 
-all: lib$(TARGET).so
+all: $(LIB_NAME).so
 
-lib$(TARGET).so: $(OBJECTS)
-	@echo Compiling lib$(TARGET).so
-	$(CXX) $(OBJECTS) -o $@ $(LDFLAGS)
+$(LIB_NAME).so: $(OBJECTS)
+	@echo Compiling $(LIB_NAME).so
+	$(CXX) $(OBJECTS) -o $(LIB_NAME).so.$(LIB_VERSION) $(LIBS) $(LDFLAGS) $(LDFLAGS_LIB) $(LDLIBS_LIB)
 
 $(OBJECTS_DIR)/%.o: %.cpp $(HEADERS)
 	mkdir -p $(@D)
 	@echo Compiling $@
-	$(CXX) -o $@ -c $< $(CFLAGS) $(INCLUDE_DIRS)
+	$(CXX) -o $@ -c $< $(CFLAGS) $(CFLAGS_LIB) $(INCLUDE_DIRS)
 
-install: lib$(TARGET).so
-	cp lib$(TARGET).so $(DESTDIR)/usr/lib
+install: $(LIB_NAME).so
+	cp $(LIB_NAME).so $(DESTDIR)/usr/lib
 
 clean:
-	rm -rf $(OUTPUT_DIR)/* $(OBJECTS_DIR)/*
+	rm -rf *.so *.so.* $(OBJECTS_DIR)/*
