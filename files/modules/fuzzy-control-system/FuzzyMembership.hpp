@@ -5,6 +5,8 @@
 
 class FuzzyMembership {
 public:
+  /** FuzzyMembership smart pointer */
+  using FuzzyMembershipPtr = std::shared_ptr<FuzzyMembership>;
 	/** FuzzyMembership constructor */
 	FuzzyMembership(const std::string &name) : __name(name) {};
 	/** FuzzyMembership destructor */
@@ -32,7 +34,7 @@ public:
 	 * 
 	 * @return std::string 
 	 */
-	std::string getName() const;
+	std::string getName() const { return __name; };
 	/**
 	 * @brief Get the Value object
 	 * 
@@ -45,6 +47,11 @@ public:
 	 * @param value 
 	 */
 	void setValue(float value) { __fuzzy_value = value; }
+	/**
+	 * @brief Reset fuzzy value 
+	 * 
+	 */
+	void resetValue() { __fuzzy_value = 0; };
 
 protected:
   /** Name key */
@@ -52,9 +59,9 @@ protected:
   /** Max membership value */
   const float __UPPER_LIMIT = 1.0;
 	/** Fuzzy value */
-	float __fuzzy_value;                 
+	float __fuzzy_value = 0.0;                 
 	/** FuzzyMembership name */
-  std::string __name;   
+  const std::string __name;   
 	
 };
 
