@@ -26,12 +26,16 @@ public:
    * @return std::string 
    */
   std::string getName() const { return __name; };
+  /**
+   * @brief Reset all membership functions
+   * 
+   */
+  void resetMembershipFuntions() {
+    for (auto &mb : __memberships)
+      mb->resetValue();
+  };
 
 protected:
-  /** Membership function key */
-  static constexpr auto __MEMBERSHIPS_FUNCTIONS_KEY{"memberships_functions"};
-  /** Name key */
-  static constexpr auto __NAME_KEY{"name"};
 	/** Input/Output name */
 	std::string __name;
 	/** Memberships function */
