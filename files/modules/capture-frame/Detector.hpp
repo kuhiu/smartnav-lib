@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "RecognitionResult.hpp"
-#include "../capture-frame/VirtualImage.hpp"
+#include "VirtualImage.hpp"
 
 #include "tensorflow/lite/interpreter.h"
 #include "tensorflow/lite/kernels/register.h"
@@ -26,7 +26,7 @@ public:
 
 private:
   /** Model file name */
-  static constexpr char const *__MODEL_FILE_NAME = {"lite-model_ssd_mobilenet_v2_100_int8_default_1.tflite"};
+  static constexpr char const *__MODEL_FILE_NAME = {"/usr/bin/lite-model_efficientdet_lite0_detection_default_1.tflite"};
   /** Score threshold needed to be recognized  */
   const float __SCORE_THRESHOLD = 0.5;
 	/** Tflite model */
