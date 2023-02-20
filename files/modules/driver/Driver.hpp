@@ -57,6 +57,7 @@ public:
       throw std::runtime_error("Error stopping l298n");
 
     __current_speed = 0;
+    __current_yaw = 0;
   };
   /** Driver destructor */
   ~Driver() {
@@ -85,14 +86,22 @@ public:
       throw std::runtime_error("The speed variation was so big");
 
     __current_speed += speed_variation;
+    __current_yaw += yaw_variation;
+    // Check for max and min of the yaw 
+    if (__current_yaw > __MAX_YAW)
+      __current_yaw = __MAX_YAW;
+    else if (__current_yaw < __MIN_YAW)
+      __current_yaw = __MIN_YAW;
     // Check for max and min of the speed 
     if (__current_speed > __MAX_SPEED)
       __current_speed = __MAX_SPEED;
     else if (__current_speed < __MIN_SPEED)
       __current_speed = __MIN_SPEED;
+    
+    printf("Current speed %d, Current yaw %d.\n", __current_speed, __current_yaw);
     // Wheel PWM 
-    wheel_left = __current_speed + yaw_variation;
-    wheel_right = __current_speed - yaw_variation;
+    wheel_left = __current_speed + __current_yaw;
+    wheel_right = __current_speed - __current_yaw;
     // Check for max of the pwm duty cycle 
     if (wheel_left > __MAX_DUTY) 
       wheel_left = __MAX_DUTY;
@@ -157,6 +166,10 @@ private:
   const int __MAX_DUTY = 100;
   /** Min duty cycle */
   const int __MIN_DUTY = -100;
+  /** Max yaw */
+  const int __MAX_YAW = 25;
+  /** Min yaw */
+  const int __MIN_YAW = -25;
   /** File descriptor of AXI Timer driver */
   int __fd_pwm1;
   /** File descriptor of AXI Timer driver */
@@ -165,6 +178,8 @@ private:
   int __fd_l298n;  
   /** Current speed */
   int __current_speed;
+  /** Current yaw */
+  int __current_yaw;
 
 };
 
