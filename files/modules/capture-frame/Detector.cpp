@@ -4,9 +4,10 @@
 
 //#define DEBUG_DETECTOR 1
 #ifdef DEBUG_DETECTOR
-#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
+ 	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
+																						__FILE__, __LINE__, __func__, ##args)
 #else
-#define DEBUG_PRINT(fmt, ...) do {} while (0)
+	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
 #endif
 
 Detector::Detector() {
