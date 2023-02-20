@@ -10,13 +10,14 @@
 #include <cstring>
 #include <sstream>
 
-#include "CaptureFrame.hpp"
+#include <CaptureFrame.hpp>
 
-//#define DEBUG_CAPTURE 1
-#ifdef DEBUG_CAPTURE
-#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
+#define DEBUG_CAPTURE 1
+#if defined(DEBUG_CAPTURE) 
+ 	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
+																						__FILE__, __LINE__, __func__, ##args)
 #else
-#define DEBUG_PRINT(fmt, ...) do {} while (0)
+	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
 #endif
 
 CaptureFrame::CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, uint32_t frame_count) 
@@ -27,8 +28,12 @@ CaptureFrame::CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pi
 	CLEAR(__parm);
 	CLEAR(__req);
 
+	__ov7670 = std::make_shared<ov7670>(width, height, ov7670::pixelFormat::SBGGR8_1X8, (uint32_t)5);
+	__v_demosaic = std::make_shared<v_demosaic>(width, height, v_demosaic::pixelFormat::RBG888_1X24);
+
 	__openDevice();
 	__initDevice(width, height, pixel_format);
+	
 	__capture_frame_is_running = true;
 	__capture_thread = std::thread(&CaptureFrame::__capture, this);
 }
@@ -148,7 +153,7 @@ void CaptureFrame::__setFormat(uint32_t width, uint32_t height, pixelFormat pixe
 	}
 
 	// Print format
-	__getFormat();	
+	//__getFormat();	
 }
 
 void CaptureFrame::__getFormat() {
@@ -238,13 +243,14 @@ void CaptureFrame::__startCapturing() {
 		}
 	}
 	DEBUG_PRINT("Video stream on\n");
+	CLEAR(type);
 	type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
-	if (__xioctl(__fd, VIDIOC_STREAMON, &type) == -1) {
-			std::ostringstream err;
-			err << "VIDIOC_STREAMON: Fail. Errno: " << strerror(errno);
-			std::cout << err.str() << std::endl;
-			throw std::runtime_error(err.str());
+	int ret = __xioctl(__fd, VIDIOC_STREAMON, &type);
+	while (ret == -1) {
+		ret = __xioctl(__fd, VIDIOC_STREAMON, &type);
+		DEBUG_PRINT("Waitting strem on.\n");
 	}
+
 	DEBUG_PRINT("Video stream on termino ioctl\n");
 }
 
@@ -268,11 +274,21 @@ bool CaptureFrame::__readFrame(int frame_number) {
 			throw std::runtime_error(err.str());
 		}
 	}
-
+	// Image ptr __image_buffers[buff.index].start[frame_number]
+	// Image size buff.m.planes->bytesused
+  auto rgb_image = std::make_shared<VirtualImage>(640, 480, 3, ColorSpaces::RGB, __image_buffers[buff.index].start[frame_number]);
+  rgb_image->resize(320, 320);
+  rgb_image->flip(false);
+  rgb_image->colorBalancing(1.0);
+	{ // Thread safe
+		std::lock_guard<std::mutex> lock(__brightness_guard);
+		__brightness = rgb_image->getBrightness();
+	}
 	// Callback
 	DEBUG_PRINT("Ejecuto la callback. \n");
-	__cb(__image_buffers[buff.index].start[frame_number], buff.m.planes->bytesused);
-
+	__cb(rgb_image, this);
+	// Deallocate image
+	rgb_image = nullptr;
 	return 1;
 }
 
@@ -290,7 +306,7 @@ void CaptureFrame::__capture() {
 			FD_SET(__fd, &fds);
 
 			/* Timeout. */
-			tv.tv_sec = 5;
+			tv.tv_sec = 2;
 			tv.tv_usec = 0;
 
 			ret = select(__fd + 1, &fds, NULL, NULL, &tv);
@@ -300,7 +316,8 @@ void CaptureFrame::__capture() {
 			}
 
 			if (!ret) {
-				throw std::runtime_error("Select timeout!");
+				continue;
+				//throw std::runtime_error("Select timeout!");
 			}
 
 			/* EAGAIN - continue select loop. */
