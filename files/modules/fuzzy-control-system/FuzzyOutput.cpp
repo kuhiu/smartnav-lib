@@ -6,6 +6,14 @@
 constexpr const char *FuzzyOutput::__MEMBERSHIPS_FUNCTIONS_KEY;
 constexpr const char *FuzzyOutput::__NAME_KEY;
 
+#define DEBUG_OUTPUT 1
+#ifdef DEBUG_OUTPUT
+ 	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
+																						__FILE__, __LINE__, __func__, ##args)
+#else
+	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
+#endif
+
 FuzzyOutput FuzzyOutput::parse(const nlohmann::json& output_json) {
   std::ostringstream err;
   std::vector<std::shared_ptr<FuzzyMembership>> memberships;
@@ -56,6 +64,7 @@ float FuzzyOutput::defuzzification() {
   for( auto &membership : __memberships){
     area = membership->compute_area_of_membership();
     centroid = membership->compute_centroid_of_membership();
+    //DEBUG_PRINT("Centroid %f, area %f.\n", centroid, area);
     sum_of_products += area * centroid;
     sum_of_areas += area;
   }

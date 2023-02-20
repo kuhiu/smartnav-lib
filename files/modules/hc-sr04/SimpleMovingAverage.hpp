@@ -6,7 +6,9 @@
 class SimpleMovingAverage {
 public:
   /** SimpleMovingAverage constructor */
-  SimpleMovingAverage(int queue_len) : __queue_len(queue_len) {};
+  SimpleMovingAverage(int queue_len) : __queue_len(queue_len) {
+    __sum = 0;
+  };
   /** SimpleMovingAverage destructor */
   ~SimpleMovingAverage() = default;
   /**
