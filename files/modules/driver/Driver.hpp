@@ -30,6 +30,14 @@ public:
     OP_DRIVE,
 
   };
+  /** Actual estimated position*/
+  struct position {
+    /** Actual x estimated position */
+    int x;
+    /** Actual y estimated position */
+    int y;
+
+  };
   /** Driver constructor */
   Driver() {
     int ret;
@@ -57,17 +65,36 @@ public:
       throw std::runtime_error("Error stopping l298n");
 
     __current_speed = 0;
-    __current_yaw = 0;
   };
   /** Driver destructor */
   ~Driver() {
-    int ret = ioctl(__fd_l298n, L298N_IOC_STOP);
-    if ( ret == -1) 
-      throw std::runtime_error("Error stopping l298n");
+    ioctl(__fd_l298n, L298N_IOC_STOP);
     close(__fd_pwm1);
     close(__fd_pwm2);
     close(__fd_l298n);
   };
+  /**
+   * @brief Update the pwms that control both motors
+   * 
+   * @param pwm0
+   * @param pwm1 
+   */
+  void update_pwm(int pwm0, int pwm1) {
+    int ret;
+
+    // Set duty cycle 
+    ret = ioctl(__fd_pwm1, AXI_TIMER_IOC_T_ON, pwm0);
+    if ( ret == -1) 
+      throw std::runtime_error("Error setting duty cycle");
+    // Set duty cycle 
+    ret = ioctl(__fd_pwm2, AXI_TIMER_IOC_T_ON, pwm1);
+    if ( ret == -1) 
+      throw std::runtime_error("Error setting duty cycle");
+    // Go forward
+    ret = ioctl(__fd_l298n, L298N_IOC_FORWARD);
+    if ( ret == -1) 
+      throw std::runtime_error("Error stopping l298n");
+  }
   /**
    * @brief Update the speed and yaw for driving the car
    * 
@@ -75,7 +102,7 @@ public:
    * @param speed_variation 
    * @param yaw_variation 
    */
-  void update(operationMode operation_mode, int speed_variation, int yaw_variation) {
+  void update(operationMode operation_mode, int speed_variation, int yaw) {
     int ret;
     int wheel_left;
     int wheel_right;
@@ -86,22 +113,21 @@ public:
       throw std::runtime_error("The speed variation was so big");
 
     __current_speed += speed_variation;
-    __current_yaw += yaw_variation;
     // Check for max and min of the yaw 
-    if (__current_yaw > __MAX_YAW)
-      __current_yaw = __MAX_YAW;
-    else if (__current_yaw < __MIN_YAW)
-      __current_yaw = __MIN_YAW;
+    if (yaw > __MAX_YAW)
+      yaw = __MAX_YAW;
+    else if (yaw < __MIN_YAW)
+      yaw = __MIN_YAW;
     // Check for max and min of the speed 
     if (__current_speed > __MAX_SPEED)
       __current_speed = __MAX_SPEED;
     else if (__current_speed < __MIN_SPEED)
       __current_speed = __MIN_SPEED;
     
-    printf("Current speed %d, Current yaw %d.\n", __current_speed, __current_yaw);
+    // printf("Current speed %d, Current yaw %d.\n", __current_speed, yaw);
     // Wheel PWM 
-    wheel_left = __current_speed + __current_yaw;
-    wheel_right = __current_speed - __current_yaw;
+    wheel_left = __current_speed - yaw;
+    wheel_right = __current_speed + yaw;
     // Check for max of the pwm duty cycle 
     if (wheel_left > __MAX_DUTY) 
       wheel_left = __MAX_DUTY;
@@ -159,17 +185,17 @@ private:
   /** L298N driver */
   static constexpr auto __L298N_DRIVER {"/dev/l298n"};
   /** Max speed */
-  const int __MAX_SPEED = 50;
+  const int __MAX_SPEED = 20;
   /** Min speed */
-  const int __MIN_SPEED = -50;
+  const int __MIN_SPEED = 0;
   /** Max duty cycle */
   const int __MAX_DUTY = 100;
   /** Min duty cycle */
   const int __MIN_DUTY = -100;
   /** Max yaw */
-  const int __MAX_YAW = 25;
+  const int __MAX_YAW = 20;
   /** Min yaw */
-  const int __MIN_YAW = -25;
+  const int __MIN_YAW = -20;
   /** File descriptor of AXI Timer driver */
   int __fd_pwm1;
   /** File descriptor of AXI Timer driver */
