@@ -50,9 +50,23 @@ public:
     std::lock_guard<std::mutex> lock(__brightness_guard);
     return __brightness; 
   };
+  /**
+   * @brief Set the Save Frame object
+   * 
+   * @param state 
+   * @return * void 
+   */
+  void setSaveFrame(bool state) { __save_frame = state; }
+  /**
+   * @brief Get the Save Frame Status object
+   * 
+   * @return true 
+   * @return false 
+   */
+  bool getSaveFrameStatus() { return __save_frame; };
   /** FrameProcessor */
   FrameProcessor frame_processor;
-
+  
 private:
   /** Clear vl2d struct */
   #define CLEAR(x) memset(&(x), 0, sizeof(x))
@@ -60,6 +74,8 @@ private:
   static constexpr const char *__DEVICE = {"/dev/video0"};
   /** Device file descriptor */
   int __fd;
+  /** The next frame is saved */
+  bool __save_frame = false;
   /** OV7670 object */
   std::shared_ptr<ov7670> __ov7670;
   /** v_demosaic object */
@@ -73,7 +89,7 @@ private:
   /** Format */
 	v4l2_format __format;
   /** Numbers of planes for image buffer */
-  const int __num_planes = 1;
+  const int __num_planes = 3;
   /** Driver type */
   int __driver_type;
   /** Buffer type */

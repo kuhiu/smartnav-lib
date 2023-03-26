@@ -1,27 +1,9 @@
 var searchData=
 [
-  ['_7ecaptureframe_360',['~CaptureFrame',['../classCaptureFrame.html#a16d6e39dcc60e44ff0f7c749b5bde78a',1,'CaptureFrame']]],
-  ['_7ecompass_361',['~Compass',['../classCompass.html#a26c27c9b7bba5b3107f1c671bd6f31c9',1,'Compass']]],
-  ['_7edetector_362',['~Detector',['../classDetector.html#ad3d2262c740b84491e1bd3dc07a24269',1,'Detector']]],
-  ['_7edistancesensors_363',['~DistanceSensors',['../classDistanceSensors.html#aec5c176d6241369ba7b668427222185d',1,'DistanceSensors']]],
-  ['_7edriver_364',['~Driver',['../classDriver.html#ac7645eea8d3ce2bc39ddbda5e840297a',1,'Driver']]],
-  ['_7eframeprocessor_365',['~FrameProcessor',['../classFrameProcessor.html#a47a692246d232d44bb6a80a7047c4b2c',1,'FrameProcessor']]],
-  ['_7efuzzyand_366',['~FuzzyAnd',['../classFuzzyAnd.html#ae91f311ee678eaf9f5cc2d821b6bb6f1',1,'FuzzyAnd']]],
-  ['_7efuzzycomparation_367',['~FuzzyComparation',['../classFuzzyComparation.html#af998fcd66f30f2e0c5a184f1d15c11f7',1,'FuzzyComparation']]],
-  ['_7efuzzycondition_368',['~FuzzyCondition',['../classFuzzyCondition.html#a1f935e29e4401261546b7d35d11d3e6b',1,'FuzzyCondition']]],
-  ['_7efuzzycontrolsystem_369',['~FuzzyControlSystem',['../classFuzzyControlSystem.html#a0ec4abb5da80ba62e4c3c73dab0fb6fb',1,'FuzzyControlSystem']]],
-  ['_7efuzzyinput_370',['~FuzzyInput',['../classFuzzyInput.html#a6c6a2db3ca4b272f99a39ecfa53be73c',1,'FuzzyInput']]],
-  ['_7efuzzyio_371',['~FuzzyIO',['../classFuzzyIO.html#a8b74b50f3a4577fda0e804696a84afe0',1,'FuzzyIO']]],
-  ['_7efuzzymembership_372',['~FuzzyMembership',['../classFuzzyMembership.html#aea29e647cfc75a9bd9bd88dce429dc8a',1,'FuzzyMembership']]],
-  ['_7efuzzymembershiptrapezoidal_373',['~FuzzyMembershipTrapezoidal',['../classFuzzyMembershipTrapezoidal.html#a70a8d23920271df6477a89ab78ff3107',1,'FuzzyMembershipTrapezoidal']]],
-  ['_7efuzzyoutput_374',['~FuzzyOutput',['../classFuzzyOutput.html#a931a2ff05056154a6bffb02680eea7d2',1,'FuzzyOutput']]],
-  ['_7efuzzyrule_375',['~FuzzyRule',['../classFuzzyRule.html#a1ebcb627ba73dfeb5e35b55a1bae0d20',1,'FuzzyRule']]],
-  ['_7eheadlights_376',['~Headlights',['../classHeadlights.html#a41ead860fa6da5edbe062d9f3e727a62',1,'Headlights']]],
-  ['_7elogstream_377',['~LogStream',['../classLogStream.html#a1b9d3f792947be5c1238219df612b48c',1,'LogStream']]],
-  ['_7eov7670_378',['~ov7670',['../classov7670.html#a74e4a2a38d95e2707686e710d99f9f41',1,'ov7670']]],
-  ['_7esimplemovingaverage_379',['~SimpleMovingAverage',['../classSimpleMovingAverage.html#a3e23c6cc938b7e4c2644324600bf8b7f',1,'SimpleMovingAverage']]],
-  ['_7esmartnav_380',['~SmartNav',['../classSmartNav.html#a3a6c97017924bff17e6576dca0ac8a37',1,'SmartNav']]],
-  ['_7eutilities_381',['~utilities',['../classutilities.html#adc397072264d0263fa09dec6f4244e09',1,'utilities']]],
-  ['_7ev_5fdemosaic_382',['~v_demosaic',['../classv__demosaic.html#aa0bcb2fa7e57295bd18b7b480e32792d',1,'v_demosaic']]],
-  ['_7evirtualimage_383',['~VirtualImage',['../classVirtualImage.html#a8093e9f8fe41e9ca079b8b79bdd4e261',1,'VirtualImage']]]
+  ['parse_691',['parse',['../classFuzzyAnd.html#a83033b248c9829ddf89a5a90fbef494e',1,'FuzzyAnd::parse()'],['../classFuzzyComparation.html#a506ae9c1adc651db2cc9917b31ab84b7',1,'FuzzyComparation::parse()'],['../classFuzzyControlSystem.html#afea32fdaf4000bc6ec4f23b4f2175d6d',1,'FuzzyControlSystem::parse()'],['../classFuzzyInput.html#aefd8fde0a50045c19ebb2b53495606cd',1,'FuzzyInput::parse()'],['../classFuzzyMembershipTrapezoidal.html#a2b5fdac952432d9c2064620e80e65a48',1,'FuzzyMembershipTrapezoidal::parse()'],['../classFuzzyOutput.html#a8968a467738307b93babadf4f61a7963',1,'FuzzyOutput::parse()'],['../classFuzzyRule.html#ae96b49353cd7900ee6a291c8956b6236',1,'FuzzyRule::parse()']]],
+  ['polarposition_692',['PolarPosition',['../structPolarPosition.html#a2217d544024c482f542f3aa22632d4eb',1,'PolarPosition::PolarPosition()=default'],['../structPolarPosition.html#ad63f38cb542468e86d8b8aa8b9a691c9',1,'PolarPosition::PolarPosition(float angle, float distance)']]],
+  ['polartocartesian_693',['polarToCartesian',['../classPositionEstimator.html#ae65b0bc78e8eaa7ccf5d0e378d5e283e',1,'PositionEstimator']]],
+  ['positionestimator_694',['PositionEstimator',['../classPositionEstimator.html#a80c2b25e44e66b53ef67d09dcb1b706c',1,'PositionEstimator']]],
+  ['processframe_695',['processFrame',['../classFrameProcessor.html#a00ea88b0524a4e0c4944af7fbd59d77b',1,'FrameProcessor']]],
+  ['push_696',['push',['../classLogger.html#a51da8b6c82066ecf46d5afea7d11b3e0',1,'Logger']]]
 ];

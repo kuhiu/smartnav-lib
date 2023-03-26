@@ -1,0 +1,181 @@
+\hypertarget{classSmartEvasion}{}\doxysection{Smart\+Evasion Class Reference}
+\label{classSmartEvasion}\index{SmartEvasion@{SmartEvasion}}
+
+
+{\ttfamily \#include $<$Smart\+Evasion.\+hpp$>$}
+
+
+
+Collaboration diagram for Smart\+Evasion\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSmartEvasion__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSmartEvasion_a61385c415a0ee0dcca94ffdf8157ff8d}{Smart\+Evasion}} ()
+\item 
+\mbox{\hyperlink{classSmartEvasion_af1d793bf30c3d1898ae9334bee8dc4b2}{$\sim$\+Smart\+Evasion}} ()=default
+\item 
+std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classSmartEvasion_ae628a9e0292bdea9c232bed90d3c2a23}{evade}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} curr\+\_\+position, \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} curr\+\_\+arrival\+\_\+point, float curr\+\_\+angle\+\_\+to\+\_\+go, float curr\+\_\+robot\+\_\+angle, std\+::vector$<$ \mbox{\hyperlink{classObstacle}{Obstacle}} $>$ obstacles)
+\begin{DoxyCompactList}\small\item\em Smart evasion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structPolarPosition}{Polar\+Position}} \mbox{\hyperlink{classSmartEvasion_a23c73ad0d1d2666bb3015781c247a78c}{\+\_\+\+\_\+get\+Closest\+Obstacle\+Point}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} curr\+\_\+position, \mbox{\hyperlink{classObstacle}{Obstacle}} obstacle)
+\begin{DoxyCompactList}\small\item\em Get the closest obstacle point relative to the current position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPolarPosition}{Polar\+Position}} \mbox{\hyperlink{classSmartEvasion_ac975fd6c926a51a657fe11baece68ca7}{\+\_\+\+\_\+get\+Furthest\+Obstacle\+Point}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} curr\+\_\+position, \mbox{\hyperlink{classObstacle}{Obstacle}} obstacle)
+\begin{DoxyCompactList}\small\item\em Get the furthes obstacle point relative to the current position. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSmartEvasion_a0a7733b7749b81b4c201535ffdb3b2d4}{\+\_\+\+\_\+get\+Difference}} (float b1, float b2)
+\begin{DoxyCompactList}\small\item\em Get the difference between two bearings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}} $>$ \mbox{\hyperlink{classSmartEvasion_ae93a2a4eaae2e2e6794ecb657775fca7}{\+\_\+\+\_\+fuzzy\+\_\+system\+\_\+stage\+\_\+1}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}} $>$ \mbox{\hyperlink{classSmartEvasion_a8043dc149100ec72ceafc4487878b9b9}{\+\_\+\+\_\+fuzzy\+\_\+system\+\_\+stage\+\_\+2}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classSmartEvasion_a9a4d1b9ec19cfe98518a6ac855cf6c0b}{\+\_\+\+\_\+\+FUZZY\+\_\+\+S1\+\_\+\+JSON}} \{\char`\"{}/usr/bin/\mbox{\hyperlink{classSmartEvasion}{Smart\+Evasion}}-\/stage-\/1.json\char`\"{}\}
+\item 
+static constexpr auto \mbox{\hyperlink{classSmartEvasion_a8f50bdeef325af15dcdf02a987c50195}{\+\_\+\+\_\+\+FUZZY\+\_\+\+S2\+\_\+\+JSON}} \{\char`\"{}/usr/bin/\mbox{\hyperlink{classSmartEvasion}{Smart\+Evasion}}-\/stage-\/2.json\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSmartEvasion_a61385c415a0ee0dcca94ffdf8157ff8d}\label{classSmartEvasion_a61385c415a0ee0dcca94ffdf8157ff8d}} 
+\index{SmartEvasion@{SmartEvasion}!SmartEvasion@{SmartEvasion}}
+\index{SmartEvasion@{SmartEvasion}!SmartEvasion@{SmartEvasion}}
+\doxysubsubsection{\texorpdfstring{SmartEvasion()}{SmartEvasion()}}
+{\footnotesize\ttfamily Smart\+Evasion\+::\+Smart\+Evasion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Evasion constructor \mbox{\Hypertarget{classSmartEvasion_af1d793bf30c3d1898ae9334bee8dc4b2}\label{classSmartEvasion_af1d793bf30c3d1898ae9334bee8dc4b2}} 
+\index{SmartEvasion@{SmartEvasion}!````~SmartEvasion@{$\sim$SmartEvasion}}
+\index{````~SmartEvasion@{$\sim$SmartEvasion}!SmartEvasion@{SmartEvasion}}
+\doxysubsubsection{\texorpdfstring{$\sim$SmartEvasion()}{~SmartEvasion()}}
+{\footnotesize\ttfamily Smart\+Evasion\+::$\sim$\+Smart\+Evasion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Evasion destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSmartEvasion_a23c73ad0d1d2666bb3015781c247a78c}\label{classSmartEvasion_a23c73ad0d1d2666bb3015781c247a78c}} 
+\index{SmartEvasion@{SmartEvasion}!\_\_getClosestObstaclePoint@{\_\_getClosestObstaclePoint}}
+\index{\_\_getClosestObstaclePoint@{\_\_getClosestObstaclePoint}!SmartEvasion@{SmartEvasion}}
+\doxysubsubsection{\texorpdfstring{\_\_getClosestObstaclePoint()}{\_\_getClosestObstaclePoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPolarPosition}{Polar\+Position}} Smart\+Evasion\+::\+\_\+\+\_\+get\+Closest\+Obstacle\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{curr\+\_\+position,  }\item[{\mbox{\hyperlink{classObstacle}{Obstacle}}}]{obstacle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the closest obstacle point relative to the current position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em curr\+\_\+position} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structPolarPosition}{Polar\+Position}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSmartEvasion_a0a7733b7749b81b4c201535ffdb3b2d4}\label{classSmartEvasion_a0a7733b7749b81b4c201535ffdb3b2d4}} 
+\index{SmartEvasion@{SmartEvasion}!\_\_getDifference@{\_\_getDifference}}
+\index{\_\_getDifference@{\_\_getDifference}!SmartEvasion@{SmartEvasion}}
+\doxysubsubsection{\texorpdfstring{\_\_getDifference()}{\_\_getDifference()}}
+{\footnotesize\ttfamily float Smart\+Evasion\+::\+\_\+\+\_\+get\+Difference (\begin{DoxyParamCaption}\item[{float}]{b1,  }\item[{float}]{b2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the difference between two bearings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b1} & \\
+\hline
+{\em b2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSmartEvasion_ac975fd6c926a51a657fe11baece68ca7}\label{classSmartEvasion_ac975fd6c926a51a657fe11baece68ca7}} 
+\index{SmartEvasion@{SmartEvasion}!\_\_getFurthestObstaclePoint@{\_\_getFurthestObstaclePoint}}
+\index{\_\_getFurthestObstaclePoint@{\_\_getFurthestObstaclePoint}!SmartEvasion@{SmartEvasion}}
+\doxysubsubsection{\texorpdfstring{\_\_getFurthestObstaclePoint()}{\_\_getFurthestObstaclePoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPolarPosition}{Polar\+Position}} Smart\+Evasion\+::\+\_\+\+\_\+get\+Furthest\+Obstacle\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{curr\+\_\+position,  }\item[{\mbox{\hyperlink{classObstacle}{Obstacle}}}]{obstacle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the furthes obstacle point relative to the current position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em curr\+\_\+position} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structPolarPosition}{Polar\+Position}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSmartEvasion_ae628a9e0292bdea9c232bed90d3c2a23}\label{classSmartEvasion_ae628a9e0292bdea9c232bed90d3c2a23}} 
+\index{SmartEvasion@{SmartEvasion}!evade@{evade}}
+\index{evade@{evade}!SmartEvasion@{SmartEvasion}}
+\doxysubsubsection{\texorpdfstring{evade()}{evade()}}
+{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Smart\+Evasion\+::evade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{curr\+\_\+position,  }\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{curr\+\_\+arrival\+\_\+point,  }\item[{float}]{curr\+\_\+angle\+\_\+to\+\_\+go,  }\item[{float}]{curr\+\_\+robot\+\_\+angle,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classObstacle}{Obstacle}} $>$}]{obstacles }\end{DoxyParamCaption})}
+
+
+
+Smart evasion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em curr\+\_\+position} & \\
+\hline
+{\em curr\+\_\+arrival\+\_\+point} & \\
+\hline
+{\em brightness} & \\
+\hline
+{\em curr\+\_\+angle\+\_\+to\+\_\+go} & \\
+\hline
+{\em curr\+\_\+robot\+\_\+angle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$float, float$>$ 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSmartEvasion_a9a4d1b9ec19cfe98518a6ac855cf6c0b}\label{classSmartEvasion_a9a4d1b9ec19cfe98518a6ac855cf6c0b}} 
+\index{SmartEvasion@{SmartEvasion}!\_\_FUZZY\_S1\_JSON@{\_\_FUZZY\_S1\_JSON}}
+\index{\_\_FUZZY\_S1\_JSON@{\_\_FUZZY\_S1\_JSON}!SmartEvasion@{SmartEvasion}}
+\doxysubsubsection{\texorpdfstring{\_\_FUZZY\_S1\_JSON}{\_\_FUZZY\_S1\_JSON}}
+{\footnotesize\ttfamily constexpr const char $\ast$ Smart\+Evasion\+::\+\_\+\+\_\+\+FUZZY\+\_\+\+S1\+\_\+\+JSON \{\char`\"{}/usr/bin/\mbox{\hyperlink{classSmartEvasion}{Smart\+Evasion}}-\/stage-\/1.json\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+JSON file which describes the fuzzy system \mbox{\Hypertarget{classSmartEvasion_a8f50bdeef325af15dcdf02a987c50195}\label{classSmartEvasion_a8f50bdeef325af15dcdf02a987c50195}} 
+\index{SmartEvasion@{SmartEvasion}!\_\_FUZZY\_S2\_JSON@{\_\_FUZZY\_S2\_JSON}}
+\index{\_\_FUZZY\_S2\_JSON@{\_\_FUZZY\_S2\_JSON}!SmartEvasion@{SmartEvasion}}
+\doxysubsubsection{\texorpdfstring{\_\_FUZZY\_S2\_JSON}{\_\_FUZZY\_S2\_JSON}}
+{\footnotesize\ttfamily constexpr const char $\ast$ Smart\+Evasion\+::\+\_\+\+\_\+\+FUZZY\+\_\+\+S2\+\_\+\+JSON \{\char`\"{}/usr/bin/\mbox{\hyperlink{classSmartEvasion}{Smart\+Evasion}}-\/stage-\/2.json\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSmartEvasion_ae93a2a4eaae2e2e6794ecb657775fca7}\label{classSmartEvasion_ae93a2a4eaae2e2e6794ecb657775fca7}} 
+\index{SmartEvasion@{SmartEvasion}!\_\_fuzzy\_system\_stage\_1@{\_\_fuzzy\_system\_stage\_1}}
+\index{\_\_fuzzy\_system\_stage\_1@{\_\_fuzzy\_system\_stage\_1}!SmartEvasion@{SmartEvasion}}
+\doxysubsubsection{\texorpdfstring{\_\_fuzzy\_system\_stage\_1}{\_\_fuzzy\_system\_stage\_1}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}}$>$ Smart\+Evasion\+::\+\_\+\+\_\+fuzzy\+\_\+system\+\_\+stage\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+Fuzzy control system object\+: STAGE 1 \mbox{\Hypertarget{classSmartEvasion_a8043dc149100ec72ceafc4487878b9b9}\label{classSmartEvasion_a8043dc149100ec72ceafc4487878b9b9}} 
+\index{SmartEvasion@{SmartEvasion}!\_\_fuzzy\_system\_stage\_2@{\_\_fuzzy\_system\_stage\_2}}
+\index{\_\_fuzzy\_system\_stage\_2@{\_\_fuzzy\_system\_stage\_2}!SmartEvasion@{SmartEvasion}}
+\doxysubsubsection{\texorpdfstring{\_\_fuzzy\_system\_stage\_2}{\_\_fuzzy\_system\_stage\_2}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}}$>$ Smart\+Evasion\+::\+\_\+\+\_\+fuzzy\+\_\+system\+\_\+stage\+\_\+2\hspace{0.3cm}{\ttfamily [private]}}
+
+Fuzzy control system object\+: STAGE 2 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Smart\+Evasion/\mbox{\hyperlink{SmartEvasion_8hpp}{Smart\+Evasion.\+hpp}}\item 
+Smart\+Evasion/\mbox{\hyperlink{SmartEvasion_8cpp}{Smart\+Evasion.\+cpp}}\end{DoxyCompactItemize}

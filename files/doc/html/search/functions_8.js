@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['operator_3d_343',['operator=',['../classLogger.html#ae14ecca1071f841760f40b5a1398580c',1,'Logger']]],
-  ['ov7670_344',['ov7670',['../classov7670.html#a59327d7b9287e7ffd30acad86a685cf7',1,'ov7670']]]
+  ['headlights_677',['Headlights',['../classHeadlights.html#ae485f84c22253e94295c8798e65b7403',1,'Headlights']]]
 ];

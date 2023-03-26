@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['trapezoidalpoints_248',['TrapezoidalPoints',['../structFuzzyMembershipTrapezoidal_1_1TrapezoidalPoints.html',1,'FuzzyMembershipTrapezoidal']]]
+  ['polarposition_506',['PolarPosition',['../structPolarPosition.html',1,'']]],
+  ['position_507',['position',['../structDriver_1_1position.html',1,'Driver']]],
+  ['positionestimator_508',['PositionEstimator',['../classPositionEstimator.html',1,'']]]
 ];

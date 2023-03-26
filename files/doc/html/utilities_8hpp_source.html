@@ -74,28 +74,22 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="classutilities.html">    4</a></span>&#160;<span class="keyword">class </span><a class="code" href="classutilities.html">utilities</a> {</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classutilities.html#a5478276ad5b91e88895c947b0b5b7efa">    7</a></span>&#160;  <a class="code" href="classutilities.html#a5478276ad5b91e88895c947b0b5b7efa">utilities</a>();</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classutilities.html#adc397072264d0263fa09dec6f4244e09">    9</a></span>&#160;  <a class="code" href="classutilities.html#adc397072264d0263fa09dec6f4244e09">~utilities</a>();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// Start measuring time</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="utilities_8hpp.html#a2edb601d67a7b9c69ceb35b7887ed862">   16</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="utilities_8hpp.html#a2edb601d67a7b9c69ceb35b7887ed862">begin</a> = std::chrono::system_clock::now();</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classutilities.html#a5478276ad5b91e88895c947b0b5b7efa">    7</a></span>&#160;  <a class="code" href="classutilities.html#a5478276ad5b91e88895c947b0b5b7efa">utilities</a>() {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  };</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classutilities.html#adc397072264d0263fa09dec6f4244e09">   11</a></span>&#160;  <a class="code" href="classutilities.html#adc397072264d0263fa09dec6f4244e09">~utilities</a>() {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  };</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="utilities_8hpp.html#a6be7d98960df33edf9f3998a9e8b2407">   18</a></span>&#160;        <span class="keyword">auto</span> <a class="code" href="utilities_8hpp.html#a6be7d98960df33edf9f3998a9e8b2407">end</a> = std::chrono::system_clock::now();</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="utilities_8hpp.html#aa53955121e2d594bceff6fe784bcfbb9">   19</a></span>&#160;        <span class="keyword">auto</span> <a class="code" href="utilities_8hpp.html#aa53955121e2d594bceff6fe784bcfbb9">elapsed</a> = std::chrono::duration_cast&lt;std::chrono::nanoseconds&gt;(<a class="code" href="utilities_8hpp.html#a6be7d98960df33edf9f3998a9e8b2407">end</a> - <a class="code" href="utilities_8hpp.html#a2edb601d67a7b9c69ceb35b7887ed862">begin</a>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="utilities_8hpp.html#a7fffde3437ed8e9e05f93cdf82ea7235">   20</a></span>&#160;        <a class="code" href="utilities_8hpp.html#a7fffde3437ed8e9e05f93cdf82ea7235">printf</a>(<span class="stringliteral">&quot;Time measured: %.3f seconds.\n&quot;</span>, <a class="code" href="utilities_8hpp.html#aa53955121e2d594bceff6fe784bcfbb9">elapsed</a>.count() * 1e-9);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        std::this_thread::sleep_for(std::chrono::milliseconds(250));</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CA3B3897_B288_488A_A614_DDBFCDA9CF19 */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CA3B3897_B288_488A_A614_DDBFCDA9CF19 */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aclassutilities_html"><div class="ttname"><a href="classutilities.html">utilities</a></div><div class="ttdef"><b>Definition:</b> utilities.hpp:4</div></div>
-<div class="ttc" id="aclassutilities_html_a5478276ad5b91e88895c947b0b5b7efa"><div class="ttname"><a href="classutilities.html#a5478276ad5b91e88895c947b0b5b7efa">utilities::utilities</a></div><div class="ttdeci">utilities()</div></div>
-<div class="ttc" id="aclassutilities_html_adc397072264d0263fa09dec6f4244e09"><div class="ttname"><a href="classutilities.html#adc397072264d0263fa09dec6f4244e09">utilities::~utilities</a></div><div class="ttdeci">~utilities()</div></div>
-<div class="ttc" id="autilities_8hpp_html_a2edb601d67a7b9c69ceb35b7887ed862"><div class="ttname"><a href="utilities_8hpp.html#a2edb601d67a7b9c69ceb35b7887ed862">begin</a></div><div class="ttdeci">auto begin</div><div class="ttdef"><b>Definition:</b> utilities.hpp:16</div></div>
-<div class="ttc" id="autilities_8hpp_html_a6be7d98960df33edf9f3998a9e8b2407"><div class="ttname"><a href="utilities_8hpp.html#a6be7d98960df33edf9f3998a9e8b2407">end</a></div><div class="ttdeci">auto end</div><div class="ttdef"><b>Definition:</b> utilities.hpp:18</div></div>
-<div class="ttc" id="autilities_8hpp_html_a7fffde3437ed8e9e05f93cdf82ea7235"><div class="ttname"><a href="utilities_8hpp.html#a7fffde3437ed8e9e05f93cdf82ea7235">printf</a></div><div class="ttdeci">printf(&quot;Time measured: %.3f seconds.\n&quot;, elapsed.count() *1e-9)</div></div>
-<div class="ttc" id="autilities_8hpp_html_aa53955121e2d594bceff6fe784bcfbb9"><div class="ttname"><a href="utilities_8hpp.html#aa53955121e2d594bceff6fe784bcfbb9">elapsed</a></div><div class="ttdeci">auto elapsed</div><div class="ttdef"><b>Definition:</b> utilities.hpp:19</div></div>
+<div class="ttc" id="aclassutilities_html_a5478276ad5b91e88895c947b0b5b7efa"><div class="ttname"><a href="classutilities.html#a5478276ad5b91e88895c947b0b5b7efa">utilities::utilities</a></div><div class="ttdeci">utilities()</div><div class="ttdef"><b>Definition:</b> utilities.hpp:7</div></div>
+<div class="ttc" id="aclassutilities_html_adc397072264d0263fa09dec6f4244e09"><div class="ttname"><a href="classutilities.html#adc397072264d0263fa09dec6f4244e09">utilities::~utilities</a></div><div class="ttdeci">~utilities()</div><div class="ttdef"><b>Definition:</b> utilities.hpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

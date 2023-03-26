@@ -1,4 +1,22 @@
 var searchData=
 [
-  ['trapezoidalpoints_174',['TrapezoidalPoints',['../structFuzzyMembershipTrapezoidal_1_1TrapezoidalPoints.html',1,'FuzzyMembershipTrapezoidal']]]
+  ['saveasjpg_392',['saveAsJpg',['../classVirtualImage.html#a90d8f763f55cbe4c03e8bce5845449bc',1,'VirtualImage']]],
+  ['sbggr8_5f1x8_393',['SBGGR8_1X8',['../classov7670.html#af7ab8d02f25b0b77e708c7e56db7bfe9aa3aed9bf473706ce8f677e6a2b4e8678',1,'ov7670']]],
+  ['score_394',['score',['../structRecognitionResult.html#a439ce8c1ab5341f45f834617b7f605b8',1,'RecognitionResult']]],
+  ['sendblocking_395',['sendBlocking',['../classmailbox.html#a47dad576b5b90b9c8e8706370424a4c8',1,'mailbox']]],
+  ['setsaveframe_396',['setSaveFrame',['../classCaptureFrame.html#ac3bb151a26d6c5235972ef1d258459d3',1,'CaptureFrame']]],
+  ['setvalue_397',['setValue',['../classFuzzyMembership.html#a15a507c9817019034a25d24bbf334144',1,'FuzzyMembership']]],
+  ['simplemovingaverage_398',['SimpleMovingAverage',['../classSimpleMovingAverage.html',1,'SimpleMovingAverage'],['../classSimpleMovingAverage.html#ad974c2ea8547b31f839bc4be19df16ee',1,'SimpleMovingAverage::SimpleMovingAverage()']]],
+  ['simplemovingaverage_2ehpp_399',['SimpleMovingAverage.hpp',['../SimpleMovingAverage_8hpp.html',1,'']]],
+  ['smartevasion_400',['SmartEvasion',['../classSmartEvasion.html',1,'SmartEvasion'],['../classSmartEvasion.html#a61385c415a0ee0dcca94ffdf8157ff8d',1,'SmartEvasion::SmartEvasion()']]],
+  ['smartevasion_2ecpp_401',['SmartEvasion.cpp',['../SmartEvasion_8cpp.html',1,'']]],
+  ['smartevasion_2ehpp_402',['SmartEvasion.hpp',['../SmartEvasion_8hpp.html',1,'']]],
+  ['smartlights_403',['SmartLights',['../classSmartLights.html',1,'SmartLights'],['../classSmartLights.html#af90548d1469fde47e07429b02e8c121e',1,'SmartLights::SmartLights()']]],
+  ['smartlights_2ehpp_404',['SmartLights.hpp',['../SmartLights_8hpp.html',1,'']]],
+  ['smartnav_405',['SmartNav',['../classSmartNav.html',1,'SmartNav'],['../classSmartNav.html#aa18911a296b47a1ea6f612e05df09f73',1,'SmartNav::SmartNav()']]],
+  ['smartnav_2ecpp_406',['SmartNav.cpp',['../SmartNav_8cpp.html',1,'']]],
+  ['smartnav_2ehpp_407',['SmartNav.hpp',['../SmartNav_8hpp.html',1,'']]],
+  ['start_408',['start',['../structCaptureFrame_1_1ImageBuffer.html#afc1f4fe6431c7cfb570e197d00a74584',1,'CaptureFrame::ImageBuffer']]],
+  ['stepstracker_409',['StepsTracker',['../structTracker_1_1StepsTracker.html#a2dbc64419fe3111c2a7af4550d6388bd',1,'Tracker::StepsTracker::StepsTracker()'],['../structTracker_1_1StepsTracker.html',1,'Tracker::StepsTracker']]],
+  ['stop_410',['stop',['../classSmartNav.html#a7e6e478f88471acb10ca4ae360c81cdc',1,'SmartNav']]]
 ];

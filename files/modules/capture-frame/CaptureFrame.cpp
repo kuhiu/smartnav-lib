@@ -12,7 +12,7 @@
 
 #include <CaptureFrame.hpp>
 
-#define DEBUG_CAPTURE 1
+//#define DEBUG_CAPTURE 1
 #if defined(DEBUG_CAPTURE) 
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)
@@ -250,7 +250,6 @@ void CaptureFrame::__startCapturing() {
 		ret = __xioctl(__fd, VIDIOC_STREAMON, &type);
 		DEBUG_PRINT("Waitting strem on.\n");
 	}
-
 	DEBUG_PRINT("Video stream on termino ioctl\n");
 }
 
@@ -285,7 +284,6 @@ bool CaptureFrame::__readFrame(int frame_number) {
 		__brightness = rgb_image->getBrightness();
 	}
 	// Callback
-	DEBUG_PRINT("Ejecuto la callback. \n");
 	__cb(rgb_image, this);
 	// Deallocate image
 	rgb_image = nullptr;

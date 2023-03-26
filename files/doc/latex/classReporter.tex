@@ -1,0 +1,110 @@
+\hypertarget{classReporter}{}\doxysection{Reporter Class Reference}
+\label{classReporter}\index{Reporter@{Reporter}}
+
+
+{\ttfamily \#include $<$Reporter.\+hpp$>$}
+
+
+
+Collaboration diagram for Reporter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classReporter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classReporter_abfeef245f958814a2a136b4203526486}{Reporter}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTracker}{Tracker}} $>$ tracker)
+\item 
+\mbox{\hyperlink{classReporter_acbacf4155d5fe9e4a8e833d785e76880}{$\sim$\+Reporter}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classReporter_abdd0ca3b82ced3cc1f1e368a25cbb287}{\+\_\+\+\_\+report}} ()
+\begin{DoxyCompactList}\small\item\em Report the status of the tracker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTracker}{Tracker}} $>$ \mbox{\hyperlink{classReporter_a02c6c8d4405a9912f5f3ff76f0f058ff}{\+\_\+\+\_\+tracker}}
+\item 
+std\+::ofstream \mbox{\hyperlink{classReporter_ad45c169c3fce3e8639784d5504b96d07}{\+\_\+\+\_\+file}}
+\item 
+bool \mbox{\hyperlink{classReporter_a6c7ecb6fa65484e01bb206a5c380a504}{\+\_\+\+\_\+is\+\_\+running}} = false
+\item 
+std\+::thread \mbox{\hyperlink{classReporter_aee779e69e6371c2ad3db3aa4fee40037}{\+\_\+\+\_\+reporter\+\_\+thread}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr const char $\ast$ \mbox{\hyperlink{classReporter_ac0a09ebaefd58967240505dfbb13f29c}{\+\_\+\+\_\+\+FILE}} = \{\char`\"{}/home/root/history.\+json\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classReporter_abfeef245f958814a2a136b4203526486}\label{classReporter_abfeef245f958814a2a136b4203526486}} 
+\index{Reporter@{Reporter}!Reporter@{Reporter}}
+\index{Reporter@{Reporter}!Reporter@{Reporter}}
+\doxysubsubsection{\texorpdfstring{Reporter()}{Reporter()}}
+{\footnotesize\ttfamily Reporter\+::\+Reporter (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTracker}{Tracker}} $>$}]{tracker }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classReporter}{Reporter}} constructor \mbox{\Hypertarget{classReporter_acbacf4155d5fe9e4a8e833d785e76880}\label{classReporter_acbacf4155d5fe9e4a8e833d785e76880}} 
+\index{Reporter@{Reporter}!````~Reporter@{$\sim$Reporter}}
+\index{````~Reporter@{$\sim$Reporter}!Reporter@{Reporter}}
+\doxysubsubsection{\texorpdfstring{$\sim$Reporter()}{~Reporter()}}
+{\footnotesize\ttfamily Reporter\+::$\sim$\+Reporter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classReporter}{Reporter}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classReporter_abdd0ca3b82ced3cc1f1e368a25cbb287}\label{classReporter_abdd0ca3b82ced3cc1f1e368a25cbb287}} 
+\index{Reporter@{Reporter}!\_\_report@{\_\_report}}
+\index{\_\_report@{\_\_report}!Reporter@{Reporter}}
+\doxysubsubsection{\texorpdfstring{\_\_report()}{\_\_report()}}
+{\footnotesize\ttfamily void Reporter\+::\+\_\+\+\_\+report (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Report the status of the tracker. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classReporter_ac0a09ebaefd58967240505dfbb13f29c}\label{classReporter_ac0a09ebaefd58967240505dfbb13f29c}} 
+\index{Reporter@{Reporter}!\_\_FILE@{\_\_FILE}}
+\index{\_\_FILE@{\_\_FILE}!Reporter@{Reporter}}
+\doxysubsubsection{\texorpdfstring{\_\_FILE}{\_\_FILE}}
+{\footnotesize\ttfamily constexpr const char$\ast$ Reporter\+::\+\_\+\+\_\+\+FILE = \{\char`\"{}/home/root/history.\+json\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+File name where the history positions are saved \mbox{\Hypertarget{classReporter_ad45c169c3fce3e8639784d5504b96d07}\label{classReporter_ad45c169c3fce3e8639784d5504b96d07}} 
+\index{Reporter@{Reporter}!\_\_file@{\_\_file}}
+\index{\_\_file@{\_\_file}!Reporter@{Reporter}}
+\doxysubsubsection{\texorpdfstring{\_\_file}{\_\_file}}
+{\footnotesize\ttfamily std\+::ofstream Reporter\+::\+\_\+\+\_\+file\hspace{0.3cm}{\ttfamily [private]}}
+
+File stream \mbox{\Hypertarget{classReporter_a6c7ecb6fa65484e01bb206a5c380a504}\label{classReporter_a6c7ecb6fa65484e01bb206a5c380a504}} 
+\index{Reporter@{Reporter}!\_\_is\_running@{\_\_is\_running}}
+\index{\_\_is\_running@{\_\_is\_running}!Reporter@{Reporter}}
+\doxysubsubsection{\texorpdfstring{\_\_is\_running}{\_\_is\_running}}
+{\footnotesize\ttfamily bool Reporter\+::\+\_\+\+\_\+is\+\_\+running = false\hspace{0.3cm}{\ttfamily [private]}}
+
+Thread status \mbox{\Hypertarget{classReporter_aee779e69e6371c2ad3db3aa4fee40037}\label{classReporter_aee779e69e6371c2ad3db3aa4fee40037}} 
+\index{Reporter@{Reporter}!\_\_reporter\_thread@{\_\_reporter\_thread}}
+\index{\_\_reporter\_thread@{\_\_reporter\_thread}!Reporter@{Reporter}}
+\doxysubsubsection{\texorpdfstring{\_\_reporter\_thread}{\_\_reporter\_thread}}
+{\footnotesize\ttfamily std\+::thread Reporter\+::\+\_\+\+\_\+reporter\+\_\+thread\hspace{0.3cm}{\ttfamily [private]}}
+
+Thread \mbox{\Hypertarget{classReporter_a02c6c8d4405a9912f5f3ff76f0f058ff}\label{classReporter_a02c6c8d4405a9912f5f3ff76f0f058ff}} 
+\index{Reporter@{Reporter}!\_\_tracker@{\_\_tracker}}
+\index{\_\_tracker@{\_\_tracker}!Reporter@{Reporter}}
+\doxysubsubsection{\texorpdfstring{\_\_tracker}{\_\_tracker}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classTracker}{Tracker}}$>$ Reporter\+::\+\_\+\+\_\+tracker\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classTracker}{Tracker}} object 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+modules/reporter/\mbox{\hyperlink{Reporter_8hpp}{Reporter.\+hpp}}\end{DoxyCompactItemize}

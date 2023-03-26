@@ -1,0 +1,12 @@
+<map id="modules/mailbox/mailbox.hpp" name="modules/mailbox/mailbox.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="519,5,739,32"/>
+<area shape="rect" id="node2" href="$PositionEstimator_8hpp.html" title=" " alt="" coords="528,80,731,121"/>
+<area shape="rect" id="node3" href="$Obstacle_8hpp.html" title=" " alt="" coords="261,177,488,203"/>
+<area shape="rect" id="node6" href="$SmartNav_8hpp.html" title=" " alt="" coords="257,408,372,435"/>
+<area shape="rect" id="node8" href="$SmartEvasion_8hpp.html" title=" " alt="" coords="389,259,624,285"/>
+<area shape="rect" id="node10" href="$PositionEstimator_8cpp.html" title=" " alt="" coords="712,169,915,211"/>
+<area shape="rect" id="node4" href="$Tracker_8hpp.html" title=" " alt="" coords="73,259,277,285"/>
+<area shape="rect" id="node5" href="$Reporter_8hpp.html" title=" " alt="" coords="5,333,227,360"/>
+<area shape="rect" id="node7" href="$SmartNav_8cpp.html" title=" " alt="" coords="258,483,371,509"/>
+<area shape="rect" id="node9" href="$SmartEvasion_8cpp.html" title=" " alt="" coords="403,333,637,360"/>
+</map>

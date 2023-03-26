@@ -1,0 +1,232 @@
+\hypertarget{classTracker}{}\doxysection{Tracker Class Reference}
+\label{classTracker}\index{Tracker@{Tracker}}
+
+
+{\ttfamily \#include $<$Tracker.\+hpp$>$}
+
+
+
+Collaboration diagram for Tracker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTracker__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTracker_1_1StepsTracker}{Steps\+Tracker}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTracker_adf214393a14e8bf23de2fc8231e239ec}{Tracker}} ()
+\item 
+\mbox{\hyperlink{classTracker_ab97ba6c2369cd6f9d332c337cf1af59c}{$\sim$\+Tracker}} ()=default
+\item 
+void \mbox{\hyperlink{classTracker_acc2ad02d8ed55bca6f1a9aabaa413418}{add\+Target}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} target)
+\begin{DoxyCompactList}\small\item\em Add a new target (thread safe) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classTracker_a8b0a804865fdf2b81a1901f52760c391}{get\+Target\+To\+Reach}} () const
+\begin{DoxyCompactList}\small\item\em Get the current Target To Reach. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTracker_a37ef35095ab123818b83ece76e9d9c9a}{target\+Reached}} ()
+\begin{DoxyCompactList}\small\item\em Remove the target reached (thread safe) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTracker_ab22f2953fc924678a1acad36ed8b444f}{add\+Obstacle}} (\mbox{\hyperlink{classObstacle}{Obstacle}} obstacle)
+\begin{DoxyCompactList}\small\item\em Add a new obstacle (thread safe) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTracker_af4451f7dfefb9fe9876ab1b096d377d7}{add\+Recognized\+Object}} (\mbox{\hyperlink{structRecognitionResult}{Recognition\+Result}} object)
+\begin{DoxyCompactList}\small\item\em Add a new recognition object (thread safe) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTracker_a21ec94cf53b92b93087844e40fee506a}{add\+Steps\+Tracker}} (\mbox{\hyperlink{structTracker_1_1StepsTracker}{Steps\+Tracker}} steps\+\_\+tracker)
+\begin{DoxyCompactList}\small\item\em Add a new steps tracker (thread safe) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTracker_a493ee2d1385314d980a6a3ce0fa5b32e}{is\+Targets\+Empty}} () const
+\begin{DoxyCompactList}\small\item\em Check if there are targets to reach. \end{DoxyCompactList}\item 
+nlohmann\+::json \mbox{\hyperlink{classTracker_ab690b00fffd9c20af19354b2e988d999}{to\+Json}} ()
+\begin{DoxyCompactList}\small\item\em Convert \mbox{\hyperlink{classTracker}{Tracker}} object to JSON (thread safe) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mutex \mbox{\hyperlink{classTracker_a898deb10e8da8998073e9fa80839ff68}{\+\_\+\+\_\+tracker\+\_\+guard}}
+\item 
+const \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classTracker_a440941fef72ca21fed2bdcdb85dded20}{\+\_\+\+\_\+origin}}
+\item 
+std\+::deque$<$ \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} $>$ \mbox{\hyperlink{classTracker_a711bd4331c2169f693994fa835a5766d}{\+\_\+\+\_\+targets}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classObstacle}{Obstacle}} $>$ \mbox{\hyperlink{classTracker_a978660e5b9617ac0457c6775f95d2572}{\+\_\+\+\_\+obstacles}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structRecognitionResult}{Recognition\+Result}} $>$ \mbox{\hyperlink{classTracker_a6df3bc767ced863e01f7ec0c0cca4752}{\+\_\+\+\_\+recognized\+\_\+objects}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structTracker_1_1StepsTracker}{Steps\+Tracker}} $>$ \mbox{\hyperlink{classTracker_aac78e9e06cd79a314cbf7472455d056b}{\+\_\+\+\_\+steps\+\_\+trackers}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTracker_adf214393a14e8bf23de2fc8231e239ec}\label{classTracker_adf214393a14e8bf23de2fc8231e239ec}} 
+\index{Tracker@{Tracker}!Tracker@{Tracker}}
+\index{Tracker@{Tracker}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{Tracker()}{Tracker()}}
+{\footnotesize\ttfamily Tracker\+::\+Tracker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classTracker}{Tracker}} constructor \mbox{\Hypertarget{classTracker_ab97ba6c2369cd6f9d332c337cf1af59c}\label{classTracker_ab97ba6c2369cd6f9d332c337cf1af59c}} 
+\index{Tracker@{Tracker}!````~Tracker@{$\sim$Tracker}}
+\index{````~Tracker@{$\sim$Tracker}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{$\sim$Tracker()}{~Tracker()}}
+{\footnotesize\ttfamily Tracker\+::$\sim$\+Tracker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Utilities destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTracker_ab22f2953fc924678a1acad36ed8b444f}\label{classTracker_ab22f2953fc924678a1acad36ed8b444f}} 
+\index{Tracker@{Tracker}!addObstacle@{addObstacle}}
+\index{addObstacle@{addObstacle}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{addObstacle()}{addObstacle()}}
+{\footnotesize\ttfamily void Tracker\+::add\+Obstacle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObstacle}{Obstacle}}}]{obstacle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new obstacle (thread safe) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obstacle} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTracker_af4451f7dfefb9fe9876ab1b096d377d7}\label{classTracker_af4451f7dfefb9fe9876ab1b096d377d7}} 
+\index{Tracker@{Tracker}!addRecognizedObject@{addRecognizedObject}}
+\index{addRecognizedObject@{addRecognizedObject}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{addRecognizedObject()}{addRecognizedObject()}}
+{\footnotesize\ttfamily void Tracker\+::add\+Recognized\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structRecognitionResult}{Recognition\+Result}}}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new recognition object (thread safe) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTracker_a21ec94cf53b92b93087844e40fee506a}\label{classTracker_a21ec94cf53b92b93087844e40fee506a}} 
+\index{Tracker@{Tracker}!addStepsTracker@{addStepsTracker}}
+\index{addStepsTracker@{addStepsTracker}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{addStepsTracker()}{addStepsTracker()}}
+{\footnotesize\ttfamily void Tracker\+::add\+Steps\+Tracker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTracker_1_1StepsTracker}{Steps\+Tracker}}}]{steps\+\_\+tracker }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new steps tracker (thread safe) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em steps\+\_\+tracker} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTracker_acc2ad02d8ed55bca6f1a9aabaa413418}\label{classTracker_acc2ad02d8ed55bca6f1a9aabaa413418}} 
+\index{Tracker@{Tracker}!addTarget@{addTarget}}
+\index{addTarget@{addTarget}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{addTarget()}{addTarget()}}
+{\footnotesize\ttfamily void Tracker\+::add\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new target (thread safe) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTracker_a8b0a804865fdf2b81a1901f52760c391}\label{classTracker_a8b0a804865fdf2b81a1901f52760c391}} 
+\index{Tracker@{Tracker}!getTargetToReach@{getTargetToReach}}
+\index{getTargetToReach@{getTargetToReach}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{getTargetToReach()}{getTargetToReach()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Tracker\+::get\+Target\+To\+Reach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the current Target To Reach. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTracker_a493ee2d1385314d980a6a3ce0fa5b32e}\label{classTracker_a493ee2d1385314d980a6a3ce0fa5b32e}} 
+\index{Tracker@{Tracker}!isTargetsEmpty@{isTargetsEmpty}}
+\index{isTargetsEmpty@{isTargetsEmpty}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{isTargetsEmpty()}{isTargetsEmpty()}}
+{\footnotesize\ttfamily bool Tracker\+::is\+Targets\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if there are targets to reach. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTracker_a37ef35095ab123818b83ece76e9d9c9a}\label{classTracker_a37ef35095ab123818b83ece76e9d9c9a}} 
+\index{Tracker@{Tracker}!targetReached@{targetReached}}
+\index{targetReached@{targetReached}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{targetReached()}{targetReached()}}
+{\footnotesize\ttfamily void Tracker\+::target\+Reached (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove the target reached (thread safe) 
+
+\mbox{\Hypertarget{classTracker_ab690b00fffd9c20af19354b2e988d999}\label{classTracker_ab690b00fffd9c20af19354b2e988d999}} 
+\index{Tracker@{Tracker}!toJson@{toJson}}
+\index{toJson@{toJson}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{toJson()}{toJson()}}
+{\footnotesize\ttfamily nlohmann\+::json Tracker\+::to\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Convert \mbox{\hyperlink{classTracker}{Tracker}} object to JSON (thread safe) 
+
+\begin{DoxyReturn}{Returns}
+nlohmann\+::json 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classTracker_a978660e5b9617ac0457c6775f95d2572}\label{classTracker_a978660e5b9617ac0457c6775f95d2572}} 
+\index{Tracker@{Tracker}!\_\_obstacles@{\_\_obstacles}}
+\index{\_\_obstacles@{\_\_obstacles}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{\_\_obstacles}{\_\_obstacles}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classObstacle}{Obstacle}}$>$ Tracker\+::\+\_\+\+\_\+obstacles\hspace{0.3cm}{\ttfamily [private]}}
+
+Absolute Obstacles positions \mbox{\Hypertarget{classTracker_a440941fef72ca21fed2bdcdb85dded20}\label{classTracker_a440941fef72ca21fed2bdcdb85dded20}} 
+\index{Tracker@{Tracker}!\_\_origin@{\_\_origin}}
+\index{\_\_origin@{\_\_origin}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{\_\_origin}{\_\_origin}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Tracker\+::\+\_\+\+\_\+origin\hspace{0.3cm}{\ttfamily [private]}}
+
+Absolute Origin point position \mbox{\Hypertarget{classTracker_a6df3bc767ced863e01f7ec0c0cca4752}\label{classTracker_a6df3bc767ced863e01f7ec0c0cca4752}} 
+\index{Tracker@{Tracker}!\_\_recognized\_objects@{\_\_recognized\_objects}}
+\index{\_\_recognized\_objects@{\_\_recognized\_objects}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{\_\_recognized\_objects}{\_\_recognized\_objects}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structRecognitionResult}{Recognition\+Result}}$>$ Tracker\+::\+\_\+\+\_\+recognized\+\_\+objects\hspace{0.3cm}{\ttfamily [private]}}
+
+Recognized objects (CNN outputs) \mbox{\Hypertarget{classTracker_aac78e9e06cd79a314cbf7472455d056b}\label{classTracker_aac78e9e06cd79a314cbf7472455d056b}} 
+\index{Tracker@{Tracker}!\_\_steps\_trackers@{\_\_steps\_trackers}}
+\index{\_\_steps\_trackers@{\_\_steps\_trackers}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{\_\_steps\_trackers}{\_\_steps\_trackers}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structTracker_1_1StepsTracker}{Steps\+Tracker}}$>$ Tracker\+::\+\_\+\+\_\+steps\+\_\+trackers\hspace{0.3cm}{\ttfamily [private]}}
+
+Steps trackers \mbox{\Hypertarget{classTracker_a711bd4331c2169f693994fa835a5766d}\label{classTracker_a711bd4331c2169f693994fa835a5766d}} 
+\index{Tracker@{Tracker}!\_\_targets@{\_\_targets}}
+\index{\_\_targets@{\_\_targets}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{\_\_targets}{\_\_targets}}
+{\footnotesize\ttfamily std\+::deque$<$\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}$>$ Tracker\+::\+\_\+\+\_\+targets\hspace{0.3cm}{\ttfamily [private]}}
+
+Absolute Targets positions \mbox{\Hypertarget{classTracker_a898deb10e8da8998073e9fa80839ff68}\label{classTracker_a898deb10e8da8998073e9fa80839ff68}} 
+\index{Tracker@{Tracker}!\_\_tracker\_guard@{\_\_tracker\_guard}}
+\index{\_\_tracker\_guard@{\_\_tracker\_guard}!Tracker@{Tracker}}
+\doxysubsubsection{\texorpdfstring{\_\_tracker\_guard}{\_\_tracker\_guard}}
+{\footnotesize\ttfamily std\+::mutex Tracker\+::\+\_\+\+\_\+tracker\+\_\+guard\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classTracker}{Tracker}} guard 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+modules/tracker/\mbox{\hyperlink{Tracker_8hpp}{Tracker.\+hpp}}\end{DoxyCompactItemize}
