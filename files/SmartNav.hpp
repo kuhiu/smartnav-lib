@@ -140,29 +140,13 @@ private:
    * @param rel_target_from_curr_pos Relative target position to the current position 
    * @return float: Angle where i have to go. left [0:180], right [0:-180]
    */
-  float whereHaveToGo(CartesianPosition rel_target_from_curr_pos) {
+  float __whereHaveToGo(CartesianPosition rel_target_from_curr_pos) {
     //ret.distance = std::sqrt(std::pow(dx, 2) + std::pow(dy, 2));
     float angle = atan2(rel_target_from_curr_pos.y, rel_target_from_curr_pos.x) * 180.0 / M_PI;
     if (angle > 180.0)
       angle = angle - 360;
     return angle;
   };
-  /**
-   * @brief Get the Closest Position object
-   * 
-   * @param obstacle 
-   * @return PolarPosition 
-   */
-  PolarPosition getClosestPosition(Obstacle obstacle) {
-    PolarPosition closest;
-    PolarPosition obstacle_center = __position_estimator.cartensianToPolar(obstacle.getPosition());
-    PolarPosition obstacle_leftmost = __position_estimator.cartensianToPolar(obstacle.getLeftmostPoint());
-    PolarPosition obstacle_rightmost = __position_estimator.cartensianToPolar(obstacle.getRightmostPoint());
-    
-    closest = obstacle_center;
-    if (obstacle_leftmost.distance < closest.distance)
-    return closest;
-  }; 
 
 };
 

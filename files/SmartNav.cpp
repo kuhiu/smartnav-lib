@@ -65,7 +65,7 @@ void SmartNav::__navigation() {
                                             rel_target_from_curr_pos);
       __tracker->addStepsTracker(steps_tracker);
       // Get the current direction where i've to go to reach my target
-      curr_angle_to_target = whereHaveToGo(rel_target_from_curr_pos);
+      curr_angle_to_target = __whereHaveToGo(rel_target_from_curr_pos);
       // Get sensors distance
       std::vector<int> distances = __distance_sensor.getDistances();
       if (distances.size() != 3)
