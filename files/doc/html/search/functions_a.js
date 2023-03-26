@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['resetmembershipfuntions_349',['resetMembershipFuntions',['../classFuzzyIO.html#a79a37961c781f4cb3e339974af2aa9bd',1,'FuzzyIO']]],
-  ['resetvalue_350',['resetValue',['../classFuzzyMembership.html#a4be1698d2af62b2503537b3ab8912d65',1,'FuzzyMembership']]],
-  ['resize_351',['resize',['../classVirtualImage.html#ad5ff7a4aca9080e99d4669c01c9b2b2f',1,'VirtualImage']]]
+  ['leveltostring_681',['levelToString',['../classLogStream.html#a6e7dfbe0040b7495b266f5501ecbc43e',1,'LogStream']]],
+  ['loadtime_682',['loadTime',['../classDecayGraph.html#a1a7322546bf0942e951d401e4bbe509e',1,'DecayGraph']]],
+  ['log_683',['log',['../classLogger.html#a61ea3cdc4ae6732558e58b2b9ca6d7d3',1,'Logger']]],
+  ['logger_684',['Logger',['../classLogger.html#a0d21ab21689125fbb5e91584e4f37baa',1,'Logger::Logger(Logger const &amp;)=delete'],['../classLogger.html#abc41bfb031d896170c7675fa96a6b30c',1,'Logger::Logger()']]],
+  ['logstream_685',['LogStream',['../classLogStream.html#a3d58fa63bbe99689d2fee507f955be2a',1,'LogStream']]]
 ];

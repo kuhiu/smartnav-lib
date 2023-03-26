@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['v_5fdemosaic_2ecpp_295',['v_demosaic.cpp',['../v__demosaic_8cpp.html',1,'']]],
-  ['v_5fdemosaic_2ehpp_296',['v_demosaic.hpp',['../v__demosaic_8hpp.html',1,'']]],
-  ['virtualimage_2ecpp_297',['VirtualImage.cpp',['../VirtualImage_8cpp.html',1,'']]],
-  ['virtualimage_2ehpp_298',['VirtualImage.hpp',['../VirtualImage_8hpp.html',1,'']]]
+  ['recognitionresult_2ehpp_567',['RecognitionResult.hpp',['../RecognitionResult_8hpp.html',1,'']]],
+  ['registers_2ehpp_568',['Registers.hpp',['../Registers_8hpp.html',1,'']]],
+  ['reporter_2ehpp_569',['Reporter.hpp',['../Reporter_8hpp.html',1,'']]]
 ];

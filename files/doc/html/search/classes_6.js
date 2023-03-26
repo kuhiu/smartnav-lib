@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ov7670_244',['ov7670',['../classov7670.html',1,'']]]
+  ['logger_501',['Logger',['../classLogger.html',1,'']]],
+  ['logstream_502',['LogStream',['../classLogStream.html',1,'']]]
 ];

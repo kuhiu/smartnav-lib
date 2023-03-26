@@ -1,9 +1,13 @@
 <map id="modules/fuzzy&#45;control&#45;system/FuzzyAnd.hpp" name="modules/fuzzy&#45;control&#45;system/FuzzyAnd.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="157,5,327,47"/>
-<area shape="rect" id="node2" href="$FuzzyAnd_8cpp.html" title=" " alt="" coords="61,95,229,136"/>
-<area shape="rect" id="node3" href="$FuzzyRule_8hpp.html" title=" " alt="" coords="253,95,426,136"/>
-<area shape="rect" id="node4" href="$FuzzyControlSystem_8hpp.html" title=" " alt="" coords="105,184,345,225"/>
-<area shape="rect" id="node7" href="$FuzzyRule_8cpp.html" title=" " alt="" coords="369,184,541,225"/>
+<area shape="rect" id="node1" title=" " alt="" coords="396,5,565,47"/>
+<area shape="rect" id="node2" href="$FuzzyAnd_8cpp.html" title=" " alt="" coords="299,95,467,136"/>
+<area shape="rect" id="node3" href="$FuzzyRule_8hpp.html" title=" " alt="" coords="491,95,665,136"/>
+<area shape="rect" id="node4" href="$FuzzyControlSystem_8hpp.html" title=" " alt="" coords="343,184,583,225"/>
+<area shape="rect" id="node11" href="$FuzzyRule_8cpp.html" title=" " alt="" coords="608,184,780,225"/>
 <area shape="rect" id="node5" href="$FuzzyControlSystem_8cpp.html" title=" " alt="" coords="5,273,244,315"/>
-<area shape="rect" id="node6" href="$SmartNav_8hpp.html" title=" " alt="" coords="269,281,383,307"/>
+<area shape="rect" id="node6" href="$SmartEvasion_8hpp.html" title=" " alt="" coords="269,281,503,307"/>
+<area shape="rect" id="node8" href="$SmartNav_8hpp.html" title=" " alt="" coords="505,363,619,389"/>
+<area shape="rect" id="node10" href="$SmartLights_8hpp.html" title=" " alt="" coords="578,281,789,307"/>
+<area shape="rect" id="node7" href="$SmartEvasion_8cpp.html" title=" " alt="" coords="247,363,480,389"/>
+<area shape="rect" id="node9" href="$SmartNav_8cpp.html" title=" " alt="" coords="505,437,619,464"/>
 </map>

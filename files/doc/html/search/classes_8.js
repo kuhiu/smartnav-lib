@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['simplemovingaverage_246',['SimpleMovingAverage',['../classSimpleMovingAverage.html',1,'']]],
-  ['smartnav_247',['SmartNav',['../classSmartNav.html',1,'']]]
+  ['obstacle_504',['Obstacle',['../classObstacle.html',1,'']]],
+  ['ov7670_505',['ov7670',['../classov7670.html',1,'']]]
 ];

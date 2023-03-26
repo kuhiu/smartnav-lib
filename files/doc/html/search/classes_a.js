@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['utilities_249',['utilities',['../classutilities.html',1,'']]]
+  ['recognitionresult_509',['RecognitionResult',['../structRecognitionResult.html',1,'']]],
+  ['reporter_510',['Reporter',['../classReporter.html',1,'']]]
 ];

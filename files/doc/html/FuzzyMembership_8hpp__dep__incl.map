@@ -1,20 +1,24 @@
 <map id="modules/fuzzy&#45;control&#45;system/FuzzyMembership.hpp" name="modules/fuzzy&#45;control&#45;system/FuzzyMembership.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="231,5,457,47"/>
-<area shape="rect" id="node2" href="$FuzzyIO_8hpp.html" title=" " alt="" coords="261,95,427,136"/>
-<area shape="rect" id="node15" href="$FuzzyOutput_8hpp.html" title=" " alt="" coords="129,184,317,225"/>
-<area shape="rect" id="node17" href="$FuzzyMembershipTrapezoidal_8hpp.html" title=" " alt="" coords="452,95,751,136"/>
-<area shape="rect" id="node3" href="$FuzzyInput_8hpp.html" title=" " alt="" coords="513,184,690,225"/>
-<area shape="rect" id="node4" href="$FuzzyComparation_8hpp.html" title=" " alt="" coords="311,363,539,404"/>
-<area shape="rect" id="node7" href="$FuzzyRule_8hpp.html" title=" " alt="" coords="465,541,639,583"/>
-<area shape="rect" id="node8" href="$FuzzyControlSystem_8hpp.html" title=" " alt="" coords="316,631,556,672"/>
-<area shape="rect" id="node13" href="$FuzzyCondition_8hpp.html" title=" " alt="" coords="357,273,563,315"/>
-<area shape="rect" id="node14" href="$FuzzyInput_8cpp.html" title=" " alt="" coords="741,273,917,315"/>
-<area shape="rect" id="node5" href="$FuzzyAnd_8hpp.html" title=" " alt="" coords="94,452,263,493"/>
-<area shape="rect" id="node12" href="$FuzzyComparation_8cpp.html" title=" " alt="" coords="288,452,515,493"/>
-<area shape="rect" id="node6" href="$FuzzyAnd_8cpp.html" title=" " alt="" coords="95,541,263,583"/>
-<area shape="rect" id="node11" href="$FuzzyRule_8cpp.html" title=" " alt="" coords="581,631,753,672"/>
-<area shape="rect" id="node9" href="$FuzzyControlSystem_8cpp.html" title=" " alt="" coords="217,720,455,761"/>
-<area shape="rect" id="node10" href="$SmartNav_8hpp.html" title=" " alt="" coords="480,727,595,754"/>
-<area shape="rect" id="node16" href="$FuzzyOutput_8cpp.html" title=" " alt="" coords="145,273,332,315"/>
-<area shape="rect" id="node18" href="$FuzzyMembershipTrapezoidal_8cpp.html" title=" " alt="" coords="715,184,1013,225"/>
+<area shape="rect" id="node1" title=" " alt="" coords="259,5,484,47"/>
+<area shape="rect" id="node2" href="$FuzzyIO_8hpp.html" title=" " alt="" coords="288,95,455,136"/>
+<area shape="rect" id="node19" href="$FuzzyOutput_8hpp.html" title=" " alt="" coords="156,184,344,225"/>
+<area shape="rect" id="node21" href="$FuzzyMembershipTrapezoidal_8hpp.html" title=" " alt="" coords="479,95,778,136"/>
+<area shape="rect" id="node3" href="$FuzzyInput_8hpp.html" title=" " alt="" coords="540,184,717,225"/>
+<area shape="rect" id="node4" href="$FuzzyComparation_8hpp.html" title=" " alt="" coords="339,363,567,404"/>
+<area shape="rect" id="node7" href="$FuzzyRule_8hpp.html" title=" " alt="" coords="493,541,666,583"/>
+<area shape="rect" id="node8" href="$FuzzyControlSystem_8hpp.html" title=" " alt="" coords="343,631,583,672"/>
+<area shape="rect" id="node17" href="$FuzzyCondition_8hpp.html" title=" " alt="" coords="384,273,591,315"/>
+<area shape="rect" id="node18" href="$FuzzyInput_8cpp.html" title=" " alt="" coords="769,273,945,315"/>
+<area shape="rect" id="node5" href="$FuzzyAnd_8hpp.html" title=" " alt="" coords="121,452,291,493"/>
+<area shape="rect" id="node16" href="$FuzzyComparation_8cpp.html" title=" " alt="" coords="315,452,542,493"/>
+<area shape="rect" id="node6" href="$FuzzyAnd_8cpp.html" title=" " alt="" coords="122,541,290,583"/>
+<area shape="rect" id="node15" href="$FuzzyRule_8cpp.html" title=" " alt="" coords="608,631,780,672"/>
+<area shape="rect" id="node9" href="$FuzzyControlSystem_8cpp.html" title=" " alt="" coords="5,720,244,761"/>
+<area shape="rect" id="node10" href="$SmartEvasion_8hpp.html" title=" " alt="" coords="269,727,503,754"/>
+<area shape="rect" id="node12" href="$SmartNav_8hpp.html" title=" " alt="" coords="505,809,619,836"/>
+<area shape="rect" id="node14" href="$SmartLights_8hpp.html" title=" " alt="" coords="578,727,789,754"/>
+<area shape="rect" id="node11" href="$SmartEvasion_8cpp.html" title=" " alt="" coords="247,809,480,836"/>
+<area shape="rect" id="node13" href="$SmartNav_8cpp.html" title=" " alt="" coords="505,884,619,911"/>
+<area shape="rect" id="node20" href="$FuzzyOutput_8cpp.html" title=" " alt="" coords="173,273,359,315"/>
+<area shape="rect" id="node22" href="$FuzzyMembershipTrapezoidal_8cpp.html" title=" " alt="" coords="742,184,1041,225"/>
 </map>

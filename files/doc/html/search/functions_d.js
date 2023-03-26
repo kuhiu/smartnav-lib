@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['v_5fdemosaic_358',['v_demosaic',['../classv__demosaic.html#a23bc874f2ccd792c08fe18ba374da83e',1,'v_demosaic']]],
-  ['virtualimage_359',['VirtualImage',['../classVirtualImage.html#af6e029f195b35d77a8288f26b45c6129',1,'VirtualImage::VirtualImage(uint32_t width, uint32_t height, uint32_t channels)'],['../classVirtualImage.html#a7cca973d7cf6e955eadb5e4de667c12a',1,'VirtualImage::VirtualImage(uint32_t width, uint32_t height, uint32_t channels, ColorSpaces color_space, void *data)']]]
+  ['obstacle_688',['Obstacle',['../classObstacle.html#a794aec8376b74e96c4ab40c63bd45864',1,'Obstacle']]],
+  ['operator_3d_689',['operator=',['../classLogger.html#ae14ecca1071f841760f40b5a1398580c',1,'Logger']]],
+  ['ov7670_690',['ov7670',['../classov7670.html#a59327d7b9287e7ffd30acad86a685cf7',1,'ov7670']]]
 ];

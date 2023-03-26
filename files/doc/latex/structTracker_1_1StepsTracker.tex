@@ -1,0 +1,94 @@
+\hypertarget{structTracker_1_1StepsTracker}{}\doxysection{Tracker\+::Steps\+Tracker Struct Reference}
+\label{structTracker_1_1StepsTracker}\index{Tracker::StepsTracker@{Tracker::StepsTracker}}
+
+
+{\ttfamily \#include $<$Tracker.\+hpp$>$}
+
+
+
+Collaboration diagram for Tracker\+::Steps\+Tracker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structTracker_1_1StepsTracker__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structTracker_1_1StepsTracker_a2dbc64419fe3111c2a7af4550d6388bd}{Steps\+Tracker}} (int timestamp, float angle\+\_\+history, \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} position\+\_\+history, \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} rel\+\_\+target\+\_\+from\+\_\+curr\+\_\+pos)
+\item 
+nlohmann\+::json \mbox{\hyperlink{structTracker_1_1StepsTracker_ac4089a1f072ace7fe55723dcbce6a22f}{to\+Json}} () const
+\begin{DoxyCompactList}\small\item\em Conver the \mbox{\hyperlink{structTracker_1_1StepsTracker}{Steps\+Tracker}} to JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structTracker_1_1StepsTracker_abca47406758ea693fc7e18d7ed9e60db}{\+\_\+\+\_\+timestamp}}
+\item 
+float \mbox{\hyperlink{structTracker_1_1StepsTracker_ab236230983c5a243213b45d302ad867c}{\+\_\+\+\_\+angle\+\_\+history}}
+\item 
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{structTracker_1_1StepsTracker_a8bdf5c4187396e9d28b4aa966759c264}{\+\_\+\+\_\+position\+\_\+history}}
+\item 
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{structTracker_1_1StepsTracker_a670b40d7df7144091ecf8481a0273502}{\+\_\+\+\_\+rel\+\_\+target\+\_\+from\+\_\+curr\+\_\+pos}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structTracker_1_1StepsTracker}{Steps\+Tracker}} struct 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structTracker_1_1StepsTracker_a2dbc64419fe3111c2a7af4550d6388bd}\label{structTracker_1_1StepsTracker_a2dbc64419fe3111c2a7af4550d6388bd}} 
+\index{Tracker::StepsTracker@{Tracker::StepsTracker}!StepsTracker@{StepsTracker}}
+\index{StepsTracker@{StepsTracker}!Tracker::StepsTracker@{Tracker::StepsTracker}}
+\doxysubsubsection{\texorpdfstring{StepsTracker()}{StepsTracker()}}
+{\footnotesize\ttfamily Tracker\+::\+Steps\+Tracker\+::\+Steps\+Tracker (\begin{DoxyParamCaption}\item[{int}]{timestamp,  }\item[{float}]{angle\+\_\+history,  }\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{position\+\_\+history,  }\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{rel\+\_\+target\+\_\+from\+\_\+curr\+\_\+pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{structTracker_1_1StepsTracker}{Steps\+Tracker}} constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structTracker_1_1StepsTracker_ac4089a1f072ace7fe55723dcbce6a22f}\label{structTracker_1_1StepsTracker_ac4089a1f072ace7fe55723dcbce6a22f}} 
+\index{Tracker::StepsTracker@{Tracker::StepsTracker}!toJson@{toJson}}
+\index{toJson@{toJson}!Tracker::StepsTracker@{Tracker::StepsTracker}}
+\doxysubsubsection{\texorpdfstring{toJson()}{toJson()}}
+{\footnotesize\ttfamily nlohmann\+::json Tracker\+::\+Steps\+Tracker\+::to\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Conver the \mbox{\hyperlink{structTracker_1_1StepsTracker}{Steps\+Tracker}} to JSON. 
+
+\begin{DoxyReturn}{Returns}
+nlohmann\+::json 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structTracker_1_1StepsTracker_ab236230983c5a243213b45d302ad867c}\label{structTracker_1_1StepsTracker_ab236230983c5a243213b45d302ad867c}} 
+\index{Tracker::StepsTracker@{Tracker::StepsTracker}!\_\_angle\_history@{\_\_angle\_history}}
+\index{\_\_angle\_history@{\_\_angle\_history}!Tracker::StepsTracker@{Tracker::StepsTracker}}
+\doxysubsubsection{\texorpdfstring{\_\_angle\_history}{\_\_angle\_history}}
+{\footnotesize\ttfamily float Tracker\+::\+Steps\+Tracker\+::\+\_\+\+\_\+angle\+\_\+history}
+
+Angle\+: Absolute angle to where the robot was looking \mbox{\Hypertarget{structTracker_1_1StepsTracker_a8bdf5c4187396e9d28b4aa966759c264}\label{structTracker_1_1StepsTracker_a8bdf5c4187396e9d28b4aa966759c264}} 
+\index{Tracker::StepsTracker@{Tracker::StepsTracker}!\_\_position\_history@{\_\_position\_history}}
+\index{\_\_position\_history@{\_\_position\_history}!Tracker::StepsTracker@{Tracker::StepsTracker}}
+\doxysubsubsection{\texorpdfstring{\_\_position\_history}{\_\_position\_history}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Tracker\+::\+Steps\+Tracker\+::\+\_\+\+\_\+position\+\_\+history}
+
+Absolute historical position points \mbox{\Hypertarget{structTracker_1_1StepsTracker_a670b40d7df7144091ecf8481a0273502}\label{structTracker_1_1StepsTracker_a670b40d7df7144091ecf8481a0273502}} 
+\index{Tracker::StepsTracker@{Tracker::StepsTracker}!\_\_rel\_target\_from\_curr\_pos@{\_\_rel\_target\_from\_curr\_pos}}
+\index{\_\_rel\_target\_from\_curr\_pos@{\_\_rel\_target\_from\_curr\_pos}!Tracker::StepsTracker@{Tracker::StepsTracker}}
+\doxysubsubsection{\texorpdfstring{\_\_rel\_target\_from\_curr\_pos}{\_\_rel\_target\_from\_curr\_pos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Tracker\+::\+Steps\+Tracker\+::\+\_\+\+\_\+rel\+\_\+target\+\_\+from\+\_\+curr\+\_\+pos}
+
+Historical target position\+: Relative to the currect position \mbox{\Hypertarget{structTracker_1_1StepsTracker_abca47406758ea693fc7e18d7ed9e60db}\label{structTracker_1_1StepsTracker_abca47406758ea693fc7e18d7ed9e60db}} 
+\index{Tracker::StepsTracker@{Tracker::StepsTracker}!\_\_timestamp@{\_\_timestamp}}
+\index{\_\_timestamp@{\_\_timestamp}!Tracker::StepsTracker@{Tracker::StepsTracker}}
+\doxysubsubsection{\texorpdfstring{\_\_timestamp}{\_\_timestamp}}
+{\footnotesize\ttfamily int Tracker\+::\+Steps\+Tracker\+::\+\_\+\+\_\+timestamp}
+
+Timestamp 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+modules/tracker/\mbox{\hyperlink{Tracker_8hpp}{Tracker.\+hpp}}\end{DoxyCompactItemize}

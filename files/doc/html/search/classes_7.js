@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['recognitionresult_245',['RecognitionResult',['../structRecognitionResult.html',1,'']]]
+  ['mailbox_503',['mailbox',['../classmailbox.html',1,'']]]
 ];

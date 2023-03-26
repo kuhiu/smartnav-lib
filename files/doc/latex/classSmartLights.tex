@@ -1,0 +1,86 @@
+\hypertarget{classSmartLights}{}\doxysection{Smart\+Lights Class Reference}
+\label{classSmartLights}\index{SmartLights@{SmartLights}}
+
+
+{\ttfamily \#include $<$Smart\+Lights.\+hpp$>$}
+
+
+
+Collaboration diagram for Smart\+Lights\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSmartLights__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSmartLights_af90548d1469fde47e07429b02e8c121e}{Smart\+Lights}} ()
+\item 
+\mbox{\hyperlink{classSmartLights_ac2babcf67793d0db9887644a76c20e37}{$\sim$\+Smart\+Lights}} ()=default
+\item 
+float \mbox{\hyperlink{classSmartLights_aca330d12c47b1861f9c1b57e3d55b13d}{evaluate}} (float brightness)
+\begin{DoxyCompactList}\small\item\em Evaluate the input with the fuzzy control system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}} $>$ \mbox{\hyperlink{classSmartLights_ab423e94074dddf648501a4829d7c1867}{\+\_\+\+\_\+fuzzy\+\_\+system\+\_\+stage\+\_\+1}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classSmartLights_a9a3c86d992fe50e36fb0355f41821511}{\+\_\+\+\_\+\+FUZZY\+\_\+\+S1\+\_\+\+JSON}} \{\char`\"{}/usr/bin/\mbox{\hyperlink{classSmartLights}{Smart\+Lights}}-\/stage-\/1.json\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSmartLights_af90548d1469fde47e07429b02e8c121e}\label{classSmartLights_af90548d1469fde47e07429b02e8c121e}} 
+\index{SmartLights@{SmartLights}!SmartLights@{SmartLights}}
+\index{SmartLights@{SmartLights}!SmartLights@{SmartLights}}
+\doxysubsubsection{\texorpdfstring{SmartLights()}{SmartLights()}}
+{\footnotesize\ttfamily Smart\+Lights\+::\+Smart\+Lights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classSmartLights}{Smart\+Lights}} constructor \mbox{\Hypertarget{classSmartLights_ac2babcf67793d0db9887644a76c20e37}\label{classSmartLights_ac2babcf67793d0db9887644a76c20e37}} 
+\index{SmartLights@{SmartLights}!````~SmartLights@{$\sim$SmartLights}}
+\index{````~SmartLights@{$\sim$SmartLights}!SmartLights@{SmartLights}}
+\doxysubsubsection{\texorpdfstring{$\sim$SmartLights()}{~SmartLights()}}
+{\footnotesize\ttfamily Smart\+Lights\+::$\sim$\+Smart\+Lights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\hyperlink{classSmartLights}{Smart\+Lights}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSmartLights_aca330d12c47b1861f9c1b57e3d55b13d}\label{classSmartLights_aca330d12c47b1861f9c1b57e3d55b13d}} 
+\index{SmartLights@{SmartLights}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!SmartLights@{SmartLights}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily float Smart\+Lights\+::evaluate (\begin{DoxyParamCaption}\item[{float}]{brightness }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Evaluate the input with the fuzzy control system. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSmartLights_a9a3c86d992fe50e36fb0355f41821511}\label{classSmartLights_a9a3c86d992fe50e36fb0355f41821511}} 
+\index{SmartLights@{SmartLights}!\_\_FUZZY\_S1\_JSON@{\_\_FUZZY\_S1\_JSON}}
+\index{\_\_FUZZY\_S1\_JSON@{\_\_FUZZY\_S1\_JSON}!SmartLights@{SmartLights}}
+\doxysubsubsection{\texorpdfstring{\_\_FUZZY\_S1\_JSON}{\_\_FUZZY\_S1\_JSON}}
+{\footnotesize\ttfamily constexpr auto Smart\+Lights\+::\+\_\+\+\_\+\+FUZZY\+\_\+\+S1\+\_\+\+JSON \{\char`\"{}/usr/bin/\mbox{\hyperlink{classSmartLights}{Smart\+Lights}}-\/stage-\/1.json\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+JSON file which describes the fuzzy system \mbox{\Hypertarget{classSmartLights_ab423e94074dddf648501a4829d7c1867}\label{classSmartLights_ab423e94074dddf648501a4829d7c1867}} 
+\index{SmartLights@{SmartLights}!\_\_fuzzy\_system\_stage\_1@{\_\_fuzzy\_system\_stage\_1}}
+\index{\_\_fuzzy\_system\_stage\_1@{\_\_fuzzy\_system\_stage\_1}!SmartLights@{SmartLights}}
+\doxysubsubsection{\texorpdfstring{\_\_fuzzy\_system\_stage\_1}{\_\_fuzzy\_system\_stage\_1}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}}$>$ Smart\+Lights\+::\+\_\+\+\_\+fuzzy\+\_\+system\+\_\+stage\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+Fuzzy control system object\+: STAGE 1 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Smart\+Lights/\mbox{\hyperlink{SmartLights_8hpp}{Smart\+Lights.\+hpp}}\end{DoxyCompactItemize}

@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['v_5fdemosaic_250',['v_demosaic',['../classv__demosaic.html',1,'']]],
-  ['virtualimage_251',['VirtualImage',['../classVirtualImage.html',1,'']]]
+  ['simplemovingaverage_511',['SimpleMovingAverage',['../classSimpleMovingAverage.html',1,'']]],
+  ['smartevasion_512',['SmartEvasion',['../classSmartEvasion.html',1,'']]],
+  ['smartlights_513',['SmartLights',['../classSmartLights.html',1,'']]],
+  ['smartnav_514',['SmartNav',['../classSmartNav.html',1,'']]],
+  ['stepstracker_515',['StepsTracker',['../structTracker_1_1StepsTracker.html',1,'Tracker']]]
 ];
