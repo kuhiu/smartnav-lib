@@ -17,7 +17,7 @@ Collaboration diagram for Obstacle\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classObstacle_a794aec8376b74e96c4ab40c63bd45864}{Obstacle}} (float curr\+\_\+robot\+\_\+angle, float distance\+\_\+to\+\_\+obstacle, \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} curr\+\_\+position, \mbox{\hyperlink{structRecognitionResult}{Recognition\+Result}} recognized\+\_\+object)
+\mbox{\hyperlink{classObstacle_a5dc9a438dd3ca7b4f80ebcaea7d08aef}{Obstacle}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} position, \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} leftmost\+\_\+point, \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} rightmost\+\_\+point)
 \item 
 \mbox{\hyperlink{classObstacle_a9fdd13ed632006e691d98b2959f111d3}{$\sim$\+Obstacle}} ()=default
 \item 
@@ -26,9 +26,7 @@ Collaboration diagram for Obstacle\+:
 \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classObstacle_ab451481accd14561b8e8f79247db5fcd}{get\+Leftmost\+Point}} () const
 \begin{DoxyCompactList}\small\item\em Get the Leftmost Point object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classObstacle_a092c25d2a58613409787bb9c3d312d27}{get\+Rightmost\+Point}} () const
-\begin{DoxyCompactList}\small\item\em Get the Rightmost Point object. \end{DoxyCompactList}\item 
-nlohmann\+::json \mbox{\hyperlink{classObstacle_ad4ff5993baa5d1c7062907585b7c9550}{to\+Json}} (int obstacle\+\_\+num) const
-\begin{DoxyCompactList}\small\item\em Convert the obstacle object to JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the Rightmost Point object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,11 +39,11 @@ nlohmann\+::json \mbox{\hyperlink{classObstacle_ad4ff5993baa5d1c7062907585b7c955
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classObstacle_a794aec8376b74e96c4ab40c63bd45864}\label{classObstacle_a794aec8376b74e96c4ab40c63bd45864}} 
+\mbox{\Hypertarget{classObstacle_a5dc9a438dd3ca7b4f80ebcaea7d08aef}\label{classObstacle_a5dc9a438dd3ca7b4f80ebcaea7d08aef}} 
 \index{Obstacle@{Obstacle}!Obstacle@{Obstacle}}
 \index{Obstacle@{Obstacle}!Obstacle@{Obstacle}}
 \doxysubsubsection{\texorpdfstring{Obstacle()}{Obstacle()}}
-{\footnotesize\ttfamily Obstacle\+::\+Obstacle (\begin{DoxyParamCaption}\item[{float}]{curr\+\_\+robot\+\_\+angle,  }\item[{float}]{distance\+\_\+to\+\_\+obstacle,  }\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{curr\+\_\+position,  }\item[{\mbox{\hyperlink{structRecognitionResult}{Recognition\+Result}}}]{recognized\+\_\+object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Obstacle\+::\+Obstacle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{position,  }\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{leftmost\+\_\+point,  }\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{rightmost\+\_\+point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \mbox{\hyperlink{classObstacle}{Obstacle}} constructor \mbox{\Hypertarget{classObstacle_a9fdd13ed632006e691d98b2959f111d3}\label{classObstacle_a9fdd13ed632006e691d98b2959f111d3}} 
 \index{Obstacle@{Obstacle}!````~Obstacle@{$\sim$Obstacle}}
@@ -94,24 +92,6 @@ Get the Rightmost Point object.
 
 \begin{DoxyReturn}{Returns}
 Dimensions 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classObstacle_ad4ff5993baa5d1c7062907585b7c9550}\label{classObstacle_ad4ff5993baa5d1c7062907585b7c9550}} 
-\index{Obstacle@{Obstacle}!toJson@{toJson}}
-\index{toJson@{toJson}!Obstacle@{Obstacle}}
-\doxysubsubsection{\texorpdfstring{toJson()}{toJson()}}
-{\footnotesize\ttfamily nlohmann\+::json Obstacle\+::to\+Json (\begin{DoxyParamCaption}\item[{int}]{obstacle\+\_\+num }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Convert the obstacle object to JSON. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em obstacle\+\_\+num} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-nlohmann\+::json 
 \end{DoxyReturn}
 
 

@@ -14,14 +14,6 @@
 #include "FuzzyOutput.hpp"
 
 using namespace nlohmann;
-
-#define DEBUG_SYSTEM 1
-#ifdef DEBUG_SYSTEM
-#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
-#else
-#define DEBUG_PRINT(fmt, ...) do {} while (0)
-#endif
-
 class FuzzyControlSystem {
 public:
 	/** FuzzyControlSystem constructor */

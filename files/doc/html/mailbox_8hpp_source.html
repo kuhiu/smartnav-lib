@@ -90,66 +90,67 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classmailbox.html#a0deda45b7bcb613a62c4b709eda2ba45aa5c7757e2c96bfd829e965aa8fd59642">   22</a></span>&#160;    <a class="code" href="classmailbox.html#a0deda45b7bcb613a62c4b709eda2ba45aa5c7757e2c96bfd829e965aa8fd59642">LED_CTRL</a> = 3,</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  };</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classmailbox.html#afdab2ad20b68683e0b4f7039d361ff98">   26</a></span>&#160;  <a class="code" href="classmailbox.html#afdab2ad20b68683e0b4f7039d361ff98">mailbox</a>() {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a> = open(<a class="code" href="classmailbox.html#aed2bbe04a875c5bdca42b32384585c24">__DRIVER</a>, O_RDWR);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a> &lt; 0) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      std::ostringstream err;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      err &lt;&lt; <span class="stringliteral">&quot;Open failed:&quot;</span> &lt;&lt; strerror(errno); </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      <span class="keywordflow">throw</span> std::runtime_error(err.str());</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  };</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classmailbox.html#aa973c0e2b804141bc594c65075a2306a">   35</a></span>&#160;  <a class="code" href="classmailbox.html#aa973c0e2b804141bc594c65075a2306a">~mailbox</a>() {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    close(<a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  };</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classmailbox.html#a47dad576b5b90b9c8e8706370424a4c8">   44</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classmailbox.html#a47dad576b5b90b9c8e8706370424a4c8">sendBlocking</a>(<a class="code" href="classmailbox.html#a0deda45b7bcb613a62c4b709eda2ba45">command</a> cmd, <span class="keywordtype">int</span> arg) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> ret = 0;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    msg_mailbox msg;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    msg.msg[0] = <a class="code" href="classmailbox.html#a2fca2f595284d817b15d3787dfa7c9b6">__START_STREAM</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    msg.msg[1] = cmd;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    msg.msg[2] = arg;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    msg.msg[3] = <a class="code" href="classmailbox.html#a8d17c7051f1185724acab5dd70805c62">__END_STREAM</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ret = ioctl(<a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a>, AXI_MAILBOX_IOC_PUSH_BLOCKING, &amp;msg);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        printf(<span class="stringliteral">&quot;Ioctl failed: %s&quot;</span>, strerror(errno));</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  };</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classmailbox.html#a5677461dc3f07ae43105fe95f3e77fd6">   64</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classmailbox.html#a5677461dc3f07ae43105fe95f3e77fd6">receiveBlocking</a>() {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">int</span> ret = 0;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    msg_mailbox msg;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    ret = ioctl(<a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a>, AXI_MAILBOX_IOC_POP_BLOCKING, &amp;msg);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        printf(<span class="stringliteral">&quot;Ioctl failed: %s&quot;</span>, strerror(errno));</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> msg.msg[2];</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  };</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classmailbox.html#aed2bbe04a875c5bdca42b32384585c24">   78</a></span>&#160;  <span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classmailbox.html#aed2bbe04a875c5bdca42b32384585c24">__DRIVER</a> = {<span class="stringliteral">&quot;/dev/axi_mailbox_0&quot;</span>}; </div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">   80</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classmailbox.html#a2fca2f595284d817b15d3787dfa7c9b6">   82</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classmailbox.html#a2fca2f595284d817b15d3787dfa7c9b6">__START_STREAM</a> = 0xAA;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classmailbox.html#a8d17c7051f1185724acab5dd70805c62">   84</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classmailbox.html#a8d17c7051f1185724acab5dd70805c62">__END_STREAM</a> = 0x55;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* B77A5245_E8C7_4369_BDBB_EA590ED10914 */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classmailbox.html#afdab2ad20b68683e0b4f7039d361ff98">   27</a></span>&#160;  <a class="code" href="classmailbox.html#afdab2ad20b68683e0b4f7039d361ff98">mailbox</a>() {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a> = open(<a class="code" href="classmailbox.html#aed2bbe04a875c5bdca42b32384585c24">__DRIVER</a>, O_RDWR);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a> &lt; 0) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      std::ostringstream err;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      err &lt;&lt; <span class="stringliteral">&quot;Open failed:&quot;</span> &lt;&lt; strerror(errno); </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keywordflow">throw</span> std::runtime_error(err.str());</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  };</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classmailbox.html#aa973c0e2b804141bc594c65075a2306a">   36</a></span>&#160;  <a class="code" href="classmailbox.html#aa973c0e2b804141bc594c65075a2306a">~mailbox</a>() {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    close(<a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  };</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classmailbox.html#a47dad576b5b90b9c8e8706370424a4c8">   45</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classmailbox.html#a47dad576b5b90b9c8e8706370424a4c8">sendBlocking</a>(<a class="code" href="classmailbox.html#a0deda45b7bcb613a62c4b709eda2ba45">command</a> cmd, <span class="keywordtype">int</span> arg) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> ret = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    msg_mailbox msg;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    msg.msg[0] = <a class="code" href="classmailbox.html#a2fca2f595284d817b15d3787dfa7c9b6">__START_STREAM</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    msg.msg[1] = cmd;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    msg.msg[2] = arg;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    msg.msg[3] = <a class="code" href="classmailbox.html#a8d17c7051f1185724acab5dd70805c62">__END_STREAM</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ret = ioctl(<a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a>, AXI_MAILBOX_IOC_PUSH_BLOCKING, &amp;msg);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        printf(<span class="stringliteral">&quot;Ioctl failed: %s&quot;</span>, strerror(errno));</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  };</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classmailbox.html#a5677461dc3f07ae43105fe95f3e77fd6">   65</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classmailbox.html#a5677461dc3f07ae43105fe95f3e77fd6">receiveBlocking</a>() {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> ret = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    msg_mailbox msg;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    ret = ioctl(<a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a>, AXI_MAILBOX_IOC_POP_BLOCKING, &amp;msg);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        printf(<span class="stringliteral">&quot;Ioctl failed: %s&quot;</span>, strerror(errno));</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> msg.msg[2];</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  };</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classmailbox.html#aed2bbe04a875c5bdca42b32384585c24">   79</a></span>&#160;  <span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classmailbox.html#aed2bbe04a875c5bdca42b32384585c24">__DRIVER</a> = {<span class="stringliteral">&quot;/dev/axi_mailbox_0&quot;</span>}; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">   81</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">__fd</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classmailbox.html#a2fca2f595284d817b15d3787dfa7c9b6">   83</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classmailbox.html#a2fca2f595284d817b15d3787dfa7c9b6">__START_STREAM</a> = 0xAA;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classmailbox.html#a8d17c7051f1185724acab5dd70805c62">   85</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classmailbox.html#a8d17c7051f1185724acab5dd70805c62">__END_STREAM</a> = 0x55;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* B77A5245_E8C7_4369_BDBB_EA590ED10914 */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aclassmailbox_html"><div class="ttname"><a href="classmailbox.html">mailbox</a></div><div class="ttdef"><b>Definition:</b> mailbox.hpp:14</div></div>
 <div class="ttc" id="aclassmailbox_html_a0deda45b7bcb613a62c4b709eda2ba45"><div class="ttname"><a href="classmailbox.html#a0deda45b7bcb613a62c4b709eda2ba45">mailbox::command</a></div><div class="ttdeci">command</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:16</div></div>
 <div class="ttc" id="aclassmailbox_html_a0deda45b7bcb613a62c4b709eda2ba45a13fa01b2909ff25b44ca8f5435367629"><div class="ttname"><a href="classmailbox.html#a0deda45b7bcb613a62c4b709eda2ba45a13fa01b2909ff25b44ca8f5435367629">mailbox::ENCODER_1_COUNT</a></div><div class="ttdeci">@ ENCODER_1_COUNT</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:18</div></div>
 <div class="ttc" id="aclassmailbox_html_a0deda45b7bcb613a62c4b709eda2ba45a5f316284c2dfbe3b202d8001d899e407"><div class="ttname"><a href="classmailbox.html#a0deda45b7bcb613a62c4b709eda2ba45a5f316284c2dfbe3b202d8001d899e407">mailbox::ENCODER_2_COUNT</a></div><div class="ttdeci">@ ENCODER_2_COUNT</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:20</div></div>
 <div class="ttc" id="aclassmailbox_html_a0deda45b7bcb613a62c4b709eda2ba45aa5c7757e2c96bfd829e965aa8fd59642"><div class="ttname"><a href="classmailbox.html#a0deda45b7bcb613a62c4b709eda2ba45aa5c7757e2c96bfd829e965aa8fd59642">mailbox::LED_CTRL</a></div><div class="ttdeci">@ LED_CTRL</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:22</div></div>
-<div class="ttc" id="aclassmailbox_html_a2fca2f595284d817b15d3787dfa7c9b6"><div class="ttname"><a href="classmailbox.html#a2fca2f595284d817b15d3787dfa7c9b6">mailbox::__START_STREAM</a></div><div class="ttdeci">const int __START_STREAM</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:82</div></div>
-<div class="ttc" id="aclassmailbox_html_a47dad576b5b90b9c8e8706370424a4c8"><div class="ttname"><a href="classmailbox.html#a47dad576b5b90b9c8e8706370424a4c8">mailbox::sendBlocking</a></div><div class="ttdeci">int sendBlocking(command cmd, int arg)</div><div class="ttdoc">Send a command to the mailbox.</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:44</div></div>
-<div class="ttc" id="aclassmailbox_html_a5677461dc3f07ae43105fe95f3e77fd6"><div class="ttname"><a href="classmailbox.html#a5677461dc3f07ae43105fe95f3e77fd6">mailbox::receiveBlocking</a></div><div class="ttdeci">int receiveBlocking()</div><div class="ttdoc">Read a msg from the mailbox.</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:64</div></div>
-<div class="ttc" id="aclassmailbox_html_a8d17c7051f1185724acab5dd70805c62"><div class="ttname"><a href="classmailbox.html#a8d17c7051f1185724acab5dd70805c62">mailbox::__END_STREAM</a></div><div class="ttdeci">const int __END_STREAM</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:84</div></div>
-<div class="ttc" id="aclassmailbox_html_aa39840010b0d222dadb8f2a1fca2321b"><div class="ttname"><a href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">mailbox::__fd</a></div><div class="ttdeci">int __fd</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:80</div></div>
-<div class="ttc" id="aclassmailbox_html_aa973c0e2b804141bc594c65075a2306a"><div class="ttname"><a href="classmailbox.html#aa973c0e2b804141bc594c65075a2306a">mailbox::~mailbox</a></div><div class="ttdeci">~mailbox()</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:35</div></div>
-<div class="ttc" id="aclassmailbox_html_aed2bbe04a875c5bdca42b32384585c24"><div class="ttname"><a href="classmailbox.html#aed2bbe04a875c5bdca42b32384585c24">mailbox::__DRIVER</a></div><div class="ttdeci">static constexpr const char * __DRIVER</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:78</div></div>
-<div class="ttc" id="aclassmailbox_html_afdab2ad20b68683e0b4f7039d361ff98"><div class="ttname"><a href="classmailbox.html#afdab2ad20b68683e0b4f7039d361ff98">mailbox::mailbox</a></div><div class="ttdeci">mailbox()</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:26</div></div>
+<div class="ttc" id="aclassmailbox_html_a2fca2f595284d817b15d3787dfa7c9b6"><div class="ttname"><a href="classmailbox.html#a2fca2f595284d817b15d3787dfa7c9b6">mailbox::__START_STREAM</a></div><div class="ttdeci">const int __START_STREAM</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:83</div></div>
+<div class="ttc" id="aclassmailbox_html_a47dad576b5b90b9c8e8706370424a4c8"><div class="ttname"><a href="classmailbox.html#a47dad576b5b90b9c8e8706370424a4c8">mailbox::sendBlocking</a></div><div class="ttdeci">int sendBlocking(command cmd, int arg)</div><div class="ttdoc">Send a command to the mailbox.</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:45</div></div>
+<div class="ttc" id="aclassmailbox_html_a5677461dc3f07ae43105fe95f3e77fd6"><div class="ttname"><a href="classmailbox.html#a5677461dc3f07ae43105fe95f3e77fd6">mailbox::receiveBlocking</a></div><div class="ttdeci">int receiveBlocking()</div><div class="ttdoc">Read a msg from the mailbox.</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:65</div></div>
+<div class="ttc" id="aclassmailbox_html_a8d17c7051f1185724acab5dd70805c62"><div class="ttname"><a href="classmailbox.html#a8d17c7051f1185724acab5dd70805c62">mailbox::__END_STREAM</a></div><div class="ttdeci">const int __END_STREAM</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:85</div></div>
+<div class="ttc" id="aclassmailbox_html_aa39840010b0d222dadb8f2a1fca2321b"><div class="ttname"><a href="classmailbox.html#aa39840010b0d222dadb8f2a1fca2321b">mailbox::__fd</a></div><div class="ttdeci">int __fd</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:81</div></div>
+<div class="ttc" id="aclassmailbox_html_aa973c0e2b804141bc594c65075a2306a"><div class="ttname"><a href="classmailbox.html#aa973c0e2b804141bc594c65075a2306a">mailbox::~mailbox</a></div><div class="ttdeci">~mailbox()</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:36</div></div>
+<div class="ttc" id="aclassmailbox_html_aed2bbe04a875c5bdca42b32384585c24"><div class="ttname"><a href="classmailbox.html#aed2bbe04a875c5bdca42b32384585c24">mailbox::__DRIVER</a></div><div class="ttdeci">static constexpr const char * __DRIVER</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:79</div></div>
+<div class="ttc" id="aclassmailbox_html_afdab2ad20b68683e0b4f7039d361ff98"><div class="ttname"><a href="classmailbox.html#afdab2ad20b68683e0b4f7039d361ff98">mailbox::mailbox</a></div><div class="ttdeci">mailbox()</div><div class="ttdef"><b>Definition:</b> mailbox.hpp:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

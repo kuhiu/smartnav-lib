@@ -6,7 +6,8 @@
 
 
 
-Collaboration diagram for Position\+Estimator\+:\nopagebreak
+Collaboration diagram for Position\+Estimator\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,13 +26,10 @@ Collaboration diagram for Position\+Estimator\+:\nopagebreak
 float \mbox{\hyperlink{classPositionEstimator_ae11a4131b7a3338cadb789cacb1585c2}{get\+Current\+Angle}} ()
 \begin{DoxyCompactList}\small\item\em Get the Current Angle object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classPositionEstimator_a27b5ccdede2436a643ff399363fee7a5}{relativize\+Point}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} point)
-\begin{DoxyCompactList}\small\item\em Relativize the point to the current angle direction (Axies rotation) \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static \mbox{\hyperlink{structPolarPosition}{Polar\+Position}} \mbox{\hyperlink{classPositionEstimator_a59e1af1ff832cf21ba9e208548620f41}{cartensian\+To\+Polar}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} cartesian)
+\begin{DoxyCompactList}\small\item\em Axies rotation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPolarPosition}{Polar\+Position}} \mbox{\hyperlink{classPositionEstimator_a1bddee826a0e9a282b9f473d6b9a3bdb}{cartensian\+To\+Polar}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} cartesian)
 \begin{DoxyCompactList}\small\item\em Convert the cartesian position to the polar position. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classPositionEstimator_ae65b0bc78e8eaa7ccf5d0e378d5e283e}{polar\+To\+Cartesian}} (\mbox{\hyperlink{structPolarPosition}{Polar\+Position}} polar)
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classPositionEstimator_a7c14dceea2aa0d0685e5ded1e304857b}{polar\+To\+Cartesian}} (\mbox{\hyperlink{structPolarPosition}{Polar\+Position}} polar)
 \begin{DoxyCompactList}\small\item\em Conver the polar position to the cartesian position. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
@@ -41,11 +39,8 @@ void \mbox{\hyperlink{classPositionEstimator_a7dc5ad5c2579a314eaa2779346e0af79}{
 float \mbox{\hyperlink{classPositionEstimator_a9a232eaf3787af693a54893874205eee}{\+\_\+\+\_\+get\+Traveled\+Distance}} ()
 \begin{DoxyCompactList}\small\item\em Get traveled distance value (thread safe) \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classPositionEstimator_a0a7356b7fd89fd152dd0923b00b15d7f}{\+\_\+\+\_\+count\+To\+Distance}} (int count)
-\begin{DoxyCompactList}\small\item\em Encoder count to distance \mbox{[}cm\mbox{]}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Static Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static float \mbox{\hyperlink{classPositionEstimator_a25fe28b36c26b67294aace9dee57cfcc}{\+\_\+\+\_\+degrees\+\_\+to\+\_\+radians}} (float degrees)
+\begin{DoxyCompactList}\small\item\em Encoder count to distance \mbox{[}cm\mbox{]}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classPositionEstimator_a4207d22b21a8289af821899cf0c269a1}{\+\_\+\+\_\+degrees\+\_\+to\+\_\+radians}} (float degrees)
 \begin{DoxyCompactList}\small\item\em Degree to radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -106,11 +101,11 @@ Encoder count to distance \mbox{[}cm\mbox{]}.
 \begin{DoxyReturn}{Returns}
 float 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classPositionEstimator_a25fe28b36c26b67294aace9dee57cfcc}\label{classPositionEstimator_a25fe28b36c26b67294aace9dee57cfcc}} 
+\mbox{\Hypertarget{classPositionEstimator_a4207d22b21a8289af821899cf0c269a1}\label{classPositionEstimator_a4207d22b21a8289af821899cf0c269a1}} 
 \index{PositionEstimator@{PositionEstimator}!\_\_degrees\_to\_radians@{\_\_degrees\_to\_radians}}
 \index{\_\_degrees\_to\_radians@{\_\_degrees\_to\_radians}!PositionEstimator@{PositionEstimator}}
 \doxysubsubsection{\texorpdfstring{\_\_degrees\_to\_radians()}{\_\_degrees\_to\_radians()}}
-{\footnotesize\ttfamily static float Position\+Estimator\+::\+\_\+\+\_\+degrees\+\_\+to\+\_\+radians (\begin{DoxyParamCaption}\item[{float}]{degrees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily float Position\+Estimator\+::\+\_\+\+\_\+degrees\+\_\+to\+\_\+radians (\begin{DoxyParamCaption}\item[{float}]{degrees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
 
 
@@ -147,11 +142,11 @@ float
 
 Read encoders. 
 
-\mbox{\Hypertarget{classPositionEstimator_a59e1af1ff832cf21ba9e208548620f41}\label{classPositionEstimator_a59e1af1ff832cf21ba9e208548620f41}} 
+\mbox{\Hypertarget{classPositionEstimator_a1bddee826a0e9a282b9f473d6b9a3bdb}\label{classPositionEstimator_a1bddee826a0e9a282b9f473d6b9a3bdb}} 
 \index{PositionEstimator@{PositionEstimator}!cartensianToPolar@{cartensianToPolar}}
 \index{cartensianToPolar@{cartensianToPolar}!PositionEstimator@{PositionEstimator}}
 \doxysubsubsection{\texorpdfstring{cartensianToPolar()}{cartensianToPolar()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{structPolarPosition}{Polar\+Position}} Position\+Estimator\+::cartensian\+To\+Polar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{cartesian }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPolarPosition}{Polar\+Position}} Position\+Estimator\+::cartensian\+To\+Polar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{cartesian }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -191,11 +186,11 @@ Get the Current Position object.
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{structPolarPosition}{Polar\+Position}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classPositionEstimator_ae65b0bc78e8eaa7ccf5d0e378d5e283e}\label{classPositionEstimator_ae65b0bc78e8eaa7ccf5d0e378d5e283e}} 
+\mbox{\Hypertarget{classPositionEstimator_a7c14dceea2aa0d0685e5ded1e304857b}\label{classPositionEstimator_a7c14dceea2aa0d0685e5ded1e304857b}} 
 \index{PositionEstimator@{PositionEstimator}!polarToCartesian@{polarToCartesian}}
 \index{polarToCartesian@{polarToCartesian}!PositionEstimator@{PositionEstimator}}
 \doxysubsubsection{\texorpdfstring{polarToCartesian()}{polarToCartesian()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Position\+Estimator\+::polar\+To\+Cartesian (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPolarPosition}{Polar\+Position}}}]{polar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Position\+Estimator\+::polar\+To\+Cartesian (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPolarPosition}{Polar\+Position}}}]{polar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -217,7 +212,7 @@ Conver the polar position to the cartesian position.
 
 
 
-Relativize the point to the current angle direction (Axies rotation) 
+Axies rotation. 
 
 
 \begin{DoxyParams}{Parameters}

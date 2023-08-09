@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['headlights_499',['Headlights',['../classHeadlights.html',1,'']]]
+  ['imagebuffer_462',['ImageBuffer',['../structCaptureFrame_1_1ImageBuffer.html',1,'CaptureFrame']]]
 ];

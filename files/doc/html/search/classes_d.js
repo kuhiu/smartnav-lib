@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['utilities_518',['utilities',['../classutilities.html',1,'']]]
+  ['v_5fdemosaic_477',['v_demosaic',['../classv__demosaic.html',1,'']]],
+  ['virtualimage_478',['VirtualImage',['../classVirtualImage.html',1,'']]]
 ];

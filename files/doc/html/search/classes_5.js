@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['imagebuffer_500',['ImageBuffer',['../structCaptureFrame_1_1ImageBuffer.html',1,'CaptureFrame']]]
+  ['logger_463',['Logger',['../classLogger.html',1,'']]],
+  ['logstream_464',['LogStream',['../classLogStream.html',1,'']]]
 ];

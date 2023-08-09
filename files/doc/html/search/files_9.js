@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['recognitionresult_2ehpp_567',['RecognitionResult.hpp',['../RecognitionResult_8hpp.html',1,'']]],
-  ['registers_2ehpp_568',['Registers.hpp',['../Registers_8hpp.html',1,'']]],
-  ['reporter_2ehpp_569',['Reporter.hpp',['../Reporter_8hpp.html',1,'']]]
+  ['simplemovingaverage_2ehpp_526',['SimpleMovingAverage.hpp',['../SimpleMovingAverage_8hpp.html',1,'']]],
+  ['smartnav_2ecpp_527',['SmartNav.cpp',['../SmartNav_8cpp.html',1,'']]],
+  ['smartnav_2ehpp_528',['SmartNav.hpp',['../SmartNav_8hpp.html',1,'']]]
 ];

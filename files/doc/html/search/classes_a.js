@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['recognitionresult_509',['RecognitionResult',['../structRecognitionResult.html',1,'']]],
-  ['reporter_510',['Reporter',['../classReporter.html',1,'']]]
+  ['simplemovingaverage_473',['SimpleMovingAverage',['../classSimpleMovingAverage.html',1,'']]],
+  ['smartnav_474',['SmartNav',['../classSmartNav.html',1,'']]]
 ];
