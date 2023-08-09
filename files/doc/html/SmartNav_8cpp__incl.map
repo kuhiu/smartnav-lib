@@ -1,79 +1,73 @@
 <map id="SmartNav.cpp" name="SmartNav.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="3515,5,3629,32"/>
-<area shape="rect" id="node2" href="$SmartNav_8hpp.html" title=" " alt="" coords="3515,80,3629,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="3283,304,3349,331"/>
-<area shape="rect" id="node4" title=" " alt="" coords="3674,229,3747,256"/>
-<area shape="rect" id="node5" title=" " alt="" coords="3353,229,3433,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="3823,767,3900,793"/>
-<area shape="rect" id="node7" title=" " alt="" coords="2949,528,3013,555"/>
-<area shape="rect" id="node8" title=" " alt="" coords="5769,767,5831,793"/>
-<area shape="rect" id="node9" href="$CaptureFrame_8hpp.html" title=" " alt="" coords="1482,379,1625,405"/>
-<area shape="rect" id="node25" href="$FrameProcessor_8hpp.html" title=" " alt="" coords="801,453,954,480"/>
-<area shape="rect" id="node33" href="$Driver_8hpp.html" title=" " alt="" coords="2621,453,2710,480"/>
-<area shape="rect" id="node40" href="$DistanceSensors_8hpp.html" title=" " alt="" coords="3325,453,3483,480"/>
-<area shape="rect" id="node43" href="$FuzzyControlSystem_8hpp.html" title=" " alt="" coords="5897,229,6079,256"/>
-<area shape="rect" id="node58" href="$Headlights_8hpp.html" title=" " alt="" coords="2440,453,2560,480"/>
-<area shape="rect" id="node59" href="$PositionEstimator_8hpp.html" title=" " alt="" coords="3711,379,3875,405"/>
-<area shape="rect" id="node67" href="$CartesionPosition_8hpp.html" title=" " alt="" coords="4366,453,4530,480"/>
-<area shape="rect" id="node68" href="$PolarPosition_8hpp.html" title=" " alt="" coords="3902,453,4037,480"/>
-<area shape="rect" id="node69" href="$utilities_8hpp.html" title=" " alt="" coords="3876,155,3975,181"/>
-<area shape="rect" id="node70" href="$DecayGraph_8hpp.html" title=" " alt="" coords="3999,155,4129,181"/>
-<area shape="rect" id="node71" href="$Obstacle_8hpp.html" title=" " alt="" coords="3981,304,4088,331"/>
-<area shape="rect" id="node72" href="$Buttons_8hpp.html" title=" " alt="" coords="2277,453,2377,480"/>
-<area shape="rect" id="node74" href="$SmartEvasion_8hpp.html" title=" " alt="" coords="3711,155,3851,181"/>
-<area shape="rect" id="node75" href="$SmartLights_8hpp.html" title=" " alt="" coords="4517,155,4645,181"/>
-<area shape="rect" id="node76" href="$Tracker_8hpp.html" title=" " alt="" coords="4170,229,4265,256"/>
-<area shape="rect" id="node77" href="$Reporter_8hpp.html" title=" " alt="" coords="3277,155,3382,181"/>
-<area shape="rect" id="node10" title=" " alt="" coords="1889,528,1975,555"/>
-<area shape="rect" id="node11" title=" " alt="" coords="1156,528,1295,555"/>
-<area shape="rect" id="node12" title=" " alt="" coords="2859,528,2925,555"/>
-<area shape="rect" id="node13" title=" " alt="" coords="1263,453,1350,480"/>
-<area shape="rect" id="node14" title=" " alt="" coords="3404,528,3468,555"/>
-<area shape="rect" id="node15" href="$VirtualImage_8hpp.html" title=" " alt="" coords="899,610,1034,637"/>
-<area shape="rect" id="node19" href="$ov7670_8hpp.html" title=" " alt="" coords="1375,453,1473,480"/>
-<area shape="rect" id="node24" href="$v__demosaic_8hpp.html" title=" " alt="" coords="1497,453,1625,480"/>
-<area shape="rect" id="node16" title=" " alt="" coords="994,692,1065,719"/>
-<area shape="rect" id="node17" title=" " alt="" coords="660,692,815,719"/>
-<area shape="rect" id="node18" href="$ColorSpaces_8hpp.html" title=" " alt="" coords="839,692,969,719"/>
-<area shape="rect" id="node20" title=" " alt="" coords="1493,528,1561,555"/>
-<area shape="rect" id="node21" title=" " alt="" coords="1999,528,2087,555"/>
-<area shape="rect" id="node22" title=" " alt="" coords="1929,692,1996,719"/>
-<area shape="rect" id="node23" title=" " alt="" coords="1319,528,1468,555"/>
-<area shape="rect" id="node26" href="$Detector_8hpp.html" title=" " alt="" coords="741,528,846,555"/>
-<area shape="rect" id="node27" href="$RecognitionResult_8hpp.html" title=" " alt="" coords="4037,610,4205,637"/>
-<area shape="rect" id="node29" title=" " alt="" coords="626,610,825,637"/>
-<area shape="rect" id="node30" title=" " alt="" coords="43,603,210,644"/>
-<area shape="rect" id="node31" title=" " alt="" coords="234,610,406,637"/>
-<area shape="rect" id="node32" title=" " alt="" coords="430,603,602,644"/>
-<area shape="rect" id="node28" title=" " alt="" coords="4575,767,4721,793"/>
-<area shape="rect" id="node34" title=" " alt="" coords="2415,528,2511,555"/>
-<area shape="rect" id="node35" title=" " alt="" coords="2634,528,2697,555"/>
-<area shape="rect" id="node36" title=" " alt="" coords="2535,528,2609,555"/>
-<area shape="rect" id="node37" title=" " alt="" coords="2721,528,2783,555"/>
-<area shape="rect" id="node38" title=" " alt="" coords="3329,692,3404,719"/>
-<area shape="rect" id="node39" title=" " alt="" coords="3493,528,3579,555"/>
-<area shape="rect" id="node41" href="$SimpleMovingAverage_8hpp.html" title=" " alt="" coords="3603,528,3799,555"/>
-<area shape="rect" id="node42" title=" " alt="" coords="3950,610,4013,637"/>
-<area shape="rect" id="node44" title=" " alt="" coords="6131,304,6218,331"/>
-<area shape="rect" id="node45" title=" " alt="" coords="6056,304,6107,331"/>
-<area shape="rect" id="node46" title=" " alt="" coords="5359,841,5417,868"/>
-<area shape="rect" id="node47" title=" " alt="" coords="5990,379,6050,405"/>
-<area shape="rect" id="node48" href="$FuzzyRule_8hpp.html" title=" " alt="" coords="5343,304,5459,331"/>
-<area shape="rect" id="node52" href="$FuzzyInput_8hpp.html" title=" " alt="" coords="5317,610,5437,637"/>
-<area shape="rect" id="node56" href="$FuzzyOutput_8hpp.html" title=" " alt="" coords="4959,610,5089,637"/>
-<area shape="rect" id="node49" href="$FuzzyAnd_8hpp.html" title=" " alt="" coords="5252,379,5364,405"/>
-<area shape="rect" id="node51" href="$FuzzyCondition_8hpp.html" title=" " alt="" coords="5061,528,5211,555"/>
-<area shape="rect" id="node57" href="$FuzzyComparation_8hpp.html" title=" " alt="" coords="5263,453,5433,480"/>
-<area shape="rect" id="node50" title=" " alt="" coords="5994,767,6062,793"/>
-<area shape="rect" id="node53" href="$FuzzyIO_8hpp.html" title=" " alt="" coords="5141,692,5243,719"/>
-<area shape="rect" id="node55" href="$FuzzyMembershipTrapezoidal_8hpp.html" title=" " alt="" coords="5267,692,5509,719"/>
-<area shape="rect" id="node54" href="$FuzzyMembership_8hpp.html" title=" " alt="" coords="5115,767,5283,793"/>
-<area shape="rect" id="node60" href="$Compass_8hpp.html" title=" " alt="" coords="3094,453,3205,480"/>
-<area shape="rect" id="node64" href="$mailbox_8hpp.html" title=" " alt="" coords="2043,453,2146,480"/>
-<area shape="rect" id="node61" title=" " alt="" coords="3212,528,3329,555"/>
-<area shape="rect" id="node62" title=" " alt="" coords="3089,528,3189,555"/>
-<area shape="rect" id="node63" title=" " alt="" coords="2111,528,2182,555"/>
-<area shape="rect" id="node65" title=" " alt="" coords="1799,528,1865,555"/>
-<area shape="rect" id="node66" title=" " alt="" coords="1687,528,1774,555"/>
-<area shape="rect" id="node73" title=" " alt="" coords="2207,528,2289,555"/>
+<area shape="rect" id="node1" title=" " alt="" coords="3498,5,3611,32"/>
+<area shape="rect" id="node2" href="$SmartNav_8hpp.html" title=" " alt="" coords="3497,80,3612,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="3676,304,3743,331"/>
+<area shape="rect" id="node4" title=" " alt="" coords="3767,304,3841,331"/>
+<area shape="rect" id="node5" title=" " alt="" coords="3865,304,3945,331"/>
+<area shape="rect" id="node6" title=" " alt="" coords="1419,692,1496,719"/>
+<area shape="rect" id="node7" title=" " alt="" coords="1864,453,1928,480"/>
+<area shape="rect" id="node8" title=" " alt="" coords="3899,692,3962,719"/>
+<area shape="rect" id="node9" href="$CaptureFrame_8hpp.html" title=" " alt="" coords="1318,304,1461,331"/>
+<area shape="rect" id="node25" href="$FrameProcessor_8hpp.html" title=" " alt="" coords="715,379,869,405"/>
+<area shape="rect" id="node33" href="$Driver_8hpp.html" title=" " alt="" coords="3482,379,3571,405"/>
+<area shape="rect" id="node40" href="$DistanceSensors_8hpp.html" title=" " alt="" coords="1854,379,2013,405"/>
+<area shape="rect" id="node43" href="$FuzzyControlSystem_8hpp.html" title=" " alt="" coords="5109,155,5291,181"/>
+<area shape="rect" id="node58" href="$Headlights_8hpp.html" title=" " alt="" coords="3337,379,3457,405"/>
+<area shape="rect" id="node59" href="$PositionEstimator_8hpp.html" title=" " alt="" coords="3091,304,3255,331"/>
+<area shape="rect" id="node67" href="$CartesionPosition_8hpp.html" title=" " alt="" coords="5034,379,5198,405"/>
+<area shape="rect" id="node68" href="$PolarPosition_8hpp.html" title=" " alt="" coords="3178,379,3313,405"/>
+<area shape="rect" id="node69" href="$utilities_8hpp.html" title=" " alt="" coords="3933,229,4032,256"/>
+<area shape="rect" id="node70" href="$Obstacle_8hpp.html" title=" " alt="" coords="4932,304,5039,331"/>
+<area shape="rect" id="node71" href="$DecayGraph_8hpp.html" title=" " alt="" coords="5627,155,5757,181"/>
+<area shape="rect" id="node10" title=" " alt="" coords="2855,453,2940,480"/>
+<area shape="rect" id="node11" title=" " alt="" coords="1155,453,1293,480"/>
+<area shape="rect" id="node12" title=" " alt="" coords="1317,453,1384,480"/>
+<area shape="rect" id="node13" title=" " alt="" coords="945,379,1031,405"/>
+<area shape="rect" id="node14" title=" " alt="" coords="1408,453,1472,480"/>
+<area shape="rect" id="node15" href="$VirtualImage_8hpp.html" title=" " alt="" coords="843,535,978,562"/>
+<area shape="rect" id="node19" href="$ov7670_8hpp.html" title=" " alt="" coords="1629,379,1728,405"/>
+<area shape="rect" id="node24" href="$v__demosaic_8hpp.html" title=" " alt="" coords="1477,379,1605,405"/>
+<area shape="rect" id="node16" title=" " alt="" coords="523,617,594,644"/>
+<area shape="rect" id="node17" title=" " alt="" coords="619,617,773,644"/>
+<area shape="rect" id="node18" href="$ColorSpaces_8hpp.html" title=" " alt="" coords="797,617,928,644"/>
+<area shape="rect" id="node20" title=" " alt="" coords="1771,453,1839,480"/>
+<area shape="rect" id="node21" title=" " alt="" coords="2743,453,2831,480"/>
+<area shape="rect" id="node22" title=" " alt="" coords="2169,617,2236,644"/>
+<area shape="rect" id="node23" title=" " alt="" coords="1547,453,1696,480"/>
+<area shape="rect" id="node26" href="$Detector_8hpp.html" title=" " alt="" coords="583,453,689,480"/>
+<area shape="rect" id="node27" href="$RecognitionResult_8hpp.html" title=" " alt="" coords="2463,535,2631,562"/>
+<area shape="rect" id="node29" title=" " alt="" coords="38,535,237,562"/>
+<area shape="rect" id="node30" title=" " alt="" coords="261,528,427,569"/>
+<area shape="rect" id="node31" title=" " alt="" coords="451,535,623,562"/>
+<area shape="rect" id="node32" title=" " alt="" coords="647,528,819,569"/>
+<area shape="rect" id="node28" title=" " alt="" coords="4959,692,5105,719"/>
+<area shape="rect" id="node34" title=" " alt="" coords="3448,453,3544,480"/>
+<area shape="rect" id="node35" title=" " alt="" coords="3262,453,3325,480"/>
+<area shape="rect" id="node36" title=" " alt="" coords="3349,453,3424,480"/>
+<area shape="rect" id="node37" title=" " alt="" coords="3619,453,3682,480"/>
+<area shape="rect" id="node38" title=" " alt="" coords="3667,617,3741,644"/>
+<area shape="rect" id="node39" title=" " alt="" coords="3706,453,3793,480"/>
+<area shape="rect" id="node41" href="$SimpleMovingAverage_8hpp.html" title=" " alt="" coords="2105,453,2301,480"/>
+<area shape="rect" id="node42" title=" " alt="" coords="2205,535,2267,562"/>
+<area shape="rect" id="node44" title=" " alt="" coords="5339,229,5426,256"/>
+<area shape="rect" id="node45" title=" " alt="" coords="5451,229,5501,256"/>
+<area shape="rect" id="node46" title=" " alt="" coords="4616,767,4675,793"/>
+<area shape="rect" id="node47" title=" " alt="" coords="5187,304,5247,331"/>
+<area shape="rect" id="node48" href="$FuzzyRule_8hpp.html" title=" " alt="" coords="4735,229,4851,256"/>
+<area shape="rect" id="node52" href="$FuzzyInput_8hpp.html" title=" " alt="" coords="4660,535,4780,562"/>
+<area shape="rect" id="node56" href="$FuzzyOutput_8hpp.html" title=" " alt="" coords="4221,535,4352,562"/>
+<area shape="rect" id="node49" href="$FuzzyAnd_8hpp.html" title=" " alt="" coords="4593,304,4705,331"/>
+<area shape="rect" id="node51" href="$FuzzyCondition_8hpp.html" title=" " alt="" coords="4375,453,4524,480"/>
+<area shape="rect" id="node57" href="$FuzzyComparation_8hpp.html" title=" " alt="" coords="4575,379,4745,405"/>
+<area shape="rect" id="node50" title=" " alt="" coords="5277,692,5345,719"/>
+<area shape="rect" id="node53" href="$FuzzyIO_8hpp.html" title=" " alt="" coords="4221,617,4323,644"/>
+<area shape="rect" id="node55" href="$FuzzyMembershipTrapezoidal_8hpp.html" title=" " alt="" coords="4600,617,4843,644"/>
+<area shape="rect" id="node54" href="$FuzzyMembership_8hpp.html" title=" " alt="" coords="4397,692,4565,719"/>
+<area shape="rect" id="node60" href="$Compass_8hpp.html" title=" " alt="" coords="2731,379,2842,405"/>
+<area shape="rect" id="node64" href="$mailbox_8hpp.html" title=" " alt="" coords="3051,379,3154,405"/>
+<area shape="rect" id="node61" title=" " alt="" coords="2551,453,2668,480"/>
+<area shape="rect" id="node62" title=" " alt="" coords="2427,453,2527,480"/>
+<area shape="rect" id="node63" title=" " alt="" coords="2965,453,3035,480"/>
+<area shape="rect" id="node65" title=" " alt="" coords="3171,453,3237,480"/>
+<area shape="rect" id="node66" title=" " alt="" coords="3059,453,3146,480"/>
 </map>

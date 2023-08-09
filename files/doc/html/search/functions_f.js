@@ -1,12 +1,4 @@
 var searchData=
 [
-  ['read_697',['read',['../classButtons.html#aabbdff751cb05d96d0b4f21a1a705432',1,'Buttons']]],
-  ['receiveblocking_698',['receiveBlocking',['../classmailbox.html#a5677461dc3f07ae43105fe95f3e77fd6',1,'mailbox']]],
-  ['recognitionresult_699',['RecognitionResult',['../structRecognitionResult.html#a8645c42e3c155b35ae6297e63fdf7c2f',1,'RecognitionResult::RecognitionResult()=default'],['../structRecognitionResult.html#af7af95ea712cccc714feec05635546d5',1,'RecognitionResult::RecognitionResult(const RecognitionResult &amp;source)']]],
-  ['relativizepoint_700',['relativizePoint',['../classPositionEstimator.html#a27b5ccdede2436a643ff399363fee7a5',1,'PositionEstimator']]],
-  ['reporter_701',['Reporter',['../classReporter.html#abfeef245f958814a2a136b4203526486',1,'Reporter']]],
-  ['reset_702',['reset',['../classDecayGraph.html#ad1e213d5bd736f65c69f391eea0a984d',1,'DecayGraph']]],
-  ['resetmembershipfuntions_703',['resetMembershipFuntions',['../classFuzzyIO.html#a79a37961c781f4cb3e339974af2aa9bd',1,'FuzzyIO']]],
-  ['resetvalue_704',['resetValue',['../classFuzzyMembership.html#a4be1698d2af62b2503537b3ab8912d65',1,'FuzzyMembership']]],
-  ['resize_705',['resize',['../classVirtualImage.html#ad5ff7a4aca9080e99d4669c01c9b2b2f',1,'VirtualImage']]]
+  ['tojson_651',['toJson',['../structRecognitionResult.html#a9bbd8862ae0f52bfe3fae394232d1e74',1,'RecognitionResult::toJson()'],['../structCartesianPosition.html#a2e9b7b4698a6327a447de2560a8378c3',1,'CartesianPosition::toJson()']]]
 ];

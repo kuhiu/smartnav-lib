@@ -76,7 +76,7 @@ Collaboration diagram for Obstacle:</div>
 <div class="dyncontent">
 <div class="center"><img src="classObstacle__coll__graph.png" border="0" usemap="#aObstacle_coll__map" alt="Collaboration graph"/></div>
 <map name="aObstacle_coll__map" id="aObstacle_coll__map">
-<area shape="rect" title=" " alt="" coords="5,359,173,509"/>
+<area shape="rect" title=" " alt="" coords="5,359,173,495"/>
 <area shape="rect" href="structCartesianPosition.html" title=" " alt="" coords="9,160,170,267"/>
 <area shape="rect" title=" " alt="" coords="64,5,115,83"/>
 </map>
@@ -84,8 +84,8 @@ Collaboration diagram for Obstacle:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a794aec8376b74e96c4ab40c63bd45864"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObstacle.html#a794aec8376b74e96c4ab40c63bd45864">Obstacle</a> (float curr_robot_angle, float distance_to_obstacle, <a class="el" href="structCartesianPosition.html">CartesianPosition</a> curr_position, <a class="el" href="structRecognitionResult.html">RecognitionResult</a> recognized_object)</td></tr>
-<tr class="separator:a794aec8376b74e96c4ab40c63bd45864"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dc9a438dd3ca7b4f80ebcaea7d08aef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObstacle.html#a5dc9a438dd3ca7b4f80ebcaea7d08aef">Obstacle</a> (<a class="el" href="structCartesianPosition.html">CartesianPosition</a> position, <a class="el" href="structCartesianPosition.html">CartesianPosition</a> leftmost_point, <a class="el" href="structCartesianPosition.html">CartesianPosition</a> rightmost_point)</td></tr>
+<tr class="separator:a5dc9a438dd3ca7b4f80ebcaea7d08aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fdd13ed632006e691d98b2959f111d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObstacle.html#a9fdd13ed632006e691d98b2959f111d3">~Obstacle</a> ()=default</td></tr>
 <tr class="separator:a9fdd13ed632006e691d98b2959f111d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bf27de5272513394af006a7e1520d6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCartesianPosition.html">CartesianPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObstacle.html#a0bf27de5272513394af006a7e1520d6e">getPosition</a> () const</td></tr>
@@ -97,9 +97,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a092c25d2a58613409787bb9c3d312d27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCartesianPosition.html">CartesianPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObstacle.html#a092c25d2a58613409787bb9c3d312d27">getRightmostPoint</a> () const</td></tr>
 <tr class="memdesc:a092c25d2a58613409787bb9c3d312d27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Rightmost Point object.  <a href="classObstacle.html#a092c25d2a58613409787bb9c3d312d27">More...</a><br /></td></tr>
 <tr class="separator:a092c25d2a58613409787bb9c3d312d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4ff5993baa5d1c7062907585b7c9550"><td class="memItemLeft" align="right" valign="top">nlohmann::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObstacle.html#ad4ff5993baa5d1c7062907585b7c9550">toJson</a> (int obstacle_num) const</td></tr>
-<tr class="memdesc:ad4ff5993baa5d1c7062907585b7c9550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the obstacle object to JSON.  <a href="classObstacle.html#ad4ff5993baa5d1c7062907585b7c9550">More...</a><br /></td></tr>
-<tr class="separator:ad4ff5993baa5d1c7062907585b7c9550"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -111,8 +108,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a30e3f2016462b0a257c58a70e97f7c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a794aec8376b74e96c4ab40c63bd45864"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a794aec8376b74e96c4ab40c63bd45864">&#9670;&nbsp;</a></span>Obstacle()</h2>
+<a id="a5dc9a438dd3ca7b4f80ebcaea7d08aef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc9a438dd3ca7b4f80ebcaea7d08aef">&#9670;&nbsp;</a></span>Obstacle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,26 +120,20 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">Obstacle::Obstacle </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>curr_robot_angle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>distance_to_obstacle</em>, </td>
+          <td class="paramtype"><a class="el" href="structCartesianPosition.html">CartesianPosition</a>&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structCartesianPosition.html">CartesianPosition</a>&#160;</td>
-          <td class="paramname"><em>curr_position</em>, </td>
+          <td class="paramname"><em>leftmost_point</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structRecognitionResult.html">RecognitionResult</a>&#160;</td>
-          <td class="paramname"><em>recognized_object</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structCartesianPosition.html">CartesianPosition</a>&#160;</td>
+          <td class="paramname"><em>rightmost_point</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -268,41 +259,6 @@ Private Attributes</h2></td></tr>
 
 <p>Get the Rightmost Point object. </p>
 <dl class="section return"><dt>Returns</dt><dd>Dimensions </dd></dl>
-
-</div>
-</div>
-<a id="ad4ff5993baa5d1c7062907585b7c9550"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4ff5993baa5d1c7062907585b7c9550">&#9670;&nbsp;</a></span>toJson()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">nlohmann::json Obstacle::toJson </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>obstacle_num</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Convert the obstacle object to JSON. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">obstacle_num</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>nlohmann::json </dd></dl>
 
 </div>
 </div>

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['targetreached_716',['targetReached',['../classTracker.html#a37ef35095ab123818b83ece76e9d9c9a',1,'Tracker']]],
-  ['tojson_717',['toJson',['../structRecognitionResult.html#a9bbd8862ae0f52bfe3fae394232d1e74',1,'RecognitionResult::toJson()'],['../classObstacle.html#ad4ff5993baa5d1c7062907585b7c9550',1,'Obstacle::toJson()'],['../structCartesianPosition.html#a2e9b7b4698a6327a447de2560a8378c3',1,'CartesianPosition::toJson()'],['../structTracker_1_1StepsTracker.html#ac4089a1f072ace7fe55723dcbce6a22f',1,'Tracker::StepsTracker::toJson()'],['../classTracker.html#ab690b00fffd9c20af19354b2e988d999',1,'Tracker::toJson()']]],
-  ['tracker_718',['Tracker',['../classTracker.html#adf214393a14e8bf23de2fc8231e239ec',1,'Tracker']]]
+  ['v_5fdemosaic_654',['v_demosaic',['../classv__demosaic.html#a23bc874f2ccd792c08fe18ba374da83e',1,'v_demosaic']]],
+  ['virtualimage_655',['VirtualImage',['../classVirtualImage.html#af6e029f195b35d77a8288f26b45c6129',1,'VirtualImage::VirtualImage(uint32_t width, uint32_t height, uint32_t channels)'],['../classVirtualImage.html#a7cca973d7cf6e955eadb5e4de667c12a',1,'VirtualImage::VirtualImage(uint32_t width, uint32_t height, uint32_t channels, ColorSpaces color_space, void *data)']]]
 ];

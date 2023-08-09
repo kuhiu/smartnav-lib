@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['parse_691',['parse',['../classFuzzyAnd.html#a83033b248c9829ddf89a5a90fbef494e',1,'FuzzyAnd::parse()'],['../classFuzzyComparation.html#a506ae9c1adc651db2cc9917b31ab84b7',1,'FuzzyComparation::parse()'],['../classFuzzyControlSystem.html#afea32fdaf4000bc6ec4f23b4f2175d6d',1,'FuzzyControlSystem::parse()'],['../classFuzzyInput.html#aefd8fde0a50045c19ebb2b53495606cd',1,'FuzzyInput::parse()'],['../classFuzzyMembershipTrapezoidal.html#a2b5fdac952432d9c2064620e80e65a48',1,'FuzzyMembershipTrapezoidal::parse()'],['../classFuzzyOutput.html#a8968a467738307b93babadf4f61a7963',1,'FuzzyOutput::parse()'],['../classFuzzyRule.html#ae96b49353cd7900ee6a291c8956b6236',1,'FuzzyRule::parse()']]],
-  ['polarposition_692',['PolarPosition',['../structPolarPosition.html#a2217d544024c482f542f3aa22632d4eb',1,'PolarPosition::PolarPosition()=default'],['../structPolarPosition.html#ad63f38cb542468e86d8b8aa8b9a691c9',1,'PolarPosition::PolarPosition(float angle, float distance)']]],
-  ['polartocartesian_693',['polarToCartesian',['../classPositionEstimator.html#ae65b0bc78e8eaa7ccf5d0e378d5e283e',1,'PositionEstimator']]],
-  ['positionestimator_694',['PositionEstimator',['../classPositionEstimator.html#a80c2b25e44e66b53ef67d09dcb1b706c',1,'PositionEstimator']]],
-  ['processframe_695',['processFrame',['../classFrameProcessor.html#a00ea88b0524a4e0c4944af7fbd59d77b',1,'FrameProcessor']]],
-  ['push_696',['push',['../classLogger.html#a51da8b6c82066ecf46d5afea7d11b3e0',1,'Logger']]]
+  ['saveasjpg_645',['saveAsJpg',['../classVirtualImage.html#a90d8f763f55cbe4c03e8bce5845449bc',1,'VirtualImage']]],
+  ['sendblocking_646',['sendBlocking',['../classmailbox.html#a47dad576b5b90b9c8e8706370424a4c8',1,'mailbox']]],
+  ['setsaveframe_647',['setSaveFrame',['../classCaptureFrame.html#ac3bb151a26d6c5235972ef1d258459d3',1,'CaptureFrame']]],
+  ['setvalue_648',['setValue',['../classFuzzyMembership.html#a15a507c9817019034a25d24bbf334144',1,'FuzzyMembership']]],
+  ['simplemovingaverage_649',['SimpleMovingAverage',['../classSimpleMovingAverage.html#ad974c2ea8547b31f839bc4be19df16ee',1,'SimpleMovingAverage']]],
+  ['smartnav_650',['SmartNav',['../classSmartNav.html#a8ec87e49c0adde821c12a38a7f53b0ca',1,'SmartNav']]]
 ];
