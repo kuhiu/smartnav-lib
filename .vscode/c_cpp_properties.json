@@ -8,10 +8,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/*/**",
-                "/media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/platform/image/Image/build/tmp/sysroots-components/cortexa9t2hf-neon/opencv/usr/include",
-                "/media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/platform/image/Image/build/tmp/sysroots-components/cortexa9t2hf-neon/libtensorflowlite/usr/include"
-                //"${myCompilerDir}/../../lib/arm-xilinx-linux-gnueabi/gcc/arm-xilinx-linux-gnueabi/8.2.0/include"
+                "${workspaceFolder}/*/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc", 
