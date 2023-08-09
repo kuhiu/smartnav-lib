@@ -1,4 +1,4 @@
-SUBDIR = modules/utilities modules/buttons modules/reporter modules/tracker modules/obstacle modules/capture-frame modules/distance-sensors modules/fuzzy-control-system modules/driver modules/headlights modules/compass modules/mailbox modules/position-estimator modules/decayGraph SmartEvasion SmartLights
+SUBDIR = modules/pixel-magic modules/camera-sender modules/buttons modules/reporter modules/tracker modules/frame-processor modules/obstacle modules/capture-frame modules/distance-sensors modules/fuzzy-control-system modules/driver modules/headlights modules/compass modules/mailbox modules/position-estimator modules/decayGraph modules/webserver SmartEvasion SmartLights 
 
 OBJECTS_DIR = ./obj
 
@@ -7,9 +7,9 @@ SOURCES = $(wildcard *.cpp $(foreach fd, $(SUBDIR), $(fd)/*.cpp))
 OBJECTS = $(addprefix $(OBJECTS_DIR)/, $(SOURCES:cpp=o))
 INCLUDE_DIRS = $(addprefix -I, $(SUBDIR))
 
-CFLAGS_LIB = -std=c++17 -c -fPIC 
+CFLAGS_LIB = -std=c++17 -c -fPIC -O3
 LDFLAGS_LIB = -shared -Wl,-soname,$(LIB_NAME).so.0
-LDLIBS_LIB = -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread -li2c
+LDLIBS_LIB = -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_imgcodecs -ltensorflow-lite -lopencv_xphoto -ldl -lpthread -li2c
 
 all: $(LIB_NAME).so
 
