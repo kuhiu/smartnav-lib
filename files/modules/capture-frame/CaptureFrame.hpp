@@ -1,155 +1,64 @@
-/** This module is responsable of open, init, and use a v4l2 device driver 
- * author: Fuschetto Martin
- * email: marfus@hotmail.es 
- * date: 15/11/22
- * version: 0.0
-*/
+#ifndef BA246240_9A92_4612_8A71_AC5EB85850AA
+#define BA246240_9A92_4612_8A71_AC5EB85850AA
 
-#ifndef __CAPTUREFRAME_H__
-#define __CAPTUREFRAME_H__
-
-#include <sys/stat.h>
-#include <linux/videodev2.h>
-
-#include <atomic>
-#include <functional>
-#include <memory>
-#include <mutex>
-#include <thread>
-#include <vector>
-
-#include <VirtualImage.hpp>
-#include <ov7670.hpp>
-#include <v_demosaic.hpp>
-#include <FrameProcessor.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/videoio.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 
 class CaptureFrame {
 public:
-  /** Image buffer */
-  struct ImageBuffer {
-    void* start[VIDEO_MAX_PLANES];
-    size_t  length[VIDEO_MAX_PLANES];
-    v4l2_plane planes[VIDEO_MAX_PLANES];
-  };
-  enum pixelFormat {
-    PIX_FMT_RGB24 = 0,
+  /**
+   * @brief Get the Instance of the WebServer
+   * 
+   * @return WebServer* 
+   */
+  static CaptureFrame* getInstance(uint32_t width, uint32_t height);
+  /**
+   * @brief Deleting copy constructor 
+   * 
+   */
+  CaptureFrame(const CaptureFrame& obj) = delete;
+  /**
+   * @brief Singleton should not be assignable
+   * 
+   */
+  void operator=(const CaptureFrame&) = delete;
+  /**
+   * @brief Get one Frame
+   * 
+   * @return const cv::Mat& 
+   */
+  const cv::Mat& getFrame();
 
-  };
-  /** Callback of captured frame */
-  using EventCallback = std::function<void (std::shared_ptr<VirtualImage> img, void* ctx)>;
+private:  
+  /** Singleton instance */
+  static CaptureFrame* __instance;
+  /** Image width */
+  const int __IMG_WIDTH;
+  /** Image height */
+  const int __IMG_HEIGHT;
+  /** Image channel */
+  static const int __IMG_CHANNELS{4};
+  /** Physical VDMA dir */
+  static constexpr off_t __READ_OFFSET{0x01000000};
+  static constexpr off_t __WRITE_OFFSET{0x02000000};
+  /** Memory file descriptor */
+  int __memFd;
+  /** Read memory */
+  void *__readBuffer;
+  /** Write memory */
+  void *__writeBuffer;
+  /** Virtual image */
+  cv::Mat __image;
+  /** BRG image */
+  cv::Mat __img_bgr;
   /** CaptureFrame constructor */
-  CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, uint32_t frame_count = 1);
+  CaptureFrame(uint32_t width, uint32_t height);
   /** CaptureFrame destructor */
   ~CaptureFrame();
-  /**
-   * @brief Return brightness
-   * 
-   * @return uint32_t 
-   */
-  uint32_t getBrightness() { 
-    std::lock_guard<std::mutex> lock(__brightness_guard);
-    return __brightness; 
-  };
-  /**
-   * @brief Set the Save Frame object
-   * 
-   * @param state 
-   * @return * void 
-   */
-  void setSaveFrame(bool state) { __save_frame = state; }
-  /**
-   * @brief Get the Save Frame Status object
-   * 
-   * @return true 
-   * @return false 
-   */
-  bool getSaveFrameStatus() { return __save_frame; };
-  /** FrameProcessor */
-  FrameProcessor frame_processor;
-  
-private:
-  /** Clear vl2d struct */
-  #define CLEAR(x) memset(&(x), 0, sizeof(x))
-  /** Device name */
-  static constexpr const char *__DEVICE = {"/dev/video0"};
-  /** Device file descriptor */
-  int __fd;
-  /** The next frame is saved */
-  bool __save_frame = false;
-  /** OV7670 object */
-  std::shared_ptr<ov7670> __ov7670;
-  /** v_demosaic object */
-  std::shared_ptr<v_demosaic> __v_demosaic;
-  /** Device driver stats */
-  struct stat __st;
-	/** Device capabilities */ 
-	v4l2_capability __capability;
-  /** Image buffers */
-  std::vector<ImageBuffer> __image_buffers;
-  /** Format */
-	v4l2_format __format;
-  /** Numbers of planes for image buffer */
-  const int __num_planes = 3;
-  /** Driver type */
-  int __driver_type;
-  /** Buffer type */
-  int __buffer_type;
-  /** V4L2 stream parameter */
-  v4l2_streamparm __parm;
-  /** V4L2 request buffers */
-  v4l2_requestbuffers __req;
-  /** Capture Callback */
-  const EventCallback __cb;
-  /** Thread status */
-  bool __capture_frame_is_running;
-  /** Execution thread for captures */
-  std::thread __capture_thread;
-  /** Frame count to capture */
-  const uint32_t __frame_count;
-  /** Open device driver */
-  void __openDevice();
-  /** Close device driver */
-  void __closeDevice();
-  /** Init device */
-  void __initDevice(uint32_t width, uint32_t height, pixelFormat pixelformat);
-  /** Uninit device*/
-  void __uninitDevice();
-  /** Set format */
-  void __setFormat(uint32_t width, uint32_t height, pixelFormat pixel_format);
-  /** Get format */
-  void __getFormat();
-  /** Set the framerate */
-  void __setFramerate();
-  /**
-   * @brief Initialize fields
-   * 
-   * @param field Field to be initialized 
-   */
-  void __setField(v4l2_pix_format_mplane &field, uint32_t width, uint32_t height, pixelFormat pixel_format);
-  /** Start capturing frames */
-  void __startCapturing();
-  /** Read frame */
-  bool __readFrame(int frame_number);
-  /** Capture frame */
-  void __capture();
-  /**
-   * @brief ioctl wrapper
-   * 
-   * @param fd File descriptor 
-   * @param request ioctl request 
-   * @param arg arguments
-   * @return int 
-   */
-  int __xioctl(int fd, int request, void* arg);
-  /** Init mmap */
-  void __init_mmap();
-  /** Brightness */
-  std::atomic<uint32_t> __brightness;
-  /** Brightness guard */
-  std::mutex __brightness_guard;
 
 };
 
 
-
-#endif // __CAPTUREFRAME_H__
+#endif /* BA246240_9A92_4612_8A71_AC5EB85850AA */
